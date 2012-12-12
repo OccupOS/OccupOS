@@ -13,7 +13,6 @@ namespace GadgeteerDemo
         {
             camera.PictureCaptured += new Camera.PictureCapturedEventHandler(camera_PictureCaptured);
 
-
             timer.Tick += new GT.Timer.TickEventHandler(timer_Tick);
 
             timer.Start();

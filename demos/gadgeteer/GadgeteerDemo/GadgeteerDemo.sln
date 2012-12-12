@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgeteerDemo", "GadgeteerDemo\GadgeteerDemo.csproj", "{48832307-790C-4A2D-8A6D-4815E87BAA82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmguCV", "EmguCV\EmguCV.csproj", "{813E93F3-68BE-4EA4-B2EA-81B970994F2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{48832307-790C-4A2D-8A6D-4815E87BAA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48832307-790C-4A2D-8A6D-4815E87BAA82}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48832307-790C-4A2D-8A6D-4815E87BAA82}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{813E93F3-68BE-4EA4-B2EA-81B970994F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813E93F3-68BE-4EA4-B2EA-81B970994F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813E93F3-68BE-4EA4-B2EA-81B970994F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813E93F3-68BE-4EA4-B2EA-81B970994F2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
