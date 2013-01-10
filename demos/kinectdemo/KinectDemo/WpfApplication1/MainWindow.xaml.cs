@@ -34,6 +34,13 @@ namespace KinectDemo {
             ksensor = (KinectSensor)e.NewValue;
             ksensor.ColorStream.Enable();
             ksensor.DepthStream.Enable();
+            var tsparams = new TransformSmoothParameters {
+                Smoothing = 0.3f,
+                Correction = 0.0f,
+                Prediction = 0.0f,
+                JitterRadius = 1.0f,
+                MaxDeviationRadius = 0.5f
+            }; //Delete params when sure not going to use
             ksensor.SkeletonStream.Enable();
             ksensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(ksensor_AllFramesReady);
             try {
@@ -56,14 +63,27 @@ namespace KinectDemo {
                     return;
                 }
             }
+            using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
             using (DepthImageFrame depthFrame = e.OpenDepthImageFrame()) {
-                if (depthFrame == null) {
+                if (depthFrame == null || skeletonFrame == null) {
                     return;
                 }
                 byte[] pixels = ColourPlayerBytes(depthFrame);
                 int stride = 4 * depthFrame.Width;
                 wbmpCanvas.WritePixels(new Int32Rect(0, 0, wbmpCanvas.PixelWidth,
                     wbmpCanvas.PixelHeight), pixels, stride, 0);
+
+                int[] distances = GetPlayerDistances(depthFrame, skeletonFrame);
+                int[] actives = { 0, 0 };
+                int k = 0;
+                foreach (int distance in distances) {
+                    if (k > 1) break;
+                    if (distance != 0) {
+                        actives[k] = distance;
+                        k++;
+                    }
+                }
+                    UpdatePlayerCoordinates(actives[0], 0, actives[1], 0);
             }
         }
 
@@ -80,7 +100,6 @@ namespace KinectDemo {
             short[] depthData = new short[depthFrame.PixelDataLength];
             depthFrame.CopyPixelDataTo(depthData);
             Byte[] pixels = new byte[4 * depthFrame.Width * depthFrame.Height];
-
             for (int depthIndex = 0, colourIndex = 0;
                 depthIndex < depthData.Length && colourIndex < pixels.Length;
                 depthIndex++, colourIndex += 4) {
@@ -103,8 +122,36 @@ namespace KinectDemo {
             for (int k = 0; k < totalPlayers.Length; k++) {
                 if (totalPlayers[k] == true) playerCount++;
             }
-            PlayersFoundBox.AppendText(""+playerCount);
+            PlayersFoundBox.AppendText(playerCount.ToString());
             return pixels;
+        }
+
+        int[] GetPlayerDistances(DepthImageFrame depthFrame, SkeletonFrame skeletonFrame) {
+            Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+            int[] distances = new int[skeletonFrame.SkeletonArrayLength];
+            skeletonFrame.CopySkeletonDataTo(allskeletons);
+            int k = 0;
+
+            foreach (Skeleton skeleton in allskeletons) {
+                if (skeleton.TrackingState == SkeletonTrackingState.Tracked) {
+                    Joint jointpoint = skeleton.Joints[JointType.Head];
+                    if (jointpoint.TrackingState == JointTrackingState.Tracked) { //try other point?
+                        var depthImagePoint = depthFrame.MapFromSkeletonPoint(jointpoint.Position);
+                        distances[k] = depthImagePoint.Depth;
+                    }
+                    else distances[k] = 0;
+                }
+                else distances[k] = 0;
+                k++;
+            }
+            return distances;
+        }
+
+        void UpdatePlayerCoordinates(double P1X, double P1Y, double P2X, double P2Y) {
+            Player1XBox.Clear(); Player1XBox.AppendText(P1X.ToString());
+            Player1YBox.Clear(); Player1YBox.AppendText(P1Y.ToString());
+            Player2XBox.Clear(); Player2XBox.AppendText(P2X.ToString());
+            Player2YBox.Clear(); Player2YBox.AppendText(P2Y.ToString());
         }
 
         void StopKinect(KinectSensor sensor) {
