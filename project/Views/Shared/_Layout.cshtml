@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- TO-DO: see http://www.codeproject.com/Articles/511031/A-sample-real-time-web-application-using-Ember-js -->
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/json")
+    @Scripts.Render("~/bundles/ember")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

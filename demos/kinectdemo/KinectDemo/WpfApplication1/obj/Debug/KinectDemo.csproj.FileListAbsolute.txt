@@ -16,3 +16,6 @@ C:\Users\Richy\Documents\Visual Studio 2012\Projects\KinectDemo\WpfApplication1\
 C:\Users\Richy\Documents\Visual Studio 2012\Projects\KinectDemo\WpfApplication1\obj\Debug\KinectDemo.csproj.GenerateResource.Cache
 C:\Users\Richy\Documents\Visual Studio 2012\Projects\KinectDemo\WpfApplication1\obj\Debug\KinectSetupDev.exe
 C:\Users\Richy\Documents\Visual Studio 2012\Projects\KinectDemo\WpfApplication1\obj\Debug\KinectSetupDev.pdb
+C:\Users\Markus\Documents\GitHub\OccupOS\demos\kinectdemo\KinectDemo\WpfApplication1\bin\Debug\KinectSetupDev.exe.config
+C:\Users\Markus\Documents\GitHub\OccupOS\demos\kinectdemo\KinectDemo\WpfApplication1\obj\Debug\KinectSetupDev.exe
+C:\Users\Markus\Documents\GitHub\OccupOS\demos\kinectdemo\KinectDemo\WpfApplication1\obj\Debug\KinectSetupDev.pdb
