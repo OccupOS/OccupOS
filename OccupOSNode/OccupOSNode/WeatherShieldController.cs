@@ -5,7 +5,7 @@ using Microsoft.SPOT.Hardware;
 using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 
-namespace FirstExample
+namespace OccupOSNode
 {
     public class WeatherShieldController
     {
