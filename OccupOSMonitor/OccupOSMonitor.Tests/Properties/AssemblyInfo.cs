@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Monitor")]
-[assembly: AssemblyDescription("Server software to monitor & manage the OccupOS system.")]
+[assembly: AssemblyTitle("project.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OccupOS")]
+[assembly: AssemblyProduct("project.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("dbc9cd7d-8540-4422-ad76-9cd4df1be10c")]
+[assembly: Guid("c1a6db9e-5667-4840-8e62-96413ce28c0a")]
 
 // Version information for an assembly consists of the following four values:
 //
