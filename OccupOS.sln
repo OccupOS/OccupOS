@@ -11,6 +11,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OccupOSMonitor", "OccupOSMonitor", "{135B5670-7F50-4622-A4EE-2B2E97C4285A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OccupOSNode", "OccupOSNode", "{E5D6E865-ED63-4960-92C3-AC98D1F7FA2E}"
+	ProjectSection(SolutionItems) = preProject
+		OccupOSNode\OccupOSNode\Sensor.cs = OccupOSNode\OccupOSNode\Sensor.cs
+		WeatherShieldSensor.cs = WeatherShieldSensor.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OccupOSMonitor", "OccupOSMonitor\OccupOSMonitor\OccupOSMonitor.csproj", "{CC43D956-EFFA-4D27-B4D8-82F1A67B597E}"
 EndProject
