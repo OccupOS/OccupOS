@@ -9,7 +9,7 @@ namespace FirstExample
 {
     public class WeatherShieldController
     {
-        const byte CMD_UNKNOWN = 0x00, CMD_SETADDRESS = 0x01, CMD_ECHO_PAR = 0x02, CMD_SET_SAMPLETIME = 0x03,
+       public const byte CMD_UNKNOWN = 0x00, CMD_SETADDRESS = 0x01, CMD_ECHO_PAR = 0x02, CMD_SET_SAMPLETIME = 0x03,
 CMD_GETTEMP_C_AVG = 0x04, CMD_GETTEMP_C_RAW = 0x05, CMD_GETPRESS_AVG = 0x06, CMD_GETPRESS_RAW = 0x07,
 CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GET_AVG_SAMPLE = 0x81;
         private byte m_clockPin, m_dataPin, m_deviceAddress;
@@ -40,7 +40,7 @@ CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GE
         /* Send a specific command to the weather shield and return the related
 answer. The answer will be stored in the provided buffer. 
 This function returns true if the operation successfully terminates */
-bool sendCommand(byte ucCommand, byte ucParameter, ref byte[] pucBuffer)
+public bool sendCommand(byte ucCommand, byte ucParameter, ref byte[] pucBuffer)
 {
 
 	sendCommand(ucCommand, ucParameter);
@@ -53,7 +53,7 @@ bool sendCommand(byte ucCommand, byte ucParameter, ref byte[] pucBuffer)
 }
 
         /* Decode the float value stored in the buffer */
-float decodeFloatValue(ref byte[] pucBuffer) 
+public float decodeFloatValue(ref byte[] pucBuffer) 
     {
   
   byte cMSD = (byte) pucBuffer[RXPAR1POS];
@@ -67,7 +67,7 @@ float decodeFloatValue(ref byte[] pucBuffer)
         /* ----------------------------------------------------------------- */
 
 /* Decode an short value stored in the buffer */
-ushort decodeShortValue(ref byte[] pucBuffer) 
+public ushort decodeShortValue(byte[] pucBuffer) 
 {
 	
   byte ucMSD = pucBuffer[RXPAR1POS];
@@ -78,7 +78,7 @@ ushort decodeShortValue(ref byte[] pucBuffer)
   return shResult;
 }
 
-void decodeFloatAsString(ref byte[] pucBuffer, ref String chString) {
+public void decodeFloatAsString(byte[] pucBuffer, ref String chString) {
 	
   byte cMSD = (byte)pucBuffer[RXPAR1POS];
   byte cLSD = (byte)pucBuffer[RXPAR2POS];

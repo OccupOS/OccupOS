@@ -7,6 +7,8 @@ abstract class Sensor {
 	private int floorNo;
 	private String sensorName;
 	private String departmentName;
+    protected String sensorData;
+    protected ReadingModel model;
 	
 	public Sensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") {
 		
@@ -15,7 +17,15 @@ abstract class Sensor {
 		this.floorNo = floorNo;
 		this.sensorName = sensorName;
 		this.departmentName = departmentName;
-		
+        this.sensorData = "";
+        this.model = new ReadingModel();
+
+        this.model.sensorId = this.id;
+        this.model.sensorName = this.sensorName;
+        this.model.floorNo = this.floorNo;
+        this.model.departmentName = this.departmentName;
+        this.model.roomId = this.roomId;
+        this.model.readingData = "";
 	}
 
     public String getId() {
@@ -26,8 +36,8 @@ abstract class Sensor {
 		
 	}
 
-    public void sendPackage() {
-
+    public string getPackage() {
+        return this.sensorData;
     }
 	
 }
