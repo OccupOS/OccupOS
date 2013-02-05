@@ -31,6 +31,7 @@ We recommend the following working environments:
 2. [ASP.NET and Web Tools 2012.2](http://www.asp.net/vnext).
 
 *For collaborators with access to TFS only (requires Microsoft Visual Studio Professional 2012 or higher):*
+
 3. [Visual Studio 2012 Update 2 CTP 2](http://www.microsoft.com/en-us/download/details.aspx?id=36508).
 4. [Visual Studio Tools for Git](http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
 
