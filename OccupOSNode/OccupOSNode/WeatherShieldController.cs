@@ -1,23 +1,24 @@
-using System;
-using System.Threading;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
+using System;
+using System.Threading;
 
 namespace OccupOSNode
 {
     public class WeatherShieldController
     {
-       public const byte CMD_UNKNOWN = 0x00, CMD_SETADDRESS = 0x01, CMD_ECHO_PAR = 0x02, CMD_SET_SAMPLETIME = 0x03,
-CMD_GETTEMP_C_AVG = 0x04, CMD_GETTEMP_C_RAW = 0x05, CMD_GETPRESS_AVG = 0x06, CMD_GETPRESS_RAW = 0x07,
-CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GET_AVG_SAMPLE = 0x81;
+        public const byte CMD_UNKNOWN = 0x00, CMD_SETADDRESS = 0x01, CMD_ECHO_PAR = 0x02, CMD_SET_SAMPLETIME = 0x03,
+                          CMD_GETTEMP_C_AVG = 0x04, CMD_GETTEMP_C_RAW = 0x05, CMD_GETPRESS_AVG = 0x06, CMD_GETPRESS_RAW = 0x07,
+                          CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GET_AVG_SAMPLE = 0x81;
         private byte m_clockPin, m_dataPin, m_deviceAddress;
         const int RXCOMMANDPOS=3, RXPAR1POS = 2, RXPAR2POS = 1, RXPAR3POS = 0, RXBUFFERLENGTH = 4, WEATHERSHIELD_DEFAULTIODATA_PIN = 2,
                   WEATHERSHIELD_DEFAULTCLOCK_PIN = 7;
         const byte WEATHERSHIELD_DEFAULTADDRESS = 0x01;
         OutputPort portClock,portData;
         InputPort dataIn;
+        
         public WeatherShieldController()
         {
             m_clockPin = WEATHERSHIELD_DEFAULTCLOCK_PIN;
@@ -28,6 +29,7 @@ CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GE
             dataIn = new InputPort(Pins.GPIO_PIN_D2,true,Port.ResistorMode.Disabled);
             resetConnection();
         }
+        
         public WeatherShieldController(byte clockpin, byte datapin, byte deviceaddress)
         {
             m_clockPin = clockpin;
@@ -37,63 +39,63 @@ CMD_GETHUM_AVG = 0x08, CMD_GETHUM_RAW = 0x09, PAR_GET_LAST_SAMPLE = 0x80, PAR_GE
             /* Start with a reset */
             resetConnection();
         }
+        
         /* Send a specific command to the weather shield and return the related
-answer. The answer will be stored in the provided buffer. 
-This function returns true if the operation successfully terminates */
-public bool sendCommand(byte ucCommand, byte ucParameter, ref byte[] pucBuffer)
-{
+        answer. The answer will be stored in the provided buffer. 
+        This function returns true if the operation successfully terminates */
+        public bool sendCommand(byte ucCommand, byte ucParameter, ref byte[] pucBuffer)
+        {
 
-	sendCommand(ucCommand, ucParameter);
-	//delayMicroseconds(15000);
-    Thread.Sleep(90);
+	        sendCommand(ucCommand, ucParameter);
+	        //delayMicroseconds(15000);
+            Thread.Sleep(90);
 
-	bool bResult = readAnswer(ucCommand,ref pucBuffer);
+	        bool bResult = readAnswer(ucCommand,ref pucBuffer);
 	
-	return bResult;
-}
+	        return bResult;
+        }
 
         /* Decode the float value stored in the buffer */
-public float decodeFloatValue(ref byte[] pucBuffer) 
-    {
-  
-  byte cMSD = (byte) pucBuffer[RXPAR1POS];
-  byte cLSD = (byte) pucBuffer[RXPAR2POS];
+        public float decodeFloatValue(ref byte[] pucBuffer) 
+        {
+            byte cMSD = (byte) pucBuffer[RXPAR1POS];
+            byte cLSD = (byte) pucBuffer[RXPAR2POS];
 
-  float fVal = cMSD + (((float)cLSD) / 100.0f);
+            float fVal = cMSD + (((float)cLSD) / 100.0f);
   
-  return fVal;
-    }
+            return fVal;
+        }
 
         /* ----------------------------------------------------------------- */
 
-/* Decode an short value stored in the buffer */
-public ushort decodeShortValue(byte[] pucBuffer) 
-{
+        /* Decode an short value stored in the buffer */
+        public ushort decodeShortValue(byte[] pucBuffer) 
+        {
 	
-  byte ucMSD = pucBuffer[RXPAR1POS];
-  byte ucLSD = pucBuffer[RXPAR2POS];
+          byte ucMSD = pucBuffer[RXPAR1POS];
+          byte ucLSD = pucBuffer[RXPAR2POS];
 	
-  ushort shResult = (ushort)(ucMSD << 8 | ucLSD);
+          ushort shResult = (ushort)(ucMSD << 8 | ucLSD);
 	
-  return shResult;
-}
+          return shResult;
+        }
 
-public void decodeFloatAsString(byte[] pucBuffer, ref String chString) {
+        public void decodeFloatAsString(byte[] pucBuffer, ref String chString) {
 	
-  byte cMSD = (byte)pucBuffer[RXPAR1POS];
-  byte cLSD = (byte)pucBuffer[RXPAR2POS];
+            byte cMSD = (byte)pucBuffer[RXPAR1POS];
+            byte cLSD = (byte)pucBuffer[RXPAR2POS];
 	
-  if (cLSD < 0) {
-	  cLSD = (byte)((int)(-cLSD));
+            if (cLSD < 0) {
+	            cLSD = (byte)((int)(-cLSD));
 	  
-	  if (cMSD < 0)
-		  cMSD = (byte)((int)(-cMSD));
+	            if (cMSD < 0)
+		            cMSD = (byte)((int)(-cMSD));
 
-	 // sprintf(chString,"-%d.%d", cMSD, cLSD);
-      chString = "-"+cMSD.ToString()+cLSD.ToString();
-  } else
-	chString = cMSD.ToString()+cLSD.ToString();
-}
+	            // sprintf(chString,"-%d.%d", cMSD, cLSD);
+                chString = "-"+cMSD.ToString()+cLSD.ToString();
+            } else
+	            chString = cMSD.ToString()+cLSD.ToString();
+        }
 
 /* ----------------------------------------------------------------- */
 

@@ -31,10 +31,8 @@ abstract class Sensor {
     public String getId() {
         return id;
     }
-	
-	public abstract void poll() {
-		
-	}
+
+    public abstract void poll();
 
     public string getPackage() {
         return this.sensorData;
