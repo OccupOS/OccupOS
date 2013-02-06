@@ -6,14 +6,15 @@ using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 
 
-namespace FirstExample
+namespace OccupOSNode
 {
-   public class LightSensorReader
+   public class LightSensorReader : Sensor
     {
-       AnalogInput input;
-       Hashtable ports = new Hashtable();
-       float analogValue, digitalValue;
-       public LightSensorReader(int portNumber)
+       private AnalogInput input;
+       private Hashtable ports = new Hashtable();
+       private float analogValue, digitalValue;
+
+       public LightSensorReader(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "", int portNumber) : base( id,  roomId,  floorNo,  sensorName = "",  departmentName = "")
        {
            setup();
            if (portNumber > 0 && portNumber < 6)
@@ -42,5 +43,11 @@ namespace FirstExample
            ports.Add(4, Pins.GPIO_PIN_A4);
            ports.Add(5, Pins.GPIO_PIN_A5);
        }
+
+       public void poll() {
+
+         float light = readValue();
+         this.model.readingData = light.ToString();
+         this.sensorData = jsonConvert.SerializeObject(this.model);
     }
 }
