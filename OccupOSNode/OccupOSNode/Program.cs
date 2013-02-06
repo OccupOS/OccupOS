@@ -7,7 +7,7 @@ using Microsoft.SPOT.Hardware;
 using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 
-namespace NetduinoApplication1
+namespace OccupOSNode
 {
     public class Program
     {
@@ -15,7 +15,7 @@ namespace NetduinoApplication1
         {
             // write your code here
 
-
+            
         }
 
     }

@@ -32,13 +32,23 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="LightSensorReader.cs" />
+    <Compile Include="LightSensorReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ReadingModel.cs" />
-    <Compile Include="Sensor.cs" />
-    <Compile Include="WeatherShieldController.cs" />
-    <Compile Include="WeatherShieldSensor.cs" />
+    <Compile Include="ReadingModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sensor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WeatherShieldController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WeatherShieldSensor.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Hardware" />
@@ -46,11 +56,18 @@
     <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.Net" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\lib\Json45r11\Bin\Portable\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="SecretLabs.NETMF.Hardware">
+      <HintPath>..\..\lib\Netduino SDK\Assemblies\v4.3\SecretLabs.NETMF.Hardware.dll</HintPath>
     </Reference>
-    <Reference Include="SecretLabs.NETMF.Hardware" />
-    <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
+    <Reference Include="SecretLabs.NETMF.Hardware.Netduino">
+      <HintPath>..\..\lib\Netduino SDK\Assemblies\v4.3\SecretLabs.NETMF.Hardware.Netduino.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IndianaJones.NETMF.Json\IndianaJones.NETMF.Json.csproj">
+      <Project>{46480BCF-F6F2-4E84-BDD4-F478BC9F6749}</Project>
+      <Name>IndianaJones.NETMF.Json</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

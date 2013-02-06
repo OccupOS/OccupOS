@@ -1,6 +1,6 @@
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
-using Newtonsoft.Json;
+using IndianaJones.NETMF.Json;
 using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 using System;
@@ -52,7 +52,8 @@ namespace OccupOSNode
         {
             float light = readValue();
             this.model.readingData = light.ToString();
-            this.sensorData = JsonConvert.SerializeObject(this.model);
+            Serializer jsonSerializer = new Serializer();
+            this.sensorData = jsonSerializer.Serialize(this.model);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using IndianaJones.NETMF.Json;
 using System;
 
 namespace OccupOSNode {
@@ -30,8 +30,9 @@ namespace OccupOSNode {
                 pressure = 0.0f;
 
             this.model.readingData = temperature.ToString() +"|"+ humidity.ToString() + "|" + pressure.ToString();
-                
-            this.sensorData = JsonConvert.SerializeObject(this.model);
+
+            Serializer jsonSerializer = new Serializer();
+            this.sensorData = jsonSerializer.Serialize(this.model);
 
         }
     }
