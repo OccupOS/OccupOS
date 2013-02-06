@@ -32,6 +32,7 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="PackageManager.cs" />
     <Compile Include="LightSensorReader.cs">
       <SubType>Code</SubType>
     </Compile>
