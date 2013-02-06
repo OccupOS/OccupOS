@@ -110,7 +110,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OccupOSMonitor\OccupOSMonitor.csproj">
       <Project>{CC43D956-EFFA-4D27-B4D8-82F1A67B597E}</Project>
-      <Name>Monitor</Name>
+      <Name>OccupOSMonitor %28OccupOSMonitor\OccupOSMonitor%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

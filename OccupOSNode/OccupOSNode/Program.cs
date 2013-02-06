@@ -1,16 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using Microsoft.SPOT;
+using Microsoft.SPOT.Hardware;
+using SecretLabs.NETMF.Hardware;
+using SecretLabs.NETMF.Hardware.Netduino;
 
-namespace OccupOSNode
+namespace NetduinoApplication1
 {
-    static class Program
+    public class Program
     {
-        static void Main()
+        public static void Main()
         {
+            // write your code here
+
 
         }
+
     }
 }
