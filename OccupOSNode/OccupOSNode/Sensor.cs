@@ -10,7 +10,7 @@ abstract class Sensor {
     protected String sensorData;
     protected ReadingModel model;
 	
-	public Sensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") {
+	protected Sensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") {
 		
 		this.id = id;
 		this.roomId = roomId;
@@ -18,14 +18,15 @@ abstract class Sensor {
 		this.sensorName = sensorName;
 		this.departmentName = departmentName;
         this.sensorData = "";
-        this.model = new ReadingModel();
 
-        this.model.sensorId = this.id;
-        this.model.sensorName = this.sensorName;
-        this.model.floorNo = this.floorNo;
-        this.model.departmentName = this.departmentName;
-        this.model.roomId = this.roomId;
-        this.model.readingData = "";
+        this.model = new ReadingModel {
+            sensorId = this.id,
+            sensorName = this.sensorName,
+            floorNo = this.floorNo,
+            departmentName = this.departmentName,
+            roomId = this.roomId,
+            readingData = ""
+        };
 	}
 
     public String getId() {
