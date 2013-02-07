@@ -1,26 +1,29 @@
 using System;
 using Microsoft.SPOT;
+using System.Collections;
 
 namespace OccupOSNode
 {
     class PackageManager
     {
-        Sensor[] sensors;
-        String[] sensorReadings;
-        int numberOfSensors;
+
+        ArrayList sensors;
+        ArrayList sensorReadings;
+
         public PackageManager(int numberOfSensors)
         {
-            this.numberOfSensors = numberOfSensors;
-             sensors = new Sensor[numberOfSensors];
-             sensorReadings = new String[numberOfSensors];
+            sensors = new ArrayList();
         }
 
         public void pollSensors()
         {
-            for (int i = 0; i < numberOfSensors;i++ )
+            for (int i = 0; i < sensors.Count; i++)
             {
-                sensors[i].poll();
-                sensorReadings[i] = sensors[i].getPackage();
+                if (sensors[i] is Sensor)
+                {
+                    ((Sensor) sensors[i]).poll();
+                    sensorReadings.Add(((Sensor)sensors[i]).getPackage());
+                }
             }
         }
     }
