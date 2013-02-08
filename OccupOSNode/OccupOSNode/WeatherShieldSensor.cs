@@ -14,7 +14,7 @@ namespace OccupOSNode {
             data = new byte[4];
         }
 
-        public override void poll() {
+        public override String poll() {
 
             if (controller.sendCommand(WeatherShieldController.CMD_GETTEMP_C_RAW, WeatherShieldController.PAR_GET_LAST_SAMPLE, ref data))
                 temperature = controller.decodeShortValue(data);
@@ -32,8 +32,7 @@ namespace OccupOSNode {
             this.model.readingData = temperature.ToString() +"|"+ humidity.ToString() + "|" + pressure.ToString();
 
             Serializer jsonSerializer = new Serializer();
-            this.sensorData = jsonSerializer.Serialize(this.model);
-
+            return jsonSerializer.Serialize(this.model);
         }
     }
 }

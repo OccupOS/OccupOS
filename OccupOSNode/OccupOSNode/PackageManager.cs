@@ -21,8 +21,7 @@ namespace OccupOSNode
             {
                 if (sensors[i] is Sensor)
                 {
-                    ((Sensor) sensors[i]).poll();
-                    sensorReadings.Add(((Sensor)sensors[i]).getPackage());
+                    sensorReadings.Add(((Sensor)sensors[i]).poll());
                 }
             }
         }
