@@ -32,22 +32,23 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="PackageManager.cs" />
-    <Compile Include="LightSensorReader.cs">
+    <Compile Include="ArduinoMLX90620Sensor.cs" />
+    <Compile Include="ArduinoHardwareController.cs" />
+    <Compile Include="NetworkController.cs" />
+    <Compile Include="HardwareController.cs" />
+    <Compile Include="NodeController.cs" />
+    <Compile Include="ArduinoAmbientLightSensor.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ReadingModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Sensor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WeatherShieldController.cs">
+    <Compile Include="ArduinoWeatherShield1Controller.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WeatherShieldSensor.cs">
+    <Compile Include="ArduinoWeatherShield1Sensor.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
