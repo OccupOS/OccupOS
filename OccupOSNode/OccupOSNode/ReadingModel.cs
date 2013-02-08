@@ -6,4 +6,5 @@
     public string roomId = "";
     public int floorNo=1;
     public string departmentName="";
+    public string buildingName = "";
 }
