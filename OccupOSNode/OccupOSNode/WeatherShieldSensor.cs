@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using IndianaJones.NETMF.Json;
 using System;
 
 namespace OccupOSNode {
@@ -9,12 +9,13 @@ namespace OccupOSNode {
         private float temperature, humidity, pressure;
         private byte[] data;
 
-        public WeatherShieldSensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") : base( id,  roomId,  floorNo,  sensorName = "",  departmentName = "") {
+        public WeatherShieldSensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") 
+            : base( id,  roomId,  floorNo,  sensorName = "",  departmentName = "") {
             controller = new WeatherShieldController();
             data = new byte[4];
         }
 
-        public override void poll() {
+        public override String poll() {
 
             if (controller.sendCommand(WeatherShieldController.CMD_GETTEMP_C_RAW, WeatherShieldController.PAR_GET_LAST_SAMPLE, ref data))
                 temperature = controller.decodeShortValue(data);
@@ -30,9 +31,9 @@ namespace OccupOSNode {
                 pressure = 0.0f;
 
             this.model.readingData = temperature.ToString() +"|"+ humidity.ToString() + "|" + pressure.ToString();
-                
-            this.sensorData = JsonConvert.SerializeObject(this.model);
 
+            Serializer jsonSerializer = new Serializer();
+            return jsonSerializer.Serialize(this.model);
         }
     }
 }
