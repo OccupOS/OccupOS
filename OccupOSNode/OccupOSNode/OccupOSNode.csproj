@@ -34,6 +34,7 @@
   <ItemGroup>
     <Compile Include="ArduinoMLX90620Sensor.cs" />
     <Compile Include="ArduinoHardwareController.cs" />
+    <Compile Include="KinectSensor.cs" />
     <Compile Include="NetworkController.cs" />
     <Compile Include="HardwareController.cs" />
     <Compile Include="NodeController.cs" />

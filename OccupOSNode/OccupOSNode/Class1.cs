@@ -1,9 +1,7 @@
 using System;
 using Microsoft.SPOT;
 
-namespace OccupOSNode
-{
-    class Class1
-    {
+namespace OccupOSNode {
+    class Class1 {
     }
 }
