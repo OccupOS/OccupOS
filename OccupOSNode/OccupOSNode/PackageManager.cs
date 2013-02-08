@@ -1,26 +1,34 @@
 using System;
-using Microsoft.SPOT;
 using System.Collections;
+using System.IO;
 
-namespace OccupOSNode
-{
-    class PackageManager
-    {
+namespace OccupOSNode {
+    class StorageDeviceMissingException : Exception {
+        public StorageDeviceMissingException(string message)
+            : base(message) { }
+    }
 
+    class PackageManager {
         ArrayList sensors;
         ArrayList sensorReadings;
 
-        public PackageManager(int numberOfSensors)
-        {
-            sensors = new ArrayList();
+        public PackageManager() {
+            ArrayList sensors = new ArrayList();
+
+            var rootDirectory = new DirectoryInfo(@"\SD\");
+            if (rootDirectory.Exists) {
+                LoadConfiguration();
+            }
+            else {
+                throw new StorageDeviceMissingException("Couldn't find a connected SD card.");
+            }
         }
 
-        public void pollSensors()
-        {
-            for (int i = 0; i < sensors.Count; i++)
-            {
-                if (sensors[i] is Sensor)
-                {
+        private void LoadConfiguration() { throw new NotImplementedException(); }
+
+        public void pollSensors() {
+            for (int i = 0; i < sensors.Count; i++) {
+                if (sensors[i] is Sensor) {
                     sensorReadings.Add(((Sensor)sensors[i]).poll());
                 }
             }

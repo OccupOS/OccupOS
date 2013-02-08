@@ -9,7 +9,8 @@ namespace OccupOSNode {
         private float temperature, humidity, pressure;
         private byte[] data;
 
-        public WeatherShieldSensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") : base( id,  roomId,  floorNo,  sensorName = "",  departmentName = "") {
+        public WeatherShieldSensor(String id, String roomId, int floorNo, String sensorName = "", String departmentName = "") 
+            : base( id,  roomId,  floorNo,  sensorName = "",  departmentName = "") {
             controller = new WeatherShieldController();
             data = new byte[4];
         }
