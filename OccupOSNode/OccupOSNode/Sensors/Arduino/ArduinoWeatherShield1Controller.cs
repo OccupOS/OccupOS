@@ -1,13 +1,11 @@
-using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
-using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 using System;
 using System.Threading;
 
-namespace OccupOSNode
+namespace OccupOSNode.Sensors.Arduino
 {
-    public class WeatherShieldController
+    public class ArduinoWeatherShield1Controller
     {
         public const byte CMD_UNKNOWN = 0x00, CMD_SETADDRESS = 0x01, CMD_ECHO_PAR = 0x02, CMD_SET_SAMPLETIME = 0x03,
                           CMD_GETTEMP_C_AVG = 0x04, CMD_GETTEMP_C_RAW = 0x05, CMD_GETPRESS_AVG = 0x06, CMD_GETPRESS_RAW = 0x07,
@@ -19,7 +17,7 @@ namespace OccupOSNode
         OutputPort portClock,portData;
         InputPort dataIn;
         
-        public WeatherShieldController()
+        public ArduinoWeatherShield1Controller()
         {
             m_clockPin = WEATHERSHIELD_DEFAULTCLOCK_PIN;
             m_dataPin = WEATHERSHIELD_DEFAULTIODATA_PIN;
@@ -30,7 +28,7 @@ namespace OccupOSNode
             resetConnection();
         }
         
-        public WeatherShieldController(byte clockpin, byte datapin, byte deviceaddress)
+        public ArduinoWeatherShield1Controller(byte clockpin, byte datapin, byte deviceaddress)
         {
             m_clockPin = clockpin;
             m_dataPin = datapin;
