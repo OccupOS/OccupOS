@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using OccupOSNode.Sensors;
 
 namespace OccupOSNode {
     class StorageDeviceMissingException : Exception {
@@ -13,23 +14,28 @@ namespace OccupOSNode {
         ArrayList sensorReadings;
 
         public NodeController() {
-            ArrayList sensors = new ArrayList();
+            var sensors = new ArrayList();
 
             var rootDirectory = new DirectoryInfo(@"\SD\");
-            if (rootDirectory.Exists) {
+            if (rootDirectory.Exists) 
+            {
                 LoadConfiguration();
             }
-            else {
+            else 
+            {
                 throw new StorageDeviceMissingException("Couldn't find a connected SD card.");
             }
         }
 
         private void LoadConfiguration() { throw new NotImplementedException(); }
 
-        public void pollSensors() {
-            for (int i = 0; i < sensors.Count; i++) {
-                if (sensors[i] is Sensor) {
-                    sensorReadings.Add(((Sensor)sensors[i]).poll());
+        public void PollSensors()
+        {
+            foreach (object s in sensors)
+            {
+                if (s is Sensor) 
+                {
+                    sensorReadings.Add(((Sensor)s).Poll());
                 }
             }
         }

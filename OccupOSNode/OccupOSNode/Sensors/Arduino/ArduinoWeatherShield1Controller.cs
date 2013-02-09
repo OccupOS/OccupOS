@@ -1,11 +1,9 @@
-using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
-using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
 using System;
 using System.Threading;
 
-namespace OccupOSNode
+namespace OccupOSNode.Sensors.Arduino
 {
     public class ArduinoWeatherShield1Controller
     {
