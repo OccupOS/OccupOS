@@ -36,10 +36,8 @@
           <NavigationProperty Name="IntermediateHwMedadata" Relationship="OccupOSModel.SensorDataIntermediateHwMedadata" FromRole="SensorData" ToRole="IntermediateHwMedadata" />
           <Property Type="Int32" Name="IntermediateHwMedadataId" Nullable="false" />
           <Property Type="String" Name="MeasuredData" Nullable="false" />
-          <Property Type="DateTime" Name="updatedAt" Nullable="false" />
-          <Property Type="DateTime" Name="createdAt" Nullable="false" />
-          <Property Type="Int32" Name="updaterId" Nullable="false" />
-          <Property Type="Int32" Name="creatorId" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
         </EntityType>
         <EntityType Name="SensorMetadata">
           <Documentation>
@@ -60,10 +58,10 @@
           <Property Type="Decimal" Name="GeoLongitude" Nullable="true" Precision="9" Scale="6" />
           <Property Type="Decimal" Name="GeoLatidude" Nullable="true" Scale="6" Precision="9" />
           <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataSensorMetadata" FromRole="SensorMetadata" ToRole="SensorData" />
-          <Property Type="DateTime" Name="updatedAt" Nullable="false" />
-          <Property Type="DateTime" Name="createdAt" Nullable="false" />
-          <Property Type="Int32" Name="updaterId" Nullable="false" />
-          <Property Type="Int32" Name="creatorId" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
+          <Property Type="Int32" Name="CreatorId" Nullable="false" />
         </EntityType>
         <EntityType Name="IntermediateHwMedadata">
           <Documentation>
@@ -81,10 +79,10 @@
           <Property Type="String" Name="DepartmentName" Nullable="false" />
           <Property Type="String" Name="BuildingName" Nullable="false" />
           <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataIntermediateHwMedadata" FromRole="IntermediateHwMedadata" ToRole="SensorData" />
-          <Property Type="DateTime" Name="updatedAt" Nullable="false" />
-          <Property Type="DateTime" Name="createdAt" Nullable="false" />
-          <Property Type="Int32" Name="updaterId" Nullable="false" />
-          <Property Type="Int32" Name="creatorId" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
+          <Property Type="Int32" Name="CreatorId" Nullable="false" />
         </EntityType>
         <Association Name="SensorDataSensorMetadata">
           <End Type="OccupOSModel.SensorData" Role="SensorData" Multiplicity="*" />

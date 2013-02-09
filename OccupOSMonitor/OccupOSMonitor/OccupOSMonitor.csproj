@@ -163,11 +163,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Vendor\Twitter\font\iconic_fill.svg" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.svg" />
+    <Content Include="Content\Vendor\Twitter\Main\bootstrap-responsive.css" />
+    <Content Include="Content\Vendor\Twitter\Main\bootstrap-responsive.min.css" />
+    <Content Include="Content\Vendor\Twitter\Main\bootstrap.css" />
+    <Content Include="Content\Vendor\Twitter\Main\bootstrap.min.css" />
+    <Content Include="Content\Vendor\Twitter\Main\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Vendor\Twitter\Main\images\glyphicons-halflings.png" />
+    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.css" />
+    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.min.css" />
+    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.css" />
+    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\app.min.js" />
-    <Content Include="Scripts\app.ts" />
+    <Content Include="Scripts\App\app.js" />
+    <Content Include="Scripts\App\app.min.js" />
+    <Content Include="Scripts\App\app.ts" />
     <EntityDeploy Include="OccupOSModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>OccupOSModel.Designer.cs</LastGenOutput>
@@ -185,17 +197,35 @@
       <DependentUpon>OccupOSModel.edmx</DependentUpon>
       <LastGenOutput>OccupOSModel.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_fill.eot" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_fill.otf" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_fill.ttf" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_fill.woff" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.eot" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.otf" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.ttf" />
+    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.woff" />
+    <None Include="Scripts\Vendor\jQuery\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\Vendor\Ember\ember.js" />
+    <Content Include="Scripts\Vendor\Ember\ember.min.js" />
+    <Content Include="Scripts\handlebars-1.0.rc.2.js" />
+    <Content Include="Scripts\Vendor\Twitter\bootstrap.js" />
+    <Content Include="Scripts\Vendor\Twitter\bootstrap.min.js" />
+    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.js" />
+    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.min.map" />
+    <None Include="Scripts\Vendor\jQuery\Plugins\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.min.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-fileupload.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-inputmask.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-rowlink.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -213,12 +243,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\font\" />
-    <Folder Include="Content\themes\base\images\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\" />
-    <Folder Include="Scripts\Libs\" />
+    <Folder Include="Scripts\App\controller\" />
+    <Folder Include="Scripts\App\helpers\" />
+    <Folder Include="Scripts\App\models\" />
+    <Folder Include="Scripts\App\templates\" />
+    <Folder Include="Scripts\App\views\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

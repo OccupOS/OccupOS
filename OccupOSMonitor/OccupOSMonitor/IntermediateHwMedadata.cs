@@ -23,10 +23,10 @@ namespace OccupOSMonitor
         public string ExternalId { get; set; }
         public string DepartmentName { get; set; }
         public string BuildingName { get; set; }
-        public System.DateTime updatedAt { get; set; }
-        public System.DateTime createdAt { get; set; }
-        public int updaterId { get; set; }
-        public int creatorId { get; set; }
+        public System.DateTime UpdatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
+        public int UpdaterId { get; set; }
+        public int CreatorId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }
     }

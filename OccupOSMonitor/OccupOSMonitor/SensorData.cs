@@ -18,10 +18,8 @@ namespace OccupOSMonitor
         public int SensorMetadataId { get; set; }
         public int IntermediateHwMedadataId { get; set; }
         public string MeasuredData { get; set; }
-        public System.DateTime updatedAt { get; set; }
-        public System.DateTime createdAt { get; set; }
-        public int updaterId { get; set; }
-        public int creatorId { get; set; }
+        public System.DateTime UpdatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
     
         public virtual SensorMetadata SensorMetadata { get; set; }
         public virtual IntermediateHwMedadata IntermediateHwMedadata { get; set; }

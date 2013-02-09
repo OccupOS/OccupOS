@@ -26,10 +26,10 @@ namespace OccupOSMonitor
         public Nullable<int> FloorNr { get; set; }
         public Nullable<decimal> GeoLongitude { get; set; }
         public Nullable<decimal> GeoLatidude { get; set; }
-        public System.DateTime updatedAt { get; set; }
-        public System.DateTime createdAt { get; set; }
-        public int updaterId { get; set; }
-        public int creatorId { get; set; }
+        public System.DateTime UpdatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
+        public int UpdaterId { get; set; }
+        public int CreatorId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }
     }
