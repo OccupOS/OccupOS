@@ -20,7 +20,7 @@ namespace OccupOSMonitor
         }
     
         public int Id { get; set; }
-        public string ExtrenalId { get; set; }
+        public string ExternalId { get; set; }
         public string SensorName { get; set; }
         public string RoomId { get; set; }
         public Nullable<int> FloorNr { get; set; }
@@ -30,7 +30,9 @@ namespace OccupOSMonitor
         public System.DateTime CreatedAt { get; set; }
         public int UpdaterId { get; set; }
         public int CreatorId { get; set; }
+        public int IntermediateHwMedadataId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }
+        public virtual IntermediateHwMedadata IntermediateHwMedadata { get; set; }
     }
 }

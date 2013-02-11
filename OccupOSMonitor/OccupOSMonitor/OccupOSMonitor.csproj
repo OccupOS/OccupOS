@@ -41,6 +41,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Ember.Handlebars">
+      <HintPath>..\..\packages\csharp-ember-handlebars-compiler.1.2.0-beta1\lib\net40\Ember.Handlebars.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EntityFramework.6.0.0-alpha2-20207\lib\net45\EntityFramework.dll</HintPath>
@@ -95,6 +101,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.1.0-rtm-130208\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.0-alpha1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.1.0-rtm-130208\lib\net40\System.Web.Razor.dll</HintPath>
@@ -123,6 +132,9 @@
     <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -163,20 +175,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Vendor\Twitter\Dev-3.0\bootstrap.css" />
+    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.svg" />
     <Content Include="Content\Vendor\Twitter\font\iconic_fill.svg" />
     <Content Include="Content\Vendor\Twitter\font\iconic_stroke.svg" />
-    <Content Include="Content\Vendor\Twitter\Main\bootstrap-responsive.css" />
-    <Content Include="Content\Vendor\Twitter\Main\bootstrap-responsive.min.css" />
-    <Content Include="Content\Vendor\Twitter\Main\bootstrap.css" />
-    <Content Include="Content\Vendor\Twitter\Main\bootstrap.min.css" />
-    <Content Include="Content\Vendor\Twitter\Main\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\Vendor\Twitter\Main\images\glyphicons-halflings.png" />
+    <Content Include="Content\Vendor\Twitter\bootstrap-responsive.css" />
+    <Content Include="Content\Vendor\Twitter\bootstrap-responsive.min.css" />
+    <Content Include="Content\Vendor\Twitter\bootstrap.css" />
+    <Content Include="Content\Vendor\Twitter\bootstrap.min.css" />
+    <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings.png" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.min.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="OccupOSModel-0.9.0.sql" />
     <Content Include="Global.asax" />
+    <Content Include="OccupOSModel.edmx.sql" />
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\app.min.js" />
     <Content Include="Scripts\App\app.ts" />
@@ -205,10 +221,61 @@
     <Content Include="Content\Vendor\Twitter\font\iconic_stroke.otf" />
     <Content Include="Content\Vendor\Twitter\font\iconic_stroke.ttf" />
     <Content Include="Content\Vendor\Twitter\font\iconic_stroke.woff" />
+    <Content Include="App_Readme\Handlebarsjs_README.md" />
+    <Content Include="App_Readme\Handlebarsjs_LICENSE" />
+    <Content Include="Content\Vendor\Twitter\less\accordion.less" />
+    <Content Include="Content\Vendor\Twitter\less\alerts.less" />
+    <Content Include="Content\Vendor\Twitter\less\bootstrap.less" />
+    <Content Include="Content\Vendor\Twitter\less\breadcrumbs.less" />
+    <Content Include="Content\Vendor\Twitter\less\button-groups.less" />
+    <Content Include="Content\Vendor\Twitter\less\buttons.less" />
+    <Content Include="Content\Vendor\Twitter\less\carousel.less" />
+    <Content Include="Content\Vendor\Twitter\less\close.less" />
+    <Content Include="Content\Vendor\Twitter\less\code.less" />
+    <Content Include="Content\Vendor\Twitter\less\component-animations.less" />
+    <Content Include="Content\Vendor\Twitter\less\counters.less" />
+    <Content Include="Content\Vendor\Twitter\less\dropdowns.less" />
+    <Content Include="Content\Vendor\Twitter\less\forms.less" />
+    <Content Include="Content\Vendor\Twitter\less\glyphicons.less" />
+    <Content Include="Content\Vendor\Twitter\less\grid.less" />
+    <Content Include="Content\Vendor\Twitter\less\jumbotron.less" />
+    <Content Include="Content\Vendor\Twitter\less\media.less" />
+    <Content Include="Content\Vendor\Twitter\less\mixins.less" />
+    <Content Include="Content\Vendor\Twitter\less\modals.less" />
+    <Content Include="Content\Vendor\Twitter\less\navbar.less" />
+    <Content Include="Content\Vendor\Twitter\less\navs.less" />
+    <Content Include="Content\Vendor\Twitter\less\normalize.less" />
+    <Content Include="Content\Vendor\Twitter\less\pager.less" />
+    <Content Include="Content\Vendor\Twitter\less\pagination.less" />
+    <Content Include="Content\Vendor\Twitter\less\popovers.less" />
+    <Content Include="Content\Vendor\Twitter\less\progress-bars.less" />
+    <Content Include="Content\Vendor\Twitter\less\responsive-utilities.less" />
+    <Content Include="Content\Vendor\Twitter\less\scaffolding.less" />
+    <Content Include="Content\Vendor\Twitter\less\tables.less" />
+    <Content Include="Content\Vendor\Twitter\less\thumbnails.less" />
+    <Content Include="Content\Vendor\Twitter\less\tooltip.less" />
+    <Content Include="Content\Vendor\Twitter\less\type.less" />
+    <Content Include="Content\Vendor\Twitter\less\utilities.less" />
+    <Content Include="Content\Vendor\Twitter\less\variables.less" />
+    <Content Include="Content\Vendor\Twitter\less\wells.less" />
+    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.otf" />
+    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.woff" />
+    <None Include="Scripts\App\templates\application.hbs" />
     <None Include="Scripts\Vendor\jQuery\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\App\appDev.js" />
+    <Content Include="Scripts\App\models\intermediateHwMetadata.js" />
+    <Content Include="Scripts\App\models\sensorData.js" />
+    <Content Include="Scripts\App\models\sensorMetadata.js" />
+    <Content Include="Scripts\App\models\user.js" />
+    <Content Include="Scripts\App\models\storeDev.js" />
+    <Content Include="Scripts\App\routes\router.js" />
+    <Content Include="Scripts\Vendor\Ember\ember-data.js" />
+    <Content Include="Scripts\Vendor\Ember\handlebars.runtime.js" />
     <Content Include="Scripts\Vendor\Ember\ember.js" />
     <Content Include="Scripts\Vendor\Ember\ember.min.js" />
-    <Content Include="Scripts\handlebars-1.0.rc.2.js" />
+    <Content Include="Scripts\Vendor\Ember\handlebars.js" />
     <Content Include="Scripts\Vendor\Twitter\bootstrap.js" />
     <Content Include="Scripts\Vendor\Twitter\bootstrap.min.js" />
     <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.js" />
@@ -221,6 +288,8 @@
     <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.min.js" />
     <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.js" />
+    <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.min.js" />
     <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-fileupload.js" />
     <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-inputmask.js" />
     <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-rowlink.js" />
@@ -239,6 +308,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\index.html" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -246,9 +316,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\App\controller\" />
-    <Folder Include="Scripts\App\helpers\" />
-    <Folder Include="Scripts\App\models\" />
-    <Folder Include="Scripts\App\templates\" />
     <Folder Include="Scripts\App\views\" />
   </ItemGroup>
   <ItemGroup>

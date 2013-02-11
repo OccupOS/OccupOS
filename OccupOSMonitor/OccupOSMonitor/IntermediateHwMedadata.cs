@@ -17,6 +17,7 @@ namespace OccupOSMonitor
         public IntermediateHwMedadata()
         {
             this.SensorDatas = new HashSet<SensorData>();
+            this.SensorMetadatas = new HashSet<SensorMetadata>();
         }
     
         public int Id { get; set; }
@@ -27,7 +28,10 @@ namespace OccupOSMonitor
         public System.DateTime CreatedAt { get; set; }
         public int UpdaterId { get; set; }
         public int CreatorId { get; set; }
+        public int FloorNr { get; set; }
+        public string RoomId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }
+        public virtual ICollection<SensorMetadata> SensorMetadatas { get; set; }
     }
 }

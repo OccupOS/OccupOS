@@ -15,3 +15,6 @@ window.onload = function () {
         console.log(feedback);
     });
 };
+window.Todos = Ember.Application.create({
+    rootElement: window.TESTING ? '#qunit-fixture' : '#todoapp'
+});

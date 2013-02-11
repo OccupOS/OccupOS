@@ -11,6 +11,7 @@
         <AssociationConnector Association="OccupOSModel.SensorDataSensorMetadata" />
         <AssociationConnector Association="OccupOSModel.SensorDataIntermediateHwMedadata" />
         <EntityTypeShape EntityType="OccupOSModel.User" Width="1.875" PointX="0.5" PointY="0.875" />
+        <AssociationConnector Association="OccupOSModel.IntermediateHwMedadataSensorMetadata" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
