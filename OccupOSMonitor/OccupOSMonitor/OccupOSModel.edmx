@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OccupOSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OccupOSModelStoreContainer">
+    <EntitySet Name="SensorDatas" EntityType="OccupOSModel.Store.SensorDatas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SensorMetadatas1" EntityType="OccupOSModel.Store.SensorMetadatas1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IntermediateHwMedadatas" EntityType="OccupOSModel.Store.IntermediateHwMedadatas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="OccupOSModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SensorDataSensorMetadata" Association="OccupOSModel.Store.SensorDataSensorMetadata">
+      <End Role="SensorData" EntitySet="SensorDatas" />
+      <End Role="SensorMetadata" EntitySet="SensorMetadatas1" />
+    </AssociationSet>
+    <AssociationSet Name="SensorDataIntermediateHwMedadata" Association="OccupOSModel.Store.SensorDataIntermediateHwMedadata">
+      <End Role="SensorData" EntitySet="SensorDatas" />
+      <End Role="IntermediateHwMedadata" EntitySet="IntermediateHwMedadatas" />
+    </AssociationSet>
+    <AssociationSet Name="IntermediateHwMedadataSensorMetadata" Association="OccupOSModel.Store.IntermediateHwMedadataSensorMetadata">
+      <End Role="IntermediateHwMedadata" EntitySet="IntermediateHwMedadatas" />
+      <End Role="SensorMetadata" EntitySet="SensorMetadatas1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SensorDatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SensorMetadataId" Type="int" Nullable="false" />
+    <Property Name="IntermediateHwMedadataId" Type="int" Nullable="false" />
+    <Property Name="MeasuredData" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SensorMetadatas1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExternalId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SensorName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RoomId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FloorNr" Type="int" Nullable="true" />
+    <Property Name="GeoLongitude" Type="decimal" Nullable="true" Precision="9" Scale="6" />
+    <Property Name="GeoLatidude" Type="decimal" Nullable="true" Precision="9" Scale="6" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdaterId" Type="int" Nullable="false" />
+    <Property Name="CreatorId" Type="int" Nullable="false" />
+    <Property Name="IntermediateHwMedadataId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IntermediateHwMedadatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExternalId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdaterId" Type="int" Nullable="false" />
+    <Property Name="CreatorId" Type="int" Nullable="false" />
+    <Property Name="FloorNr" Type="int" Nullable="false" />
+    <Property Name="RoomId" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="createdAt" Type="datetime" Nullable="false" />
+    <Property Name="updatedAt" Type="datetime" Nullable="false" />
+    <Property Name="creatorId" Type="int" Nullable="false" />
+    <Property Name="updaterId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="SensorDataSensorMetadata">
+    <End Role="SensorData" Type="OccupOSModel.Store.SensorDatas" Multiplicity="*" />
+    <End Role="SensorMetadata" Type="OccupOSModel.Store.SensorMetadatas1" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SensorMetadata">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SensorData">
+        <PropertyRef Name="SensorMetadataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SensorDataIntermediateHwMedadata">
+    <End Role="SensorData" Type="OccupOSModel.Store.SensorDatas" Multiplicity="*" />
+    <End Role="IntermediateHwMedadata" Type="OccupOSModel.Store.IntermediateHwMedadatas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="IntermediateHwMedadata">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SensorData">
+        <PropertyRef Name="IntermediateHwMedadataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IntermediateHwMedadataSensorMetadata">
+    <End Role="IntermediateHwMedadata" Type="OccupOSModel.Store.IntermediateHwMedadatas" Multiplicity="1" />
+    <End Role="SensorMetadata" Type="OccupOSModel.Store.SensorMetadatas1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IntermediateHwMedadata">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SensorMetadata">
+        <PropertyRef Name="IntermediateHwMedadataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OccupOSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="OccupOSContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SensorDatas" EntityType="OccupOSModel.SensorData" />
+          <EntitySet Name="SensorMetadatas1" EntityType="OccupOSModel.SensorMetadata" />
+          <EntitySet Name="IntermediateHwMedadatas" EntityType="OccupOSModel.IntermediateHwMedadata" />
+          <AssociationSet Name="SensorDataSensorMetadata" Association="OccupOSModel.SensorDataSensorMetadata">
+            <End Role="SensorData" EntitySet="SensorDatas" />
+            <End Role="SensorMetadata" EntitySet="SensorMetadatas1" />
+          </AssociationSet>
+          <AssociationSet Name="SensorDataIntermediateHwMedadata" Association="OccupOSModel.SensorDataIntermediateHwMedadata">
+            <End Role="SensorData" EntitySet="SensorDatas" />
+            <End Role="IntermediateHwMedadata" EntitySet="IntermediateHwMedadatas" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="OccupOSModel.User" />
+          <AssociationSet Name="IntermediateHwMedadataSensorMetadata" Association="OccupOSModel.IntermediateHwMedadataSensorMetadata">
+            <End Role="IntermediateHwMedadata" EntitySet="IntermediateHwMedadatas" />
+            <End Role="SensorMetadata" EntitySet="SensorMetadatas1" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SensorData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="SensorMetadata" Relationship="OccupOSModel.SensorDataSensorMetadata" FromRole="SensorData" ToRole="SensorMetadata" />
+          <Property Type="Int32" Name="SensorMetadataId" Nullable="false" />
+          <NavigationProperty Name="IntermediateHwMedadata" Relationship="OccupOSModel.SensorDataIntermediateHwMedadata" FromRole="SensorData" ToRole="IntermediateHwMedadata" />
+          <Property Type="Int32" Name="IntermediateHwMedadataId" Nullable="false" />
+          <Property Type="String" Name="MeasuredData" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SensorMetadata">
+          <Documentation>
+            <LongDescription>Have to set ExternalId Unique manually in the code.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ExternalId" Nullable="false" >
+            <Documentation>
+              <LongDescription>Unique</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="SensorName" Nullable="true" />
+          <Property Type="String" Name="RoomId" Nullable="false" />
+          <Property Type="Int32" Name="FloorNr" Nullable="true" />
+          <Property Type="Decimal" Name="GeoLongitude" Nullable="true" Precision="9" Scale="6" />
+          <Property Type="Decimal" Name="GeoLatidude" Nullable="true" Scale="6" Precision="9" />
+          <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataSensorMetadata" FromRole="SensorMetadata" ToRole="SensorData" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
+          <Property Type="Int32" Name="CreatorId" Nullable="false" />
+          <NavigationProperty Name="IntermediateHwMedadata" Relationship="OccupOSModel.IntermediateHwMedadataSensorMetadata" FromRole="SensorMetadata" ToRole="IntermediateHwMedadata" />
+          <Property Type="Int32" Name="IntermediateHwMedadataId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IntermediateHwMedadata">
+          <Documentation>
+            <LongDescription>Have to set ExternalId Unique manually in the code.</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ExternalId" Nullable="false" >
+            <Documentation>
+              <LongDescription>Unique</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="DepartmentName" Nullable="false" />
+          <Property Type="String" Name="BuildingName" Nullable="false" />
+          <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataIntermediateHwMedadata" FromRole="IntermediateHwMedadata" ToRole="SensorData" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
+          <Property Type="Int32" Name="CreatorId" Nullable="false" />
+          <Property Type="Int32" Name="FloorNr" Nullable="false" />
+          <NavigationProperty Name="SensorMetadatas" Relationship="OccupOSModel.IntermediateHwMedadataSensorMetadata" FromRole="IntermediateHwMedadata" ToRole="SensorMetadata" />
+          <Property Type="String" Name="RoomId" Nullable="false" />
+        </EntityType>
+        <Association Name="SensorDataSensorMetadata">
+          <End Type="OccupOSModel.SensorData" Role="SensorData" Multiplicity="*" />
+          <End Type="OccupOSModel.SensorMetadata" Role="SensorMetadata" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SensorMetadata">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SensorData">
+              <PropertyRef Name="SensorMetadataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SensorDataIntermediateHwMedadata">
+          <End Type="OccupOSModel.SensorData" Role="SensorData" Multiplicity="*" />
+          <End Type="OccupOSModel.IntermediateHwMedadata" Role="IntermediateHwMedadata" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="IntermediateHwMedadata">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SensorData">
+              <PropertyRef Name="IntermediateHwMedadataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Username" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" >
+            <Documentation>
+              <LongDescription>Unique</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="DateTime" Name="createdAt" Nullable="false" />
+          <Property Type="DateTime" Name="updatedAt" Nullable="false" />
+          <Property Type="Int32" Name="creatorId" Nullable="false" />
+          <Property Type="Int32" Name="updaterId" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+        </EntityType>
+        <Association Name="IntermediateHwMedadataSensorMetadata">
+          <End Type="OccupOSModel.IntermediateHwMedadata" Role="IntermediateHwMedadata" Multiplicity="1" />
+          <End Type="OccupOSModel.SensorMetadata" Role="SensorMetadata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IntermediateHwMedadata">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SensorMetadata">
+              <PropertyRef Name="IntermediateHwMedadataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OccupOSModelStoreContainer" CdmEntityContainer="OccupOSContext">
+    <EntitySetMapping Name="SensorDatas">
+      <EntityTypeMapping TypeName="IsTypeOf(OccupOSModel.SensorData)">
+        <MappingFragment StoreEntitySet="SensorDatas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SensorMetadataId" ColumnName="SensorMetadataId" />
+          <ScalarProperty Name="IntermediateHwMedadataId" ColumnName="IntermediateHwMedadataId" />
+          <ScalarProperty Name="MeasuredData" ColumnName="MeasuredData" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorMetadatas1">
+      <EntityTypeMapping TypeName="IsTypeOf(OccupOSModel.SensorMetadata)">
+        <MappingFragment StoreEntitySet="SensorMetadatas1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="FloorNr" ColumnName="FloorNr" />
+          <ScalarProperty Name="GeoLongitude" ColumnName="GeoLongitude" />
+          <ScalarProperty Name="GeoLatidude" ColumnName="GeoLatidude" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdaterId" ColumnName="UpdaterId" />
+          <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+          <ScalarProperty Name="IntermediateHwMedadataId" ColumnName="IntermediateHwMedadataId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntermediateHwMedadatas">
+      <EntityTypeMapping TypeName="IsTypeOf(OccupOSModel.IntermediateHwMedadata)">
+        <MappingFragment StoreEntitySet="IntermediateHwMedadatas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdaterId" ColumnName="UpdaterId" />
+          <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+          <ScalarProperty Name="FloorNr" ColumnName="FloorNr" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(OccupOSModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+          <ScalarProperty Name="creatorId" ColumnName="creatorId" />
+          <ScalarProperty Name="updaterId" ColumnName="updaterId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
