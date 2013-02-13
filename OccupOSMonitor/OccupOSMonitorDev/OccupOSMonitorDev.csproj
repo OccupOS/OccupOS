@@ -169,20 +169,7 @@
     <Content Include="Images\favicon.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
-    <Content Include="Scripts\App\controllers\NavbarController.js" />
-    <Content Include="Scripts\App\routes\router.js" />
     <EmbeddedResource Include="Scripts\Vendor\ember.js" />
-    <Content Include="Scripts\App\app.js" />
-    <Content Include="Scripts\App\controllers\ApplicationController.js" />
-    <Content Include="Scripts\App\templates\about.hbs" />
-    <Content Include="Scripts\App\templates\application.hbs" />
-    <Content Include="Scripts\App\templates\contact.hbs" />
-    <Content Include="Scripts\App\templates\index.hbs" />
-    <Content Include="Scripts\App\views\AboutView.js" />
-    <Content Include="Scripts\App\views\ApplicationView.js" />
-    <Content Include="Scripts\App\views\ContactView.js" />
-    <Content Include="Scripts\App\views\HomeView.js" />
-    <Content Include="Scripts\App\views\NavbarView.js" />
     <Content Include="Scripts\Vendor\bootstrap.js" />
     <Content Include="Scripts\Vendor\Ember\ember-data.js" />
     <Content Include="Scripts\Vendor\Ember\ember.js" />
@@ -191,7 +178,6 @@
     <Content Include="Scripts\Vendor\handlebars.js" />
     <Content Include="Scripts\Vendor\handlebars.runtime.js" />
     <Content Include="Scripts\Vendor\headless-ember.js" />
-    <Content Include="Scripts\App\templates\navbar.hbs" />
     <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.eot" />
     <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.otf" />
     <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.ttf" />
@@ -293,7 +279,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
