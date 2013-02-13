@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="OccupOSMonitor.Empty" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="OccupOSMonitor.WebApiApplication" Language="C#" %>
