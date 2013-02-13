@@ -28,8 +28,8 @@ namespace OccupOSMonitor
         public Nullable<decimal> GeoLatidude { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public System.DateTime CreatedAt { get; set; }
-        public int UpdaterId { get; set; }
-        public int CreatorId { get; set; }
+        public Nullable<int> UpdaterId { get; set; }
+        public Nullable<int> CreatorId { get; set; }
         public int IntermediateHwMedadataId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }

@@ -20,8 +20,8 @@ namespace OccupOSMonitor
         public string Password { get; set; }
         public System.DateTime createdAt { get; set; }
         public System.DateTime updatedAt { get; set; }
-        public int creatorId { get; set; }
-        public int updaterId { get; set; }
+        public Nullable<int> creatorId { get; set; }
+        public Nullable<int> updaterId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

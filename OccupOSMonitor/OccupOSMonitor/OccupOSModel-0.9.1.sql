@@ -54,8 +54,8 @@ CREATE TABLE [dbo].[SensorDatas] (
     [SensorMetadataId] int  NOT NULL,
     [IntermediateHwMedadataId] int  NOT NULL,
     [MeasuredData] nvarchar(max)  NOT NULL,
-    [UpdatedAt] datetime  NOT NULL,
-    [CreatedAt] datetime  NOT NULL
+    [UpdatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [CreatedAt] datetime  NOT NULL DEFAULT getDate()
 );
 GO
 
@@ -68,10 +68,10 @@ CREATE TABLE [dbo].[SensorMetadatas1] (
     [FloorNr] int  NULL,
     [GeoLongitude] decimal(9,6)  NULL,
     [GeoLatidude] decimal(9,6)  NULL,
-    [UpdatedAt] datetime  NOT NULL,
-    [CreatedAt] datetime  NOT NULL,
-    [UpdaterId] int  NOT NULL,
-    [CreatorId] int  NOT NULL,
+    [UpdatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [CreatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [UpdaterId] int  NULL,
+    [CreatorId] int  NULL,
     [IntermediateHwMedadataId] int  NOT NULL,
 	UNIQUE ([ExternalId])
 );
@@ -81,13 +81,13 @@ GO
 CREATE TABLE [dbo].[IntermediateHwMedadatas] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [ExternalId] nvarchar(450)  NOT NULL,
-    [DepartmentName] nvarchar(max)  NOT NULL,
-    [BuildingName] nvarchar(max)  NOT NULL,
-    [UpdatedAt] datetime  NOT NULL,
-    [CreatedAt] datetime  NOT NULL,
-    [UpdaterId] int  NOT NULL,
-    [CreatorId] int  NOT NULL,
-    [FloorNr] int  NOT NULL,
+    [DepartmentName] nvarchar(max)  NULL,
+    [BuildingName] nvarchar(max)  NULL,
+    [UpdatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [CreatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [UpdaterId] int  NULL,
+    [CreatorId] int  NULL,
+    [FloorNr] int  NULL,
     [RoomId] nvarchar(max)  NOT NULL,
 	UNIQUE ([ExternalId])
 );
@@ -99,12 +99,12 @@ CREATE TABLE [dbo].[Users] (
     [Username] nvarchar(50)  NOT NULL,
     [Email] nvarchar(100)  NOT NULL,
     [Password] nvarchar(max)  NOT NULL,
-    [createdAt] datetime  NOT NULL,
-    [updatedAt] datetime  NOT NULL,
-    [creatorId] int  NOT NULL,
-    [updaterId] int  NOT NULL,
-    [FirstName] nvarchar(max)  NOT NULL,
-    [LastName] nvarchar(max)  NOT NULL,
+    [createdAt] datetime  NOT NULL DEFAULT getDate(),
+    [updatedAt] datetime  NOT NULL DEFAULT getDate(),
+    [creatorId] int  NULL,
+    [updaterId] int  NULL,
+    [FirstName] nvarchar(max)  NULL,
+    [LastName] nvarchar(max)   NULL,
 	CONSTRAINT userUnique UNIQUE ([Email],[Username])
 );
 GO

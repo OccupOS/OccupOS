@@ -173,8 +173,8 @@
           <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataSensorMetadata" FromRole="SensorMetadata" ToRole="SensorData" />
           <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
           <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
-          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
-          <Property Type="Int32" Name="CreatorId" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="true" />
+          <Property Type="Int32" Name="CreatorId" Nullable="true" />
           <NavigationProperty Name="IntermediateHwMedadata" Relationship="OccupOSModel.IntermediateHwMedadataSensorMetadata" FromRole="SensorMetadata" ToRole="IntermediateHwMedadata" />
           <Property Type="Int32" Name="IntermediateHwMedadataId" Nullable="false" />
         </EntityType>
@@ -191,14 +191,14 @@
               <LongDescription>Unique</LongDescription>
             </Documentation>
           </Property>
-          <Property Type="String" Name="DepartmentName" Nullable="false" />
-          <Property Type="String" Name="BuildingName" Nullable="false" />
+          <Property Type="String" Name="DepartmentName" Nullable="true" />
+          <Property Type="String" Name="BuildingName" Nullable="true" />
           <NavigationProperty Name="SensorDatas" Relationship="OccupOSModel.SensorDataIntermediateHwMedadata" FromRole="IntermediateHwMedadata" ToRole="SensorData" />
           <Property Type="DateTime" Name="UpdatedAt" Nullable="false" />
           <Property Type="DateTime" Name="CreatedAt" Nullable="false" />
-          <Property Type="Int32" Name="UpdaterId" Nullable="false" />
-          <Property Type="Int32" Name="CreatorId" Nullable="false" />
-          <Property Type="Int32" Name="FloorNr" Nullable="false" />
+          <Property Type="Int32" Name="UpdaterId" Nullable="true" />
+          <Property Type="Int32" Name="CreatorId" Nullable="true" />
+          <Property Type="Int32" Name="FloorNr" Nullable="true" />
           <NavigationProperty Name="SensorMetadatas" Relationship="OccupOSModel.IntermediateHwMedadataSensorMetadata" FromRole="IntermediateHwMedadata" ToRole="SensorMetadata" />
           <Property Type="String" Name="RoomId" Nullable="false" />
         </EntityType>
@@ -240,10 +240,10 @@
           <Property Type="String" Name="Password" Nullable="false" />
           <Property Type="DateTime" Name="createdAt" Nullable="false" />
           <Property Type="DateTime" Name="updatedAt" Nullable="false" />
-          <Property Type="Int32" Name="creatorId" Nullable="false" />
-          <Property Type="Int32" Name="updaterId" Nullable="false" />
-          <Property Type="String" Name="FirstName" Nullable="false" />
-          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="Int32" Name="creatorId" Nullable="true" />
+          <Property Type="Int32" Name="updaterId" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
         </EntityType>
         <Association Name="IntermediateHwMedadataSensorMetadata">
           <End Type="OccupOSModel.IntermediateHwMedadata" Role="IntermediateHwMedadata" Multiplicity="1" />

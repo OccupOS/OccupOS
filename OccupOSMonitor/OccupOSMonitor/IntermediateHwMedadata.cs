@@ -26,9 +26,9 @@ namespace OccupOSMonitor
         public string BuildingName { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public System.DateTime CreatedAt { get; set; }
-        public int UpdaterId { get; set; }
-        public int CreatorId { get; set; }
-        public int FloorNr { get; set; }
+        public Nullable<int> UpdaterId { get; set; }
+        public Nullable<int> CreatorId { get; set; }
+        public Nullable<int> FloorNr { get; set; }
         public string RoomId { get; set; }
     
         public virtual ICollection<SensorData> SensorDatas { get; set; }
