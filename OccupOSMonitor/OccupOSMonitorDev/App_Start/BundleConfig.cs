@@ -17,6 +17,7 @@ namespace OccupOSMonitorDev.App_Start {
 
             bundles.Add(new Bundle("~/bundles/app", new JsMinify()).Include(
                         "~/Scripts/App/app.js",
+                //possibly have to include store.js before the models (not sure, just as a future hint)
                         "~/Scripts/App/Models/*.js",
                         "~/Scripts/App/Views/*.js",
                         "~/Scripts/App/Controllers/*.js",
