@@ -1,9 +1,15 @@
-﻿<header role="banner">
-  <h1>Test</h1>
-</header>
-<!-- this will insert an instance of the CreateTodoTextField view -->
-{{view Todos.CreateTodoTextField}}
+﻿{{view App.NavbarView}}
 
-<!-- a dynamic section of the view hierarchy that will be filled in
-     response to routing changes -->
-{{outlet}}
+<div id="wrap">
+  <div class="container">
+    {{outlet}}
+  </div>
+  <div id="push"></div>
+</div>
+
+<div id="footer">
+  <div class="container">
+    &copy;2013 {{unbound App.author}}
+  </div>
+</div>
+

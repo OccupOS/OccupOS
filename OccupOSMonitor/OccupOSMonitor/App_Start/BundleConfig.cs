@@ -1,46 +1,33 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace OccupOS
-{
-    public class BundleConfig
-    {
+namespace OccupOSMonitor.App_Start {
+    public class BundleConfig {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
-        public static void RegisterBundles(BundleCollection bundles)
-        {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/libs/jquery-{version}.js"));
+        public static void RegisterBundles(BundleCollection bundles) {
+            bundles.Add(new Bundle("~/bundles/base", new JsMinify()).Include(
+                        "~/scripts/vendor/jquery-{version}.js",
+                        "~/scripts/vendor/bootstrap.js",
+                        "~/scripts/vendor/handlebars.runtime.js",
+                        "~/scripts/vendor/ember.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/plugins/jquery.unobtrusive*",
-                        "~/Scripts/plugins/jquery.validate*"));
+            bundles.Add(new Bundle("~/bundles/modernizr", new JsMinify()).Include(
+                        "~/scripts/vendor/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/json").Include("~/Scripts/libs/json3.js"));
+            bundles.Add(new Bundle("~/bundles/templates", new EmberHandlebarsBundleTransform())
+                        .Include("~/scripts/app/templates/*.hbs"));
 
-            bundles.Add(new ScriptBundle("~/bundles/ember").Include(
-                        "~/Scripts/libs/ember-*",
-                        "~/Scripts/libs/handlebars-*"));
+            bundles.Add(new Bundle("~/bundles/app", new JsMinify()).Include(
+                        "~/scripts/app/App.js",
+                        "~/scripts/app/models/*.js",
+                        "~/scripts/app/views/*.js",
+                        "~/scripts/app/controllers/*.js",
+                        "~/scripts/app/routes/*.js"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/libs/modernizr-*"));
+            bundles.Add(new Bundle("~/Content/css", new CssMinify()).Include(
+                "~/content/bootstrap.css",
+                "~/content/bootstrap-stickyfooter.css",
+                "~/content/bootstrap-responsive.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/main.css"));
-
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
         }
     }
 }

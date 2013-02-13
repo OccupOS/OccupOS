@@ -9,7 +9,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CC43D956-EFFA-4D27-B4D8-82F1A67B597E}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OccupOSMonitor</RootNamespace>
     <AssemblyName>OccupOSMonitor</AssemblyName>
@@ -41,11 +41,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Ember.Handlebars">
-      <HintPath>..\..\packages\csharp-ember-handlebars-compiler.1.2.0-beta1\lib\net40\Ember.Handlebars.dll</HintPath>
+    <Reference Include="BundleTransformer.Closure">
+      <HintPath>..\..\packages\BundleTransformer.Closure.1.6.13\lib\net40\BundleTransformer.Closure.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Core">
+      <HintPath>..\..\packages\BundleTransformer.Core.1.6.18\lib\net40\BundleTransformer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Csso">
+      <HintPath>..\..\packages\BundleTransformer.Csso.1.6.13\lib\net40\BundleTransformer.Csso.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.TypeScript">
+      <HintPath>..\..\packages\BundleTransformer.TypeScript.1.6.18\lib\net40\BundleTransformer.TypeScript.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.WG">
+      <HintPath>..\..\packages\BundleTransformer.WG.1.6.13-alpha\lib\net40\BundleTransformer.WG.dll</HintPath>
+    </Reference>
+    <Reference Include="Ember.Handlebars, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\csharp-ember-handlebars-compiler.1.0.0\lib\net40\Ember.Handlebars.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -65,6 +82,9 @@
     </Reference>
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="MsieJavaScriptEngine">
+      <HintPath>..\..\packages\MsieJavaScriptEngine.1.1.1\lib\net40\MsieJavaScriptEngine.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -101,8 +121,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.1.0-rtm-130208\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.0-alpha1\lib\net40\System.Web.Optimization.dll</HintPath>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -133,18 +154,23 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="WebGrease">
-      <HintPath>..\..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\HandlebarsBundleTransform.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="IntermediateHwMedadata.cs">
       <DependentUpon>OccupOSModel.tt</DependentUpon>
     </Compile>
@@ -164,6 +190,12 @@
       <DependentUpon>OccupOSModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="App_Data\Noesis.Javascript\x64\Noesis.Javascript.dll" />
+    <Content Include="App_Data\Noesis.Javascript\x86\Noesis.Javascript.dll" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-stickyfooter.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Global.asax" />
     <Compile Include="SensorData.cs">
       <DependentUpon>OccupOSModel.tt</DependentUpon>
     </Compile>
@@ -175,27 +207,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Vendor\Twitter\Dev-3.0\bootstrap.css" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.svg" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.svg" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.svg" />
-    <Content Include="Content\Vendor\Twitter\bootstrap-responsive.css" />
-    <Content Include="Content\Vendor\Twitter\bootstrap-responsive.min.css" />
-    <Content Include="Content\Vendor\Twitter\bootstrap.css" />
-    <Content Include="Content\Vendor\Twitter\bootstrap.min.css" />
-    <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings.png" />
-    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.css" />
-    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.min.css" />
-    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.css" />
-    <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.min.css" />
-    <Content Include="Content\main.css" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Images\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Images\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Images\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
     <Content Include="OccupOSModel-0.9.0.sql" />
-    <Content Include="Global.asax" />
     <Content Include="OccupOSModel.edmx.sql" />
-    <Content Include="Scripts\App\app.js" />
-    <Content Include="Scripts\App\app.min.js" />
-    <Content Include="Scripts\App\app.ts" />
     <EntityDeploy Include="OccupOSModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>OccupOSModel.Designer.cs</LastGenOutput>
@@ -213,88 +246,29 @@
       <DependentUpon>OccupOSModel.edmx</DependentUpon>
       <LastGenOutput>OccupOSModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.eot" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.otf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.woff" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.eot" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.otf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.woff" />
     <Content Include="App_Readme\Handlebarsjs_README.md" />
     <Content Include="App_Readme\Handlebarsjs_LICENSE" />
-    <Content Include="Content\Vendor\Twitter\less\accordion.less" />
-    <Content Include="Content\Vendor\Twitter\less\alerts.less" />
-    <Content Include="Content\Vendor\Twitter\less\bootstrap.less" />
-    <Content Include="Content\Vendor\Twitter\less\breadcrumbs.less" />
-    <Content Include="Content\Vendor\Twitter\less\button-groups.less" />
-    <Content Include="Content\Vendor\Twitter\less\buttons.less" />
-    <Content Include="Content\Vendor\Twitter\less\carousel.less" />
-    <Content Include="Content\Vendor\Twitter\less\close.less" />
-    <Content Include="Content\Vendor\Twitter\less\code.less" />
-    <Content Include="Content\Vendor\Twitter\less\component-animations.less" />
-    <Content Include="Content\Vendor\Twitter\less\counters.less" />
-    <Content Include="Content\Vendor\Twitter\less\dropdowns.less" />
-    <Content Include="Content\Vendor\Twitter\less\forms.less" />
-    <Content Include="Content\Vendor\Twitter\less\glyphicons.less" />
-    <Content Include="Content\Vendor\Twitter\less\grid.less" />
-    <Content Include="Content\Vendor\Twitter\less\jumbotron.less" />
-    <Content Include="Content\Vendor\Twitter\less\media.less" />
-    <Content Include="Content\Vendor\Twitter\less\mixins.less" />
-    <Content Include="Content\Vendor\Twitter\less\modals.less" />
-    <Content Include="Content\Vendor\Twitter\less\navbar.less" />
-    <Content Include="Content\Vendor\Twitter\less\navs.less" />
-    <Content Include="Content\Vendor\Twitter\less\normalize.less" />
-    <Content Include="Content\Vendor\Twitter\less\pager.less" />
-    <Content Include="Content\Vendor\Twitter\less\pagination.less" />
-    <Content Include="Content\Vendor\Twitter\less\popovers.less" />
-    <Content Include="Content\Vendor\Twitter\less\progress-bars.less" />
-    <Content Include="Content\Vendor\Twitter\less\responsive-utilities.less" />
-    <Content Include="Content\Vendor\Twitter\less\scaffolding.less" />
-    <Content Include="Content\Vendor\Twitter\less\tables.less" />
-    <Content Include="Content\Vendor\Twitter\less\thumbnails.less" />
-    <Content Include="Content\Vendor\Twitter\less\tooltip.less" />
-    <Content Include="Content\Vendor\Twitter\less\type.less" />
-    <Content Include="Content\Vendor\Twitter\less\utilities.less" />
-    <Content Include="Content\Vendor\Twitter\less\variables.less" />
-    <Content Include="Content\Vendor\Twitter\less\wells.less" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.eot" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.otf" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.woff" />
-    <None Include="Scripts\App\templates\application.hbs" />
-    <None Include="Scripts\Vendor\jQuery\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\App\appDev.js" />
-    <Content Include="Scripts\App\models\intermediateHwMetadata.js" />
-    <Content Include="Scripts\App\models\sensorData.js" />
-    <Content Include="Scripts\App\models\sensorMetadata.js" />
-    <Content Include="Scripts\App\models\user.js" />
-    <Content Include="Scripts\App\models\storeDev.js" />
-    <Content Include="Scripts\App\routes\router.js" />
-    <Content Include="Scripts\Vendor\Ember\ember-data.js" />
-    <Content Include="Scripts\Vendor\Ember\handlebars.runtime.js" />
-    <Content Include="Scripts\Vendor\Ember\ember.js" />
-    <Content Include="Scripts\Vendor\Ember\ember.min.js" />
-    <Content Include="Scripts\Vendor\Ember\handlebars.js" />
-    <Content Include="Scripts\Vendor\Twitter\bootstrap.js" />
-    <Content Include="Scripts\Vendor\Twitter\bootstrap.min.js" />
-    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.js" />
-    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\Vendor\jQuery\jquery-1.9.1.min.map" />
-    <None Include="Scripts\Vendor\jQuery\Plugins\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.min.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\Vendor\jQuery\Plugins\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.js" />
-    <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.min.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-fileupload.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-inputmask.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-rowlink.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.min.js" />
+    <None Include="BundleTransformer.Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\app\App.js" />
+    <Content Include="Scripts\app\controllers\ApplicationController.js" />
+    <Content Include="Scripts\app\controllers\NavbarController.js" />
+    <Content Include="Scripts\app\routes\AppRouter.js" />
+    <Content Include="Scripts\app\views\AboutView.js" />
+    <Content Include="Scripts\app\views\ApplicationView.js" />
+    <Content Include="Scripts\app\views\ContactView.js" />
+    <Content Include="Scripts\app\views\HomeView.js" />
+    <Content Include="Scripts\app\views\NavBarView.js" />
+    <Content Include="Scripts\vendor\bootstrap.js" />
+    <Content Include="Scripts\vendor\ember.js" />
+    <Content Include="Scripts\vendor\handlebars.js" />
+    <Content Include="Scripts\vendor\handlebars.runtime.js" />
+    <Content Include="Scripts\vendor\headless-ember.js" />
+    <None Include="Scripts\vendor\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\vendor\jquery-1.9.1.js" />
+    <Content Include="Scripts\vendor\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\vendor\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -305,18 +279,21 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Scripts\app\templates\about.hbs" />
+    <Content Include="Scripts\app\templates\application.hbs" />
+    <Content Include="Scripts\app\templates\contact.hbs" />
+    <Content Include="Scripts\app\templates\index.hbs" />
+    <Content Include="Scripts\app\templates\navbar.hbs" />
+    <Content Include="Scripts\vendor\jquery-1.9.1.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\index.html" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\controller\" />
-    <Folder Include="Scripts\App\views\" />
+    <Folder Include="Scripts\app\models\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -378,6 +355,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
