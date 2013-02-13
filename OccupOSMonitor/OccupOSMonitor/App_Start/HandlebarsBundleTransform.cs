@@ -3,9 +3,9 @@ using System.Web;
 using System.Globalization;
 using System.Web.Optimization;
 using Ember.Handlebars;
-using OccupOSMonitorDev.Helpers;
+using OccupOSMonitor.Helpers;
 
-namespace OccupOSMonitorDev.App_Start {
+namespace OccupOSMonitor.App_Start {
     public class EmberHandlebarsBundleTransform : IBundleTransform {
         public void Process(BundleContext context, BundleResponse response) {
             var builder = new TemplateBuilder();

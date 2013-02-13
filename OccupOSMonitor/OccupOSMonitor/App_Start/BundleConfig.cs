@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace OccupOSMonitorDev.App_Start {
+namespace OccupOSMonitor.App_Start {
     public class BundleConfig {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles) {
@@ -12,7 +12,7 @@ namespace OccupOSMonitorDev.App_Start {
                         "~/Scripts/Vendor/Ember/ember-data.js"
                         ));
 
-            bundles.Add(new Bundle("~/bundles/templates", new EmberHandlebarsBundleTransform())
+            bundles.Add(new Bundle("~/bundles/templates", new OccupOSMonitor.App_Start.EmberHandlebarsBundleTransform())
                         .Include("~/Scripts/App/Templates/*.hbs"));
 
             bundles.Add(new Bundle("~/bundles/app", new JsMinify()).Include(

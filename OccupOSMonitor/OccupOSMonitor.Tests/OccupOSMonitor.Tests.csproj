@@ -109,12 +109,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OccupOSMonitor\OccupOSMonitor.csproj">
-      <Project>{CC43D956-EFFA-4D27-B4D8-82F1A67B597E}</Project>
-      <Name>OccupOSMonitor %28OccupOSMonitor\OccupOSMonitor%29</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

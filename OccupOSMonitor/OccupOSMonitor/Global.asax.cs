@@ -2,9 +2,9 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using OccupOSMonitorDev.App_Start;
+using OccupOSMonitor.App_Start;
 
-namespace OccupOSMonitorDev {
+namespace OccupOSMonitor {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 

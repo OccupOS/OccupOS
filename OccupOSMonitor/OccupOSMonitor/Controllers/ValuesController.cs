@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 
-namespace OccupOSMonitorDev.Controllers {
+namespace OccupOSMonitor.Controllers {
     public class ValuesController : ApiController {
         // GET api/values
         public IEnumerable<string> Get() {

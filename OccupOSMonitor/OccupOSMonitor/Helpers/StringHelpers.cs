@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace OccupOSMonitorDev.Helpers {
+namespace OccupOSMonitor.Helpers {
     public static class StringHelpers {
         public static string ToCamelCase(this string incoming) {
             string[] words = incoming.Split(' ', '-', '.', '_');
