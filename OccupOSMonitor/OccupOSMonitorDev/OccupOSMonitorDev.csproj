@@ -173,6 +173,11 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Controllers\ApplicationController.js" />
     <Content Include="Scripts\App\Controllers\NavbarController.js" />
+    <Content Include="Scripts\App\Models\intermediateHwMetadata.js" />
+    <Content Include="Scripts\App\Models\sensorData.js" />
+    <Content Include="Scripts\App\Models\sensorMetadata.js" />
+    <Content Include="Scripts\App\Models\store.js" />
+    <Content Include="Scripts\App\Models\user.js" />
     <Content Include="Scripts\App\Routes\router.js" />
     <Content Include="Scripts\App\Views\AboutView.js" />
     <Content Include="Scripts\App\Views\ApplicationView.js" />
@@ -293,7 +298,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

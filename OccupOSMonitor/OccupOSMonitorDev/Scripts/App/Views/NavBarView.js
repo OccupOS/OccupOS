@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../vendor/ember.js" />
 /// <reference path="../App.js" />
 
-App.NavbarView = Em.View.extend({
+OccupOS.NavbarView = Ember.View.extend({
     templateName: 'navbar'
 })

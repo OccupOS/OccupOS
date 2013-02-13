@@ -12,8 +12,9 @@ namespace OccupOSMonitorDev.App_Start {
             var usTextInfo = new CultureInfo("en-US", false).TextInfo;
 
             foreach (var assetFile in response.Files) {
-                var template = File.ReadAllText(assetFile.FullName);
-                var templateName = Path.GetFileNameWithoutExtension(assetFile.FullName).ToCamelCase();
+                var path = context.HttpContext.Server.MapPath(assetFile.VirtualPath);
+                var template = File.ReadAllText(path);
+                var templateName = Path.GetFileNameWithoutExtension(path).ToCamelCase();
                 builder.Register(templateName, template);
             }
 

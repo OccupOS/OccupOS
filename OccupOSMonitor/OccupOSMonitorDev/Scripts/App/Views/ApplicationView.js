@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../vendor/ember.js" />
 /// <reference path="../App.js" />
 
-App.ApplicationView = Em.View.extend({
+OccupOS.ApplicationView = Ember.View.extend({
     templateName: 'application'
 })

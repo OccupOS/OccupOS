@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../vendor/ember.js" />
 /// <reference path="../App.js" />
 
-App.ContactView = Em.View.extend({
+OccupOS.ContactView = Ember.View.extend({
     templateName: 'contact'
 })
