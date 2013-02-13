@@ -170,6 +170,15 @@
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
     <EmbeddedResource Include="Scripts\Vendor\ember.js" />
+    <Content Include="Scripts\App\app.js" />
+    <Content Include="Scripts\App\Controllers\ApplicationController.js" />
+    <Content Include="Scripts\App\Controllers\NavbarController.js" />
+    <Content Include="Scripts\App\Routes\router.js" />
+    <Content Include="Scripts\App\Views\AboutView.js" />
+    <Content Include="Scripts\App\Views\ApplicationView.js" />
+    <Content Include="Scripts\App\Views\ContactView.js" />
+    <Content Include="Scripts\App\Views\HomeView.js" />
+    <Content Include="Scripts\App\Views\NavBarView.js" />
     <Content Include="Scripts\Vendor\bootstrap.js" />
     <Content Include="Scripts\Vendor\Ember\ember-data.js" />
     <Content Include="Scripts\Vendor\Ember\ember.js" />
@@ -225,6 +234,11 @@
     <Content Include="Content\Vendor\Twitter\less\utilities.less" />
     <Content Include="Content\Vendor\Twitter\less\variables.less" />
     <Content Include="Content\Vendor\Twitter\less\wells.less" />
+    <Content Include="Scripts\App\Templates\about.hbs" />
+    <Content Include="Scripts\App\Templates\application.hbs" />
+    <Content Include="Scripts\App\Templates\contact.hbs" />
+    <Content Include="Scripts\App\Templates\index.hbs" />
+    <Content Include="Scripts\App\Templates\navbar.hbs" />
     <None Include="Scripts\Vendor\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\Vendor\jquery-1.9.1.js" />
     <Content Include="Scripts\Vendor\jquery-1.9.1.min.js" />
@@ -279,6 +293,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\App\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
