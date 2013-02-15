@@ -6,6 +6,7 @@ namespace OccupOSNode.NetworkControllers.Arduino
 {
     class ArduinoEthernetController
     {
+        
         private Socket socket;
         public ArduinoEthernetController(string hostName, int port)
         {
@@ -17,6 +18,8 @@ namespace OccupOSNode.NetworkControllers.Arduino
             socket.SetSocketOption(SocketOptionLevel.Tcp,
             SocketOptionName.NoDelay, true);
             socket.SendTimeout = 5000;
+            
+
         }
 
         public void sendData(string data)
