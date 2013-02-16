@@ -65,6 +65,7 @@
     <Compile Include="Sensors\Arduino\ArduinoWeatherShield1Sensor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TestServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Kinect">
