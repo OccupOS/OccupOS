@@ -8,11 +8,11 @@ using OccupOS.CommonLibrary.Sensors;
  ============================================================================================*/
 
 namespace OccupOSNode.Sensors.Kinect {
-    internal class KinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
+    internal class NodeKinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
     {
         private KinectSensor ksensor;
 
-        public KinectSensor(String id) : base(id) {
+        public NodeKinectSensor(String id) : base(id) {
             //unfinished, no stop conditions or polling
             initializeKinect(); //temp: single init attempt
         }
@@ -61,7 +61,7 @@ namespace OccupOSNode.Sensors.Kinect {
             }
         }*/
 
-        int[] GetPlayerData(DepthImageFrame depthFrame, SkeletonFrame skeletonFrame) {
+        private int[] GetPlayerPosition(DepthImageFrame depthFrame, SkeletonFrame skeletonFrame) {
             Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
             int[] pointdata = new int[skeletonFrame.SkeletonArrayLength * 3];
             skeletonFrame.CopySkeletonDataTo(allskeletons);
@@ -90,7 +90,17 @@ namespace OccupOSNode.Sensors.Kinect {
             return pointdata;
         }
 
-        void StopSensor(KinectSensor sensor) {
+        private int GetSkeletonCount(SkeletonFrame skeletonFrame) {
+            int count = 0;
+            Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+            skeletonFrame.CopySkeletonDataTo(allskeletons);
+            foreach (Skeleton skeleton in allskeletons) {
+                if (skeleton.TrackingState == SkeletonTrackingState.Tracked) count++;
+            }
+            return count;
+        }
+
+        public void StopSensor(KinectSensor sensor) {
             if (sensor != null) {
                 sensor.Stop();
             }
