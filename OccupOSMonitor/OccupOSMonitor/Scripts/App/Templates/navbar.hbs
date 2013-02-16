@@ -1,16 +1,19 @@
-﻿<div class="navbar navbar-fixed-top">
-      <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="#">{{unbound OccupOS.name}}</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav pull-right">
-          <li>
-            {{#linkTo "index"}}Settings{{/linkTo}}
-          </li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-</div>
+﻿<header role="banner">
+    <div class="navbar navbar-fixed-top">
+        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- possibly use <figure> and <figcaption> or <h1> for logo -->
+        <a class="brand" href="#">{{unbound OccupOS.name}}</a>
+        <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+                <li>
+                    {{#linkTo "index"}}Settings{{/linkTo}}
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</header>

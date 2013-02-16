@@ -20,12 +20,12 @@
                     <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/Images/apple-touch-icon-57-precomposed.png")">
                                    <link rel="shortcut icon" href="@Url.Content("~/Images/favicon.png")">
 </head>
-<body>
-    @RenderBody()
-
-    @Scripts.Render("~/bundles/base")
-    @Scripts.Render("~/bundles/templates")
-    @Scripts.Render("~/bundles/app")
-    @RenderSection("scripts", required: false)
-</body>
+    <body role="application">
+        @RenderBody()
+        
+        @Scripts.Render("~/bundles/base")
+        @Scripts.Render("~/bundles/templates")
+        @Scripts.Render("~/bundles/app")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
