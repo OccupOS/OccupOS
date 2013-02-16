@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Kinect;
+using OccupOS.CommonLibrary.Sensors;
 
 /*===========================================================================================
  * NOTE: The KinectSensor class is not designed to work with the .NET Micro Framework!

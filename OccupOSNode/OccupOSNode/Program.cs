@@ -1,7 +1,15 @@
-﻿namespace OccupOSNode {
-    public class Program {
-        public static void Main() {
-            // Create the manager / timers etc.
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OccupOSNode
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
         }
     }
 }

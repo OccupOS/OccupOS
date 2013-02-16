@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace OccupOSNode.Tests
+namespace OccupOS.Tests
 {
     [TestClass]
     public class UnitTest1
