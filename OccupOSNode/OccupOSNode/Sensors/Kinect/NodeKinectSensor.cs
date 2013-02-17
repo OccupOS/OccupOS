@@ -1,16 +1,21 @@
 using System;
 using Microsoft.Kinect;
 using OccupOS.CommonLibrary.Sensors;
+using System.Collections;
 
 /*===========================================================================================
  * NOTE: The KinectSensor class is not designed to work with the .NET Micro Framework!
- * When building for the Netduino you should not include this class or there will be errors.
+ * When building for the Netduino you should not include this class.
  ============================================================================================*/
 
 namespace OccupOSNode.Sensors.Kinect {
     internal class NodeKinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
     {
         private KinectSensor ksensor;
+        private Queue skeletonQueue = new Queue();
+        private Queue depthQueue = new Queue();
+        private static int QUEUE_MAX_LENGTH = 6;
+        private static int MAX_TIME_DIFFERENCE = 200;
 
         public NodeKinectSensor(String id) : base(id) {
             //unfinished, no stop conditions or polling
@@ -22,14 +27,58 @@ namespace OccupOSNode.Sensors.Kinect {
         }
 
         public int GetEntityCount() {
-            throw new NotImplementedException();
+            int count = 0;
+            if (ksensor != null && ksensor.Status == KinectStatus.Connected) {
+                using (SkeletonFrame skeletonFrame = ksensor.SkeletonStream.OpenNextFrame(1000)) {
+                    if (skeletonFrame != null) {
+                        count = GetSkeletonCount(skeletonFrame);
+                    }
+                }
+            } else throw new Exception("Kinect sensor not found");
+            return count;
         }
 
         public Position[] GetEntityPositions() {
-            throw new NotImplementedException();
+            if (ksensor != null && ksensor.Status == KinectStatus.Connected) {
+                for (int k = 0; k < QUEUE_MAX_LENGTH; k++) {
+                    skeletonQueue.Enqueue(ksensor.SkeletonStream.OpenNextFrame(100));
+                    depthQueue.Enqueue(ksensor.DepthStream.OpenNextFrame(100));
+                }
+                SkeletonFrame skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue(), 
+                    synchronizedSkeleton = skeletonFrame;
+                DepthImageFrame depthFrame = (DepthImageFrame)depthQueue.Dequeue(), 
+                    synchronizedDepth = depthFrame;
+                long lowest = MAX_TIME_DIFFERENCE;
+                for (int l = 0; l < QUEUE_MAX_LENGTH-1; l++) {
+                    if (skeletonFrame != null && depthFrame != null) {
+                        long diff = Math.Abs(skeletonFrame.Timestamp - depthFrame.Timestamp);
+                        if (diff == 0) break;
+                        if (diff < lowest) {
+                            lowest = diff;
+                            synchronizedSkeleton = skeletonFrame;
+                            synchronizedDepth = depthFrame;
+                            if (skeletonFrame.Timestamp < depthFrame.Timestamp)
+                                skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
+                            else
+                                depthFrame = (DepthImageFrame)depthQueue.Dequeue();
+                        } else break;
+                    } else {
+                        if (skeletonFrame == null) skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
+                        if (depthFrame == null) depthFrame = (DepthImageFrame)depthQueue.Dequeue();
+                    }
+                }
+                skeletonQueue.Clear();
+                depthQueue.Clear();
+                if (synchronizedSkeleton != null && synchronizedDepth != null) {
+                    int[] playerData = GetPlayerPosition(synchronizedSkeleton, synchronizedDepth);
+                    return null; //to be completed (+seperate synchro stuff out into new method)
+                } else return null;
+            } else throw new Exception("Kinect sensor not found");
         }
 
         public void initializeKinect() {
+            skeletonQueue.Clear();
+            depthQueue.Clear();
             if (KinectSensor.KinectSensors.Count > 0) {
                 ksensor = KinectSensor.KinectSensors[0];
 
@@ -50,18 +99,7 @@ namespace OccupOSNode.Sensors.Kinect {
             }
         }
 
-        /*Replace Event model with polling model:
-        void ksensor_AllFramesReady(object sender, AllFramesReadyEventArgs e) {
-            using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
-            using (DepthImageFrame depthFrame = e.OpenDepthImageFrame()) {
-                if (depthFrame == null || skeletonFrame == null) {
-                    return;
-                }
-                int[] playerdata = GetPlayerData(depthFrame, skeletonFrame);
-            }
-        }*/
-
-        private int[] GetPlayerPosition(DepthImageFrame depthFrame, SkeletonFrame skeletonFrame) {
+        private int[] GetPlayerPosition(SkeletonFrame skeletonFrame, DepthImageFrame depthFrame) {
             Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
             int[] pointdata = new int[skeletonFrame.SkeletonArrayLength * 3];
             skeletonFrame.CopySkeletonDataTo(allskeletons);
