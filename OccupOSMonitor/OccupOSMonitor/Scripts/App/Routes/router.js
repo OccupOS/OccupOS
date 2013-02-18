@@ -1,6 +1,6 @@
-﻿/// <reference path="../App.js" />
-/// <reference path="../../vendor/ember.js" />
+﻿/// <reference path="../../_references.js" />
 
+//TO-DO: this.resource() for router
 OccupOS.Router.map(function () {
     this.route("about", { path: "/about" });
     this.route("contact", { path: "/contact" });

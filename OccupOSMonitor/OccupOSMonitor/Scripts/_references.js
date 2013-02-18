@@ -1,7 +1,9 @@
 ﻿/// <reference path="Vendor/jQuery/jquery-1.9.1.js" />
-/// <reference path="libs/jquery-2.0.0b1js" />
-/// <reference path="Vendor/Ember/ember-1.0.0-pre.4.js" />
+/// <reference path="Vendor/Ember/ember.js" />
+/// <reference path="Vendor/Ember/ember-data.js" />
 /// <reference path="Vendor/Ember/handlebars.js" />
 /// <reference path="Vendor/Twitter/bootstrap.js" />
-/// <reference path="plugins/jquery.unobtrusive-ajaxjs" />
-/// <reference path="json3.js" />
+/// <reference path="Vendor/JQuery/Plugins/jquery.validate.js"/>
+/// <reference path="Vendor/JQuery/Plugins/jquery.validate.unobtrusive.js"/>
+/// <reference path="Vendor/JQuery/Plugins/jquery.unobtrusive-ajax.js" />
+/// <reference path="Vendor/Misc/json3.js" />
