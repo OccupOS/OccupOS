@@ -34,6 +34,21 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             }
         }
 
+        public override string GetPacket() {
+            var sensorData = new SensorData {
+                AnalogLight = GetAnalogLightValue()
+            };
+
+            var jsonSerializer = new Serializer();
+            return jsonSerializer.Serialize(sensorData);
+        }
+
+        public float GetAnalogLightValue() {
+            digitalValue = (float)input.Read();
+            analogValue = (float)(digitalValue / 1023 * 3.3);
+            return analogValue;
+        }
+
         private void Setup() {
             ports.Add(0, Pins.GPIO_PIN_A0);
             ports.Add(1, Pins.GPIO_PIN_A1);
@@ -41,24 +56,6 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             ports.Add(3, Pins.GPIO_PIN_A3);
             ports.Add(4, Pins.GPIO_PIN_A4);
             ports.Add(5, Pins.GPIO_PIN_A5);
-        }
-
-        public override string Poll()
-        {
-            var sensorData = new SensorData
-                {
-                    AnalogLight = GetAnalogLightValue()
-                };
-
-            var jsonSerializer = new Serializer();
-            return jsonSerializer.Serialize(sensorData);
-        }
-
-        public float GetAnalogLightValue()
-        {
-            digitalValue = (float)input.Read();
-            analogValue = (float)(digitalValue / 1023 * 3.3);
-            return analogValue;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             data = new byte[4];
         }
 
-        public override String Poll() {
+        public override String GetPacket() {
             var sensorData = new SensorData
                 {
                     Humidity = GetHumidity(),
