@@ -11,8 +11,7 @@ namespace OccupOSNode {
             OccupOSNode.Sensors.Kinect.NodeKinectSensor testsensor
                 = new OccupOSNode.Sensors.Kinect.NodeKinectSensor("testsensor");
             while (true) {
-                //Console.WriteLine(testsensor.GetEntityCount());
-                testsensor.GetPacket();
+                Console.WriteLine(testsensor.GetEntityCount());
             }
         }
     }

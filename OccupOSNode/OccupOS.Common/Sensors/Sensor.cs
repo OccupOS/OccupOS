@@ -11,6 +11,6 @@ namespace OccupOS.CommonLibrary.Sensors
             ID = id;
         }
 
-        public abstract String GetPacket();	
+        public abstract String GetDataAsJSON();	
     }
 }

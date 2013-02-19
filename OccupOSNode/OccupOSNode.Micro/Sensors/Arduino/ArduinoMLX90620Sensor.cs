@@ -9,7 +9,7 @@ using OccupOS.CommonLibrary.Sensors;
         {
         }
 
-        public override string GetPacket() 
+        public override string GetDataAsJSON() 
         {
             throw new NotImplementedException();
         }

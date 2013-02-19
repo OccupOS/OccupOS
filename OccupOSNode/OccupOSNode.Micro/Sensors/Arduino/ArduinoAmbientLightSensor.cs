@@ -21,7 +21,7 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             }
         }
 
-        public override string GetPacket() {
+        public override string GetDataAsJSON() {
             var sensorData = new SensorData {
                 AnalogLight = GetAnalogLightValue()
             };

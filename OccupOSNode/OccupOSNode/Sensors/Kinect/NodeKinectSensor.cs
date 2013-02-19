@@ -27,7 +27,7 @@ namespace OccupOSNode.Sensors.Kinect {
             findKinect(); //temp: single init attempt
         }
 
-        public override string GetPacket() {
+        public override string GetDataAsJSON() {
             var sensorData = new SensorData {
                 EntityCount = GetEntityCount(),
                 EntityPositions = GetEntityPositions()
