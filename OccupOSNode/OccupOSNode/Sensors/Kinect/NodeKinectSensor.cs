@@ -10,13 +10,12 @@ namespace OccupOSNode.Sensors.Kinect {
  * NOTE: The KinectSensor class is not designed to work with the .NET Micro Framework!
  * When building for the Netduino you should not include this class.
  ============================================================================================*/
-
+    
     internal class NodeKinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
     {
         private struct SynchedFrames {
             public SkeletonFrame s_frame;
             public DepthImageFrame d_frame;
-
         }
         private KinectSensor ksensor;
         private static int QUEUE_MAX_LENGTH = 6;
@@ -45,7 +44,7 @@ namespace OccupOSNode.Sensors.Kinect {
                         count = CountSkeletons(skeletonFrame);
                     }
                 }
-            } else throw new Exception("Kinect sensor not found");
+            } else throw new SensorNotFoundException("Kinect sensor not found");
             return count;
         }
 
@@ -62,7 +61,7 @@ namespace OccupOSNode.Sensors.Kinect {
                     }
                     return entityPositions;
                 } else return null;
-            } else throw new Exception("Kinect sensor not found");
+            } else throw new SensorNotFoundException("Kinect sensor not found");
         }
 
         public void findKinect() {
@@ -78,9 +77,8 @@ namespace OccupOSNode.Sensors.Kinect {
                         Prediction = 0.0f,
                         JitterRadius = 0.5f,
                         MaxDeviationRadius = 0.05f
-                    }; //default params: 0.5f, 0.5f, 0.0f, 0.05f, 0.04f
+                    };
                     ksensor.SkeletonStream.Enable(tsparams);
-                    //ksensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(ksensor_AllFramesReady);
                     ksensor.Start();
                 }
             }
