@@ -12,15 +12,18 @@ namespace OccupOSNode.Sensors.Kinect {
 
     internal class NodeKinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
     {
+        private struct SynchedFrames {
+            public SkeletonFrame s_frame;
+            public DepthImageFrame d_frame;
+
+        }
         private KinectSensor ksensor;
-        private Queue skeletonQueue = new Queue();
-        private Queue depthQueue = new Queue();
         private static int QUEUE_MAX_LENGTH = 6;
         private static int MAX_TIME_DIFFERENCE = 200;
 
         public NodeKinectSensor(String id) : base(id) {
             //unfinished, no stop conditions or polling
-            initializeKinect(); //temp: single init attempt
+            findKinect(); //temp: single init attempt
         }
 
         public override string GetPacket() {
@@ -41,45 +44,15 @@ namespace OccupOSNode.Sensors.Kinect {
 
         public Position[] GetEntityPositions() {
             if (ksensor != null && ksensor.Status == KinectStatus.Connected) {
-                for (int k = 0; k < QUEUE_MAX_LENGTH; k++) {
-                    skeletonQueue.Enqueue(ksensor.SkeletonStream.OpenNextFrame(100));
-                    depthQueue.Enqueue(ksensor.DepthStream.OpenNextFrame(100));
-                }
-                SkeletonFrame skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue(), 
-                    synchronizedSkeleton = skeletonFrame;
-                DepthImageFrame depthFrame = (DepthImageFrame)depthQueue.Dequeue(), 
-                    synchronizedDepth = depthFrame;
-                long lowest = MAX_TIME_DIFFERENCE;
-                for (int l = 0; l < QUEUE_MAX_LENGTH-1; l++) {
-                    if (skeletonFrame != null && depthFrame != null) {
-                        long diff = Math.Abs(skeletonFrame.Timestamp - depthFrame.Timestamp);
-                        if (diff == 0) break;
-                        if (diff < lowest) {
-                            lowest = diff;
-                            synchronizedSkeleton = skeletonFrame;
-                            synchronizedDepth = depthFrame;
-                            if (skeletonFrame.Timestamp < depthFrame.Timestamp)
-                                skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
-                            else
-                                depthFrame = (DepthImageFrame)depthQueue.Dequeue();
-                        } else break;
-                    } else {
-                        if (skeletonFrame == null) skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
-                        if (depthFrame == null) depthFrame = (DepthImageFrame)depthQueue.Dequeue();
-                    }
-                }
-                skeletonQueue.Clear();
-                depthQueue.Clear();
-                if (synchronizedSkeleton != null && synchronizedDepth != null) {
-                    int[] playerData = GetPlayerPosition(synchronizedSkeleton, synchronizedDepth);
-                    return null; //to be completed (+seperate synchro stuff out into new method)
+                SynchedFrames frames = PollSynchronizedFrames();
+                if (frames.s_frame != null && frames.d_frame != null) {
+                    int[] playerData = GetPlayerPosition(frames.s_frame, frames.d_frame);
+                    return null; //to be completed
                 } else return null;
             } else throw new Exception("Kinect sensor not found");
         }
 
-        public void initializeKinect() {
-            skeletonQueue.Clear();
-            depthQueue.Clear();
+        public void findKinect() {
             if (KinectSensor.KinectSensors.Count > 0) {
                 ksensor = KinectSensor.KinectSensors[0];
 
@@ -98,6 +71,40 @@ namespace OccupOSNode.Sensors.Kinect {
                     ksensor.Start();
                 }
             }
+        }
+
+        private SynchedFrames PollSynchronizedFrames() {
+            SynchedFrames frames = new SynchedFrames();
+            Queue skeletonQueue = new Queue();
+            Queue depthQueue = new Queue();
+            long lowest = MAX_TIME_DIFFERENCE;
+            for (int k = 0; k < QUEUE_MAX_LENGTH; k++) {
+                skeletonQueue.Enqueue(ksensor.SkeletonStream.OpenNextFrame(100));
+                depthQueue.Enqueue(ksensor.DepthStream.OpenNextFrame(100));
+            }
+            SkeletonFrame skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
+                frames.s_frame = skeletonFrame;
+                DepthImageFrame depthFrame = (DepthImageFrame)depthQueue.Dequeue();
+                frames.d_frame = depthFrame;
+            for (int l = 0; l < QUEUE_MAX_LENGTH - 1; l++) {
+                if (skeletonFrame != null && depthFrame != null) {
+                    long diff = Math.Abs(skeletonFrame.Timestamp - depthFrame.Timestamp);
+                    if (diff == 0) break;
+                    if (diff < lowest) {
+                        lowest = diff;
+                        frames.s_frame = skeletonFrame;
+                        frames.d_frame = depthFrame;
+                        if (skeletonFrame.Timestamp < depthFrame.Timestamp)
+                            skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
+                        else
+                            depthFrame = (DepthImageFrame)depthQueue.Dequeue();
+                    } else break;
+                } else {
+                    if (skeletonFrame == null) skeletonFrame = (SkeletonFrame)skeletonQueue.Dequeue();
+                    if (depthFrame == null) depthFrame = (DepthImageFrame)depthQueue.Dequeue();
+                }
+            }
+            return frames;
         }
 
         private int[] GetPlayerPosition(SkeletonFrame skeletonFrame, DepthImageFrame depthFrame) {
