@@ -12,5 +12,8 @@ namespace OccupOS.CommonLibrary.Sensors
         public float Temperature;
 
         public float AnalogLight;
+
+        public int EntityCount;
+        public Position[] EntityPositions;
     }
 }

@@ -4,6 +4,7 @@ namespace OccupOSNode.Sensors.Kinect {
     using Microsoft.Kinect;
     using OccupOS.CommonLibrary.Sensors;
     using System.Collections;
+    using IndianaJones.NETMF.Json;
 
 /*===========================================================================================
  * NOTE: The KinectSensor class is not designed to work with the .NET Micro Framework!
@@ -27,7 +28,13 @@ namespace OccupOSNode.Sensors.Kinect {
         }
 
         public override string GetPacket() {
-            throw new NotImplementedException();
+            var sensorData = new SensorData {
+                EntityCount = GetEntityCount(),
+                EntityPositions = GetEntityPositions()
+            };
+
+            var jsonSerializer = new Serializer();
+            return jsonSerializer.Serialize(sensorData);
         }
 
         public int GetEntityCount() {
@@ -35,7 +42,7 @@ namespace OccupOSNode.Sensors.Kinect {
             if (ksensor != null && ksensor.Status == KinectStatus.Connected) {
                 using (SkeletonFrame skeletonFrame = ksensor.SkeletonStream.OpenNextFrame(1000)) {
                     if (skeletonFrame != null) {
-                        count = GetSkeletonCount(skeletonFrame);
+                        count = CountSkeletons(skeletonFrame);
                     }
                 }
             } else throw new Exception("Kinect sensor not found");
@@ -46,8 +53,14 @@ namespace OccupOSNode.Sensors.Kinect {
             if (ksensor != null && ksensor.Status == KinectStatus.Connected) {
                 SynchedFrames frames = PollSynchronizedFrames();
                 if (frames.s_frame != null && frames.d_frame != null) {
-                    int[] playerData = GetPlayerPosition(frames.s_frame, frames.d_frame);
-                    return null; //to be completed
+                    int[] playerData = CalculatePlayerPositions(frames.s_frame, frames.d_frame);
+                    Position[] entityPositions = new Position[frames.s_frame.SkeletonArrayLength];
+                    for (int k = 0; k < entityPositions.Length; k++) {
+                        entityPositions[k].X = playerData[k*3];
+                        entityPositions[k].Y = playerData[(k*3)+1];
+                        entityPositions[k].Depth = playerData[(k*3)+2];
+                    }
+                    return entityPositions;
                 } else return null;
             } else throw new Exception("Kinect sensor not found");
         }
@@ -107,7 +120,7 @@ namespace OccupOSNode.Sensors.Kinect {
             return frames;
         }
 
-        private int[] GetPlayerPosition(SkeletonFrame skeletonFrame, DepthImageFrame depthFrame) {
+        private int[] CalculatePlayerPositions(SkeletonFrame skeletonFrame, DepthImageFrame depthFrame) {
             Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
             int[] pointdata = new int[skeletonFrame.SkeletonArrayLength * 3];
             skeletonFrame.CopySkeletonDataTo(allskeletons);
@@ -136,7 +149,7 @@ namespace OccupOSNode.Sensors.Kinect {
             return pointdata;
         }
 
-        private int GetSkeletonCount(SkeletonFrame skeletonFrame) {
+        private int CountSkeletons(SkeletonFrame skeletonFrame) {
             int count = 0;
             Skeleton[] allskeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
             skeletonFrame.CopySkeletonDataTo(allskeletons);
