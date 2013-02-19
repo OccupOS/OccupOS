@@ -20,10 +20,15 @@ namespace OccupOSNode.Sensors.Kinect {
         private KinectSensor ksensor;
         private static int QUEUE_MAX_LENGTH = 6;
         private static int MAX_TIME_DIFFERENCE = 200;
+        private static int MAX_AUTO_CONNECTION_ATTEMPTS = 10;
 
         public NodeKinectSensor(String id) : base(id) {
-            //unfinished, no stop conditions or polling
-            findKinect(); //temp: single init attempt
+            Boolean connected = false;
+            for (int k = 0; k < MAX_AUTO_CONNECTION_ATTEMPTS; k++) {
+                connected = FindKinectSensor();
+                if (connected) break;
+            }
+
         }
 
         public override string GetDataAsJSON() {
@@ -64,7 +69,7 @@ namespace OccupOSNode.Sensors.Kinect {
             } else throw new SensorNotFoundException("Kinect sensor not found");
         }
 
-        public void findKinect() {
+        public Boolean FindKinectSensor() {
             if (KinectSensor.KinectSensors.Count > 0) {
                 ksensor = KinectSensor.KinectSensors[0];
 
@@ -80,8 +85,10 @@ namespace OccupOSNode.Sensors.Kinect {
                     };
                     ksensor.SkeletonStream.Enable(tsparams);
                     ksensor.Start();
+                    return true;
                 }
             }
+            return false;
         }
 
         private SynchedFrames PollSynchronizedFrames() {
@@ -126,8 +133,8 @@ namespace OccupOSNode.Sensors.Kinect {
 
             foreach (Skeleton skeleton in allskeletons) {
                 if (skeleton.TrackingState == SkeletonTrackingState.Tracked) {
-                    Joint jointpoint = skeleton.Joints[JointType.Head];
-                    if (jointpoint.TrackingState == JointTrackingState.Tracked) { //try other points?
+                    Joint jointpoint = BestTrackedJoint(skeleton);
+                    if (jointpoint.TrackingState == JointTrackingState.Tracked) {
                         var depthImagePoint = depthFrame.MapFromSkeletonPoint(jointpoint.Position);
                         pointdata[k] = depthImagePoint.Depth;
                         pointdata[k + 1] = depthImagePoint.X;
@@ -157,10 +164,41 @@ namespace OccupOSNode.Sensors.Kinect {
             return count;
         }
 
+        private Joint BestTrackedJoint(Skeleton skeleton) {
+            Joint joint = skeleton.Joints[JointType.Head];
+            if (joint.TrackingState != JointTrackingState.Tracked) {
+                joint = skeleton.Joints[JointType.ShoulderCenter];
+                if (joint.TrackingState != JointTrackingState.Tracked) {
+                    joint = skeleton.Joints[JointType.Spine];
+                    if (joint.TrackingState != JointTrackingState.Tracked) {
+                        joint = skeleton.Joints[JointType.HipCenter];
+                        if (joint.TrackingState != JointTrackingState.Tracked) {
+                            joint = skeleton.Joints[JointType.HandRight];
+                            if (joint.TrackingState != JointTrackingState.Tracked) {
+                                joint = skeleton.Joints[JointType.HandLeft];
+                                if (joint.TrackingState != JointTrackingState.Tracked) {
+                                    joint = skeleton.Joints[JointType.FootRight];
+                                    if (joint.TrackingState != JointTrackingState.Tracked) {
+                                        joint = skeleton.Joints[JointType.FootLeft];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return joint;
+        }
+
         public void StopSensor(KinectSensor sensor) {
             if (sensor != null) {
                 sensor.Stop();
             }
+        }
+
+        public Boolean GetSensorConnectionStatus() {
+            if (ksensor != null && ksensor.Status == KinectStatus.Connected) return true;
+            else return false;
         }
     }
 }
