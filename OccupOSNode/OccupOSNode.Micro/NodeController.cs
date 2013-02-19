@@ -35,7 +35,7 @@ namespace OccupOSNode.Micro {
             {
                 if (s is Sensor) 
                 {
-                    sensorReadings.Add(((Sensor)s).Poll());
+                    sensorReadings.Add(((Sensor)s).GetPacket());
                 }
             }
         }

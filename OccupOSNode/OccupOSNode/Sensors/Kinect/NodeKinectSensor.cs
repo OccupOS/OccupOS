@@ -1,14 +1,15 @@
-using System;
-using Microsoft.Kinect;
-using OccupOS.CommonLibrary.Sensors;
-using System.Collections;
+namespace OccupOSNode.Sensors.Kinect {
+
+    using System;
+    using Microsoft.Kinect;
+    using OccupOS.CommonLibrary.Sensors;
+    using System.Collections;
 
 /*===========================================================================================
  * NOTE: The KinectSensor class is not designed to work with the .NET Micro Framework!
  * When building for the Netduino you should not include this class.
  ============================================================================================*/
 
-namespace OccupOSNode.Sensors.Kinect {
     internal class NodeKinectSensor : Sensor, ISoundSensor, IEntityPositionSensor, IEntityCountSensor
     {
         private KinectSensor ksensor;
@@ -22,7 +23,7 @@ namespace OccupOSNode.Sensors.Kinect {
             initializeKinect(); //temp: single init attempt
         }
 
-        public override string Poll() {
+        public override string GetPacket() {
             throw new NotImplementedException();
         }
 
