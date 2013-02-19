@@ -75,5 +75,9 @@
       <Project>{46480BCF-F6F2-4E84-BDD4-F478BC9F6749}</Project>
       <Name>IndianaJones.NETMF.Json</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OccupOS.Common\OccupOS.Common.csproj">
+      <Project>{0D871D10-3625-4C8E-8EAD-631C27A60EC6}</Project>
+      <Name>OccupOS.Common</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

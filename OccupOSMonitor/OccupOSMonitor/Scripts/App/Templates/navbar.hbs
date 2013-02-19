@@ -1,16 +1,20 @@
 ﻿<header role="banner">
+    <!-- possibly add <nav></nav> element for html5 compliance-->
     <div class="navbar navbar-fixed-top">
-        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+        <button class="navbar-toggle" data-target=".nav-collapse" data-toggle="collapse" type="button">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
         <!-- possibly use <figure> and <figcaption> or <h1> for logo -->
-        <a class="navbar-brand" href="#">{{unbound OccupOS.name}}</a>
+        <img src="/Images/OccupOSIcon.png" style="float: left; margin-top:5px; margin-right: 5px;" alt="logo"></img>
+        <a class="navbar-brand" href="#">   
+          {{unbound OccupOS.name}}
+        </a>
         <div class="nav-collapse collapse">
             <ul class="nav pull-right">
                 <li>
-                    {{#linkTo "index"}}Settings{{/linkTo}}
+                    {{#linkTo "index"}}<span class="glyphicon glyphicon-cog"></span>{{/linkTo}}
                 </li>
             </ul>
         </div>

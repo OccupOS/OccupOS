@@ -48,10 +48,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\packages\NHibernate.3.3.3-CR1\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -123,7 +132,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\HandlebarsBundleTransform.cs" />
+    <Compile Include="App_Start\EmberHandlebarsBundleTransform.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -141,9 +150,9 @@
     <Content Include="Content\Vendor\Twitter\bootstrap.css" />
     <Content Include="Content\Vendor\Twitter\bootstrap.min.css" />
     <Content Include="Content\Vendor\Twitter\Dev-3.0\bootstrap.css" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.svg" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.svg" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.svg" />
+    <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_fill.svg" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_stroke.svg" />
     <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings-white.png" />
     <Content Include="Content\Vendor\Twitter\images\glyphicons-halflings.png" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.css" />
@@ -151,6 +160,9 @@
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphiconshalflings-regular.svg" />
+    <Content Include="fonts\iconic_fill.svg" />
+    <Content Include="fonts\iconic_stroke.svg" />
     <Content Include="Global.asax" />
     <Content Include="App_Readme\Handlebarsjs_README.md" />
     <Content Include="App_Readme\Handlebarsjs_LICENSE" />
@@ -161,37 +173,51 @@
     <Content Include="Images\favicon.png" />
     <Content Include="Images\glyphicons-halflings-white.png" />
     <Content Include="Images\glyphicons-halflings.png" />
-    <Content Include="Scripts\App\app.js" />
+    <Content Include="Images\OccupOSIcon.png" />
+    <Content Include="Images\OccupOSLogo.png" />
+    <Content Include="Images\paper_fibers.png" />
+    <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\ApplicationController.js" />
     <Content Include="Scripts\App\Controllers\NavbarController.js" />
-    <Content Include="Scripts\App\Models\intermediateHwMetadata.js" />
-    <Content Include="Scripts\App\Models\sensorData.js" />
-    <Content Include="Scripts\App\Models\sensorMetadata.js" />
-    <Content Include="Scripts\App\Models\store.js" />
-    <Content Include="Scripts\App\Models\user.js" />
-    <Content Include="Scripts\App\Routes\monitor_route.js" />
-    <Content Include="Scripts\App\Routes\router.js" />
+    <Content Include="Scripts\App\Models\IntermediateHwMetadata.js" />
+    <Content Include="Scripts\App\Models\SensorData.js" />
+    <Content Include="Scripts\App\Models\SensorMetadata.js" />
+    <Content Include="Scripts\App\Models\Store.js" />
+    <Content Include="Scripts\App\Models\User.js" />
+    <Content Include="Scripts\App\Routes\Router.js" />
+    <Content Include="fonts\glyphiconshalflings-regular.eot" />
+    <Content Include="fonts\glyphiconshalflings-regular.otf" />
+    <Content Include="fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="fonts\iconic_fill.eot" />
+    <Content Include="fonts\iconic_fill.otf" />
+    <Content Include="fonts\iconic_fill.ttf" />
+    <Content Include="fonts\iconic_fill.woff" />
+    <Content Include="fonts\iconic_stroke.eot" />
+    <Content Include="fonts\iconic_stroke.otf" />
+    <Content Include="fonts\iconic_stroke.ttf" />
+    <Content Include="fonts\iconic_stroke.woff" />
+    <None Include="Scripts\App\Templates\auth.hbs" />
     <Content Include="Scripts\App\Views\AboutView.js" />
     <Content Include="Scripts\App\Views\ApplicationView.js" />
     <Content Include="Scripts\App\Views\ContactView.js" />
+    <Content Include="Scripts\App\Views\FormGeneratorView.js" />
     <Content Include="Scripts\App\Views\HomeView.js" />
     <Content Include="Scripts\App\Views\NavBarView.js" />
     <Content Include="Scripts\Vendor\Ember\ember-data.js" />
     <Content Include="Scripts\Vendor\Ember\ember.js" />
-    <Content Include="Scripts\Vendor\Ember\handlebars.js" />
-    <Content Include="Scripts\Vendor\Ember\handlebars.runtime.js" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.eot" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.otf" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\glyphiconshalflings-regular.woff" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.eot" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.otf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_fill.woff" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.eot" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.otf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.ttf" />
-    <Content Include="Content\Vendor\Twitter\font\iconic_stroke.woff" />
+    <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.otf" />
+    <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_fill.eot" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_fill.otf" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_fill.ttf" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_fill.woff" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_stroke.eot" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_stroke.otf" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_stroke.ttf" />
+    <Content Include="Content\Vendor\Twitter\fonts\iconic_stroke.woff" />
     <Content Include="Content\Vendor\Twitter\less\accordion.less" />
     <Content Include="Content\Vendor\Twitter\less\alerts.less" />
     <Content Include="Content\Vendor\Twitter\less\bootstrap.less" />
@@ -229,10 +255,13 @@
     <Content Include="Content\Vendor\Twitter\less\wells.less" />
     <Content Include="Scripts\App\Templates\about.hbs" />
     <Content Include="Scripts\App\Templates\application.hbs" />
-    <Content Include="Scripts\App\Templates\contact.hbs" />
+    <Content Include="Scripts\App\Templates\Contact.hbs" />
     <Content Include="Scripts\App\Templates\index.hbs" />
     <Content Include="Scripts\App\Templates\navbar.hbs" />
+    <Content Include="Scripts\App\Templates\formGenerator.hbs" />
     <None Include="Scripts\Vendor\JQuery\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\Vendor\Ember\handlebars.js" />
+    <Content Include="Scripts\Vendor\Ember\handlebars.runtime.js" />
     <Content Include="Scripts\Vendor\JQuery\jquery-1.9.1.js" />
     <Content Include="Scripts\Vendor\JQuery\jquery-1.9.1.min.js" />
     <Content Include="Scripts\Vendor\JQuery\Plugins\jquery.unobtrusive-ajax.js" />

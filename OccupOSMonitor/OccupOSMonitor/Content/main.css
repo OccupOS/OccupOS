@@ -1,4 +1,9 @@
 ﻿/* Account for fixed navbar */
 body {
-    padding-top: 40px;
+    padding-top: 60px;
+    background: url("../Images/paper_fibers.png") repeat scroll 0% 0% transparent;
+}
+
+.login {
+    margin-top: 20px;
 }
