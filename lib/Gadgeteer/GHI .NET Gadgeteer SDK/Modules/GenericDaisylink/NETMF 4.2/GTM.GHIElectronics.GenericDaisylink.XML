@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.GenericDaisylink</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.GenericDaisylink">
+             <summary>
+             A Generi cDaisylink module used for Microsoft .NET Gadgeteer
+             </summary>
+             /// <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.GenericDaisylink"/> object to turn an LED on. 
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         // Keep in mind that the first argument is the register that you wish to
+                         //      write to, and the second argument is the value you wish to write 
+                         //      to that register
+            
+                         // The port that you want to write to
+                         genericDaisylink.WriteRegister(1, 3);
+            
+                         // The pin on the specified port that you want to write to
+                         genericDaisylink.WriteRegister(2, 0);
+            
+                         // The direction that you want the pin to be:
+                         // 1 == output
+                         // 0 == input
+                         genericDaisylink.WriteRegister(3, 1);
+            
+                         // The value that you want to write
+                         // 1 == High
+                         // 0 == Low
+                         genericDaisylink.WriteRegister(4, 1);
+            
+                         // Enables or disables the pin
+                         // 1 == Enable
+                         // 0 == Disable
+                         genericDaisylink.WriteRegister(0, 1);
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes to the daisylink register specified by the address. Does not allow writing to the reserved registers.
+            </summary>
+            <param name="address">Address of the register.</param>
+            <param name="writebuffer">Byte to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.ReadRegister(System.Byte)">
+            <summary>
+            Reads a byte from the specified register. Allows reading of reserved registers.
+            </summary>
+            <param name="memoryaddress">Address of the register.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

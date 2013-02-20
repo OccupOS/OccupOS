@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.LED7R</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.LED7R">
+            <summary>
+            A LED7R module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7R.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7R.TurnLightOn(System.Int32,System.Boolean)">
+            <summary>
+            Turns a light on.
+            </summary>
+            <param name="light">The light to turn on, as marked on the board.</param>
+            <param name="onlyLight">Set to true if the passed in light is the only one that should be on. Defaulted to false.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7R.TurnLightOff(System.Int32)">
+            <summary>
+            Turns a light off.
+            </summary>
+            <param name="light">The light to turn off, as marked on the board.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7R.Animate(System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Animates the lights on the board, according to the passed in values.
+            </summary>
+            <param name="switchTime">Time between operation of each light in milliseconds</param>
+            <param name="clockwise">True if the animation should play in a clockwise motion.</param>
+            <param name="on">True if the animation should turn the lights on, false if the lights should be turned off.</param>
+            <param name="remainOn">True if a light should remain on when another one is lit, false if only one light should be lit at a time.</param>
+        </member>
+    </members>
+</doc>

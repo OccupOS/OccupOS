@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.IO60P16</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16">
+            <summary>
+            A IO60P16 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.IO60P16.DEV_ADDR">
+            <summary>
+            Address of the device.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes a value to a register.
+            </summary>
+            <param name="reg">The register to write to.</param>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.ReadRegister(System.Byte)">
+            <summary>
+            Reads a value from a register.
+            </summary>
+            <param name="reg">The register to read from.</param>
+            <returns>The value in the register.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.WritePort(System.Byte,System.Byte)">
+            <summary>
+            Writes a value to the specified port.
+            </summary>
+            <param name="port">Port to write to.</param>
+            <param name="value">Value to write to the port.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.ReadPort(System.Byte)">
+            <summary>
+            Reads the value of a port.
+            </summary>
+            <param name="port">The port to read.</param>
+            <returns>The value of the port.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.MakePinOutput(System.Byte,System.Byte)">
+            <summary>
+            Makes a pin an output pin.
+            </summary>
+            <param name="port">The port that the pin is in.</param>
+            <param name="pin">The pin to make an output pin.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.MakePinInput(System.Byte,System.Byte)">
+            <summary>
+            Makes a pin an input pin.
+            </summary>
+            <param name="port">The port that the pin is in.</param>
+            <param name="pin">The pin to make an input pin.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.MakePinHigh(System.Byte,System.Byte)">
+            <summary>
+            Makes a pin high.
+            </summary>
+            <param name="port">The port that the pin is in.</param>
+            <param name="pin">The pin to make high.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.MakePinLow(System.Byte,System.Byte)">
+            <summary>
+            Makes a pin low.
+            </summary>
+            <param name="port">The port that the pin is in.</param>
+            <param name="pin">The pin to make low.</param>
+        </member>
+    </members>
+</doc>

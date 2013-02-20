@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer.Serial</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Interfaces.Serial">
+            <summary>
+            Represents a serial communcations interface port.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.InfiniteTimeout">
+            <summary>
+            A value that represents an infinite timeout.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.#ctor(Gadgeteer.Socket,System.Int32,Gadgeteer.Interfaces.Serial.SerialParity,Gadgeteer.Interfaces.Serial.SerialStopBits,System.Int32,Gadgeteer.Interfaces.Serial.HardwareFlowControl,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <remarks>This automatically checks that the socket supports Type U, and reserves the pins.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="baudRate">The baud rate for the serial port.</param>
+            <param name="parity">A value from the <see cref="T:Gadgeteer.Interfaces.Serial.SerialParity"/> enumeration that specifies 
+            the parity for the port.</param>
+            <param name="stopBits">A value from the <see cref="T:Gadgeteer.Interfaces.Serial.SerialStopBits"/> enumeration that specifies 
+            the stop bits for the port.</param>
+            <param name="dataBits">The number of data bits.</param>
+            <param name="socket">The socket for this serial interface.</param>
+            <param name="hardwareFlowControlRequirement">Specifies whether the module must use hardware flow control, will use hardware flow control if available, or does not use hardware flow control.</param>
+            <param name="module">The module using this interface (which can be null if unspecified).</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Open">
+            <summary>
+            Opens a new serial port connection. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Close">
+            <summary>
+            Closes the port connection, and sets the <see cref="P:Gadgeteer.Interfaces.Serial.IsOpen"/> property to <b>false</b>.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Write(System.Byte[])">
+            <summary>
+            Writes a variable number of bytes to the serial port using data from a buffer. 
+            </summary>
+            <param name="data">The data to write as a byte[] array.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a specified number of bytes to the serial port using data from a buffer. 
+            </summary>
+            <param name="buffer">The byte[] array that contains the data to write to the port.</param>
+            <param name="offset">The zero-based byte offset of the <paramref name="buffer"/> parameter 
+            at which to begin copying bytes to the port.</param>
+            <param name="count">The number of bytes to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Write(System.String)">
+            <summary>
+            Writes the specified text to the serial port.
+            </summary>
+            <param name="text">The text to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.WriteLine(System.String)">
+            <summary>
+            Writes the specified text and the value of <see cref="P:Gadgeteer.Interfaces.Serial.LineReceivedEventDelimiter"/> to the serial port.
+            </summary>
+            <param name="text">The text to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a number of bytes from the serial port input buffer and writes those bytes 
+            to a byte array at the specified offset. 
+            </summary>
+            <param name="buffer">The byte[] array to write the input to.</param>
+            <param name="offset">The offset in the <paramref name="buffer"/> array to begin writing.</param>
+            <param name="count">The number of bytes to read.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.ReadByte">
+            <summary>
+            Reads a byte from the serial port.
+            </summary>
+            <returns>The byte read from the port as an integer value.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.Flush">
+            <summary>
+            Sends any data waiting in the 'send' buffer and clears the buffer.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.DiscardOutBuffer">
+            <summary>
+            Discards data from the serial driver's 'send' buffer. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.DiscardInBuffer">
+            <summary>
+            Discards data from the serial driver's 'receive' buffer. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.OnDataReceivedEvent(Gadgeteer.Interfaces.Serial,System.IO.Ports.SerialData)">
+            <summary>
+            Event raised when data is received from the <see cref="T:Gadgeteer.Interfaces.Serial"/> object.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.Serial"/> object that raised the event</param>
+            <param name="data">A <see cref="T:System.IO.Ports.SerialData"/> object that contains the data received.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.OnLineReceivedEvent(Gadgeteer.Interfaces.Serial,System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Interfaces.Serial.LineReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.Serial"/> object that raised the event.</param>
+            <param name="line">The received line of data.</param>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.LineReceivedEventDelimiter">
+            <summary>
+            Gets or sets the line-received event delimiter.
+            </summary>
+            <remarks>
+            <para>
+             The default value of this property is a new-line character, ASCII 0x0A.
+             When you set <see cref="P:Gadgeteer.Interfaces.Serial.AutoReadLineEnabled"/> to <b>true</b>, the value
+             of this property is used to determine when a complete line of data has been received
+             and, consequently, when to raise the <see cref="E:Gadgeteer.Interfaces.Serial.LineReceived"/> event.
+            </para>
+            <para>
+             The value of this property is also appended to the specifed text when you
+             call the <see cref="M:Gadgeteer.Interfaces.Serial.WriteLine(System.String)"/> method.
+            </para> 
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.PortName">
+            <summary>
+            Gets the port name associated with this secure digital (SD) interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.BaudRate">
+            <summary>
+            Gets or sets the baud rate of this secure digital (SD) interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.Parity">
+            <summary>
+            Gets or sets the parity of this secure digital (SD) interface.
+            </summary>
+            <value>
+            A value from the <see cref="T:Gadgeteer.Interfaces.Serial.SerialParity"/> enumeration that specifies the parity of 
+            this secure digital (SD) interface.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.StopBits">
+            <summary>
+            Gets or sets the stop bits of this secure digital (SD) interface.
+            </summary>
+            <value>
+             A value from the <see cref="T:Gadgeteer.Interfaces.Serial.SerialStopBits"/> enumeration that specifies the 
+             stop bits of this secure digital (SD) interface.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.DataBits">
+            <summary>
+            Gets or sets the number of data bits of this secure digital (SD) interface. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.UsingHardwareFlowControl">
+            <summary>
+            Returns a Boolean value that indicates whether the Serial interface is using hardware flow control.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.Encoding">
+            <summary>
+            Gets or sets the encoding used on this serial port for writing and reading strings.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.AutoReadLineEnabled">
+            <summary>
+            Gets or sets a value that determines whether automatic line reading is enabled.
+            </summary>
+            <remarks>
+            <para>
+             When you set <see cref="P:Gadgeteer.Interfaces.Serial.AutoReadLineEnabled"/> to <b>true</b>, automatic reading
+             of the serial port is enabled. When enabled, <see cref="T:Gadgeteer.Interfaces.Serial"/> will continuously 
+             monitor the serial port; if the port is open (that is, <see cref="P:Gadgeteer.Interfaces.Serial.IsOpen"/> is <b>true</b>),
+             <see cref="T:Gadgeteer.Interfaces.Serial"/> will collect incoming data. Whenever a complete line of data is received 
+             as determined by the value of <see cref="P:Gadgeteer.Interfaces.Serial.LineReceivedEventDelimiter"/>, 
+             <see cref="T:Gadgeteer.Interfaces.Serial"/> raises the <see cref="E:Gadgeteer.Interfaces.Serial.LineReceived"/> event.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.ReadTimeout">
+            <summary>
+            Gets or sets the number of milliseconds before a time-out occurs when a read operation does not finish. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.WriteTimeout">
+            <summary>
+            Gets or sets the number of milliseconds before a time-out occurs when a write operation does not finish. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.IsOpen">
+            <summary>
+            Gets a Boolean value indicating the open or closed status of the <see cref="T:Gadgeteer.Interfaces.Serial"/> object. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.BytesToWrite">
+            <summary>
+            Gets the number of bytes of data in the 'send' buffer. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.Serial.BytesToRead">
+            <summary>
+            Gets the number of bytes of data in the 'receive' buffer. 
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Interfaces.Serial.DataReceived">
+            <summary>
+            Delegate that handles the event raised when the serial port signals that data has been received.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Interfaces.Serial.LineReceived">
+            <summary>
+            Raised when a complete line of data has been received.
+            </summary>
+            <remarks>
+            <para>
+             Handle this event to minimize the overhead required to obtain
+             data from the serial port.
+            </para>
+            <para>
+             When you set <see cref="P:Gadgeteer.Interfaces.Serial.AutoReadLineEnabled"/> to <b>true</b>, automatic reading
+             of the serial port is enabled. When enabled, <see cref="T:Gadgeteer.Interfaces.Serial"/> will continuously 
+             monitor the serial port; if the port is open (that is, <see cref="P:Gadgeteer.Interfaces.Serial.IsOpen"/> is <b>true</b>),
+             <see cref="T:Gadgeteer.Interfaces.Serial"/> will collect incoming data. Whenever a complete line of data is received, 
+             as determined by the value of <see cref="P:Gadgeteer.Interfaces.Serial.LineReceivedEventDelimiter"/>,
+             <see cref="T:Gadgeteer.Interfaces.Serial"/> raises the <see cref="E:Gadgeteer.Interfaces.Serial.LineReceived"/> event.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.SerialParity">
+            <summary>
+            Specifies the parity bit for a <see cref="T:Gadgeteer.Interfaces.Serial"/> object. 
+            </summary>
+            <remarks>
+            <para>
+             Use this enumeration when setting the <see cref="T:Gadgeteer.Interfaces.Serial.SerialParity"/> property for a serial port connection.
+            </para>
+            <para>
+             Parity is an error-checking procedure in which the number of 1s must always be the same—either even or odd—for each 
+             group of bits that is transmitted without error. In modem-to-modem communications, parity is often one of the parameters 
+             that must be agreed upon by sending parties and receiving parties before transmission can take place.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialParity.Even">
+            <summary>
+            Sets the parity bit so that the count of bits set is an even number.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialParity.Odd">
+            <summary>
+            Sets the parity bit so that the count of bits set is an odd number.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialParity.Mark">
+            <summary>
+            Leaves the parity bit set to 1.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialParity.Space">
+            <summary>
+            Leaves the parity bit set to 0.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialParity.None">
+            <summary>
+            No parity check occurs.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.SerialStopBits">
+            <summary>
+            Specifies the number of stop bits used on the <see cref="T:Gadgeteer.Interfaces.Serial"/> object. 
+            </summary>
+            <remarks>
+            <para>
+             This enumeration specifies the number of stop bits to use. Stop bits separate each unit of 
+             data on an asynchronous serial connection. 
+             They are also sent continuously when no data is available for transmission.
+            </para>
+            <para>
+            The <b>None</b> option is not supported. Setting the <see cref="P:Gadgeteer.Interfaces.Serial.StopBits"/> property 
+            to <b>None</b> raises an ArgumentOutOfRangeException.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialStopBits.None">
+            <summary>
+            No stop bits are used. This value is not supported. Setting the <see cref="P:Gadgeteer.Interfaces.Serial.StopBits"/> property 
+            to <b>None</b> raises an ArgumentOutOfRangeException.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialStopBits.One">
+            <summary>
+            One stop bit is used.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialStopBits.OnePointFive">
+            <summary>
+            1.5 stop bits are used.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.SerialStopBits.Two">
+            <summary>
+            Two stop bit are used.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.HardwareFlowControl">
+            <summary>
+            Specifies whether the <see cref="T:Gadgeteer.Interfaces.Serial"/> module requires hardware flow control. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.HardwareFlowControl.NotRequired">
+            <summary>
+            The module does not require hardware flow control.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.HardwareFlowControl.UseIfAvailable">
+            <summary>
+            The module will use hardware flow control if available.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.Serial.HardwareFlowControl.Required">
+            <summary>
+            The module must have hardware flow control and will not function without it.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.DataReceivedEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Interfaces.Serial.DataReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.Serial"/> object that raised the event.</param>
+            <param name="data">A <see cref="T:System.IO.Ports.SerialData"/> object that contains the data received.</param>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.LineReceivedEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Interfaces.Serial.LineReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.Serial"/> object that raised the event.</param>
+            <param name="line">The received line of data as string.</param>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.Serial.PortNotOpenException">
+            <summary>
+            Represents the exception that is raised when the serial port has not been
+            opened prior to a read or write operation.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.PortNotOpenException.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.Serial.PortNotOpenException.#ctor(System.Exception)">
+            <summary></summary>
+            <param name="innerException">The inner exception, or <b>null</b> if none.</param>
+        </member>
+    </members>
+</doc>

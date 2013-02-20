@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Potentiometer</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Potentiometer">
+             <summary>
+             Represents a potentiometer module for Microsoft .Net Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.Potentiometer"/> object to display the potentiometer position. 
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         double potentiometerPercent = potentiometer.ReadPotentiometerPercentage();
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.ReadPotentiometerVoltage">
+            <summary>
+            Returns the current voltage reading of the potentiometer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.ReadPotentiometerPercentage">
+            <summary>
+             Returns the current position of the potentiometer relative to its maximum: range 0.0 to 1.0
+            </summary>
+        </member>
+    </members>
+</doc>

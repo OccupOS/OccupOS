@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.LED7C</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.LED7C">
+            <summary>
+            A LED7C module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7C.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LED7C.SetColor(Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor)">
+            <summary>
+            Sets the color of the module's LED to the passed in LEDColor enum.
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Red">
+            <summary>
+            Red
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Green">
+            <summary>
+            Green
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Blue">
+            <summary>
+            Blue
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Yellow">
+            <summary>
+            Yellow
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Cyan">
+            <summary>
+            Cyan
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.Magenta">
+            <summary>
+            Magenta
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.LED7C.LEDColor.White">
+            <summary>
+            White
+            </summary>
+        </member>
+    </members>
+</doc>

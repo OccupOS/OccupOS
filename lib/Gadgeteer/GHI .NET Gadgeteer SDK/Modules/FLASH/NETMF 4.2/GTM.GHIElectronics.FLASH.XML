@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.FLASH</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.FLASH">
+            <summary>
+            A FLASH module for Microsoft .NET Gadgeteer
+            </summary>
+            <remarks>
+            Chip Details:
+            
+            <list type="bullet">
+            <item>64 total blocks</item>
+            <item>1024 sectors</item>
+            <item>4Kb for each sector</item>
+            <item>1024 sectrors * 4kb = 4096Kb total memory</item>
+            <item>256 bytes mamximum for each transfer</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.#ctor(System.Int32)">
+            <summary>Constructor</summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.WriteEnable">
+            <summary>
+            Attempts to enable writing to the flash, and returns the result.
+            </summary>
+            <returns>True is writing is enabled, false if it is not</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.GetIdentification">
+            <summary>
+            Returns the ID of the chip.
+            </summary>
+            <returns>A byte[] containing the chip ID.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.WriteInProgress">
+            <summary>
+            Returns if a write is in progress.
+            </summary>
+            <returns>True is there is a operation write in progress. False is there is no write operation in progress.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.EraseChip">
+            <summary>
+            Erases the entire chip. Blocking function.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.EraseBlock(System.Int32,System.Int32)">
+            <summary>
+            Erases blocks, starting at the passed in block, for the passed in number of blocks. Blocking function.
+            </summary>
+            <param name="block">The block to begin erasing at.</param>
+            <param name="num">The number of blocks to erase.</param>
+            <returns>If the erase was successful.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.EraseSector(System.Int32,System.Int32)">
+            <summary>
+            Erases sectors, starting at the passed in sector, for the passed in number of sectors. Blocking function.
+            </summary>
+            <param name="sector">Sector to begin at.</param>
+            <param name="num">Number of sectors to erase.</param>
+            <returns>If the erase was successful.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.WriteData(System.Int32,System.Byte[])">
+            <summary>
+            Writes data to a specific address.
+            </summary>
+            <param name="address">The address to write to.</param>
+            <param name="buffer">The data to write.</param>
+            <returns>If the write was successful.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.ReadData(System.Int32,System.Int32)">
+            <summary>
+            Reads data from a specific address.
+            </summary>
+            <param name="address">The address to read from.</param>
+            <param name="length">The length to read.</param>
+            <returns>The data that was read.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.FLASH.ReadData_FastMode(System.UInt32,System.Int32)">
+            <summary>
+            Reads data from a specific address in fast mode.
+            </summary>
+            <param name="address">Address to read from.</param>
+            <param name="length">The length to read.</param>
+            <returns>The data that was read.</returns>
+        </member>
+    </members>
+</doc>

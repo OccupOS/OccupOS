@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.GenericDaisylink</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.GenericDaisylink">
+            <summary>
+            A GenericDaisylink module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes to the daisylink register specified by the address. Does not allow writing to the reserved registers.
+            </summary>
+            <param name="address">Address of the register.</param>
+            <param name="writebuffer">Byte to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.GenericDaisylink.ReadRegister(System.Byte)">
+            <summary>
+            Reads a byte from the specified register. Allows reading of reserved registers.
+            </summary>
+            <param name="memoryaddress">Address of the register.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

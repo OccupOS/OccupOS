@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.ColorSense</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.ColorSense">
+            <summary>
+            A ColorSense module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ColorSense.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ColorSense.ToggleOnboardLED(System.Boolean)">
+            <summary>
+            Toggles the on-board LEDs to the passed in state.
+            </summary>
+            <param name="LEDState">State to set the LEDs to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ColorSense.ReadColorChannels">
+            <summary>
+            Reads the current color from the sensor and returns the results
+            </summary>
+            <returns>Returns an instance of the ColorChannels structure, holding the current measurement of color values.</returns>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.ColorSense.ColorChannels">
+            <summary>
+            Structure to hold color data
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ColorSense.ColorChannels.Green">
+            <summary>
+            Intensity of green-filtered channel
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ColorSense.ColorChannels.Red">
+            <summary>
+            Intensity of red-filtered channel
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ColorSense.ColorChannels.Blue">
+            <summary>
+            Intensity of blue-filtered channel
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ColorSense.ColorChannels.Clear">
+            <summary>
+            Intensity of non-filtered channel
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Elm327.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Elm327.Core.ObdModes.AbstractObdMode">
+            <summary>
+            Base class for one of the OBD modes of operation (see
+            http://en.wikipedia.org/wiki/OBD-II_PIDs for information).
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.AbstractObdMode.#ctor(Elm327.Core.ElmDriver,System.String)">
+            <summary>
+            Creates an instance of a derived class of <see cref="T:Elm327.Core.ObdModes.AbstractObdMode"/>.
+            </summary>
+            <param name="elm">A reference to the ELM327 core driver.</param>
+            <param name="obdModeIdentifier">The OBD mode identifier as a 
+            hexadecimal string (i.e., "01", "02", etc.).</param>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.AbstractObdMode.ParseMultilinePidResponse(System.String)">
+            <summary>
+            Parses a multiline PID response, returning only the data
+            elements in the message.
+            </summary>
+            <param name="message">The message received from the ELM.</param>
+            <returns>An array of values returned from the ELM.  This will usually
+            be an array of hex-encoded bytes represented as strings.</returns>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.AbstractObdMode.ParseMultilinePidResponseForCan(System.String[])">
+            <summary>
+            Parses a multiline PID CAN response, returning only the data
+            elements in the message.
+            </summary>
+            <param name="lines">The message received from the ELM.</param>
+            <returns>An array of values returned from the ELM.  This will usually
+            be an array of hex-encoded bytes represented as strings.</returns>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.AbstractObdMode.GetPidResponse(System.String)">
+            <summary>
+            Sends a request for a PID value from the ELM and returns the response.
+            </summary>
+            <param name="pid">The hexadecimal value of the PID to request.</param>
+            <returns>An array of values returned from the ELM.  This will usually
+            be an array of hex-encoded bytes represented as strings.</returns>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.AbstractObdMode.GetSupportedPids">
+            <summary>
+            When overridden in a derived class, queries the ECU(s) for
+            the PIDs that are supported for the current mode.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.AbstractObdMode.Elm">
+            <summary>
+            The ELM327 driver instance, which allows us to communicate with the
+            chip.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.AbstractObdMode.ModeIdentifier">
+            <summary>
+            Gets the the OBD mode identifier as a hexadecimal string 
+            (i.e., "01", "02", etc.).
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.AbstractObdMode.MeasuringUnitType">
+            <summary>
+            Gets the measuring unit currently being used.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.Util">
+            <summary>
+            Contains useful utility methods.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.Util.ConvertCelsiusToFarenheit(System.Int32)">
+            <summary>
+            Converts celsius temperature to farenheit.
+            </summary>
+            <param name="celsiusTemperature">Temperature in celsius.</param>
+            <returns>The farenheit temperature.</returns>
+        </member>
+        <member name="M:Elm327.Core.Util.ConvertHexToInt(System.String)">
+            <summary>
+            Accepts a hexadecimal string (such as "01AB") and returns its integer
+            value.
+            </summary>
+            <param name="hexNumber">The string representation of the hexadecimal
+            value.</param>
+            <returns>The integer value represented by the hex string.</returns>
+        </member>
+        <member name="M:Elm327.Core.Util.ConvertKilometersToMiles(System.Double)">
+            <summary>
+            Converts kilometers to miles.
+            </summary>
+            <param name="km">The value to convert.</param>
+            <returns>The mileage value.</returns>
+        </member>
+        <member name="M:Elm327.Core.Util.Log(System.String)">
+            <summary>
+            Logs a message for debugging purposes.  Big TODO here.
+            </summary>
+            <param name="logMessage">The message to write to the log.</param>
+        </member>
+        <member name="M:Elm327.Core.Util.Log(System.Exception)">
+            <summary>
+            Logs a message for debugging purposes.  Big TODO here.
+            </summary>
+            <param name="ex">The exception to write to the log.</param>
+        </member>
+        <member name="E:Elm327.Core.Util.Elm327MessageLogged">
+            <summary>
+            Fired when a message is being logged in the framework.  This may
+            be changed or may go away completely, as it is just currently being
+            used as an easy way for a hosting application to get debug
+            output.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.Util.Elm327LogEventHandler">
+            <summary>
+            Delegate used to handle log events.
+            </summary>
+            <param name="logMessage">The message that is being logged.</param>
+        </member>
+        <member name="T:Elm327.Core.ObdModes.ObdGenericMode09">
+            <summary>
+            Contains methods and properties for retrieving generic
+            OBD mode 09 PIDs.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.ObdGenericMode09.#ctor(Elm327.Core.ElmDriver)">
+            <summary>
+            Creates an instance of <see cref="T:Elm327.Core.ObdModes.ObdGenericMode09"/>.
+            </summary>
+            <param name="elm">A reference to the ELM327 driver.</param>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode09.VehicleIdentificationNumber">
+            <summary>
+            Gets the VIN of the vehicle.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ElmDriver">
+            <summary>
+            A driver for the ELM327 chip (www.elmelectronics.com).  This class provides the
+            basic communication infrastructure for the ELM.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.BAUD_RATE">
+            <summary>
+            The baud rate used to communicate with the ELM.  TODO: We need
+            to enable a high baud rate (500kbps, which is the max supported
+            by the ELM chip), but right now it is locked to 38400. Pin 6 of 
+            the ELM is expected to be tied to a high level to enable this baud 
+            rate.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.CHIP_READY_PROMPT_CHAR">
+            <summary>
+            The character that will be sent by the ELM when it is ready to
+            accept commands.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MAX_WAIT_RECEIVE_SECONDS">
+            <summary>
+            The maximum amount of time, in seconds, to wait for the ELM to
+            send us a message response.  A timeout error will occur if the chip
+            doesn't respond within this amount of time.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MESSAGE_CAN_ERROR">
+            <summary>
+            The message reported by the ELM when there's a problem communicating
+            on the CAN bus.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MESSAGE_NO_CONNECTION">
+            <summary>
+            The message reported by the ELM when it is unable to connect via
+            one of the OBD protocols.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MESSAGE_NO_DATA">
+            <summary>
+            The message reported by the ELM when a bus request times out or
+            an unsupported PID is requested.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MESSAGE_TERMINATOR_CHAR">
+            <summary>
+            The character used to indicate the end of a message sent to or
+            received from the ELM.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.RECEIVE_BUFFER_SIZE">
+            <summary>
+            The size of the receive buffer for data received from the ELM.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.MESSAGE_SEARCHING">
+            <summary>
+            The message reported by the ELM when it is performing a search on
+            one of the protocols.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.protocolType">
+            <summary>
+            Stores the currently selected OBD protocol.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.receiveBuffer">
+            <summary>
+            The buffer used to hold data received from the ELM.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.serialPort">
+            <summary>
+            The serial port used to communicate with the ELM.  Note that
+            we typically put a lock() statement around the use of this
+            object to prevent concurrency issues.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.#ctor(System.String,Elm327.Core.ElmDriver.ElmObdProtocolType,Elm327.Core.ElmDriver.ElmMeasuringUnitType)">
+            <summary>
+            Creates an instance of the ELM327 driver.
+            </summary>
+            <param name="serialPortName">The name of the serial port the ELM is connected to
+            ("COM1", "COM2", etc.).</param>
+            <param name="protocolType">The desired OBD protocol to use.  Using 
+            <see cref="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Automatic"/> is usually a good idea.</param>
+            <param name="measuringUnit">The desired unit type for reporting readings.</param>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.#ctor(System.String)">
+            <summary>
+            Creates an instance of the ELM327 driver.
+            </summary>
+            <param name="serialPortName">The name of the serial port the ELM is connected to
+            ("COM1", "COM2", etc.).</param>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.ReceiveMessage">
+            <summary>
+            Returns a message received from the ELM.  Note that this call
+            waits until the ready prompt character is received from the ELM
+            before returning control.
+            </summary>
+            <returns>The received message.  If a null value is returned, it means
+            either an error occurred during the read attempt or a timeout
+            occurred while waiting for the ELM to respond.</returns>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.SendAndReceiveMessage(System.String)">
+            <summary>
+            Attempts to send a message to the ELM and then receive a response from it.
+            Note that this call waits until the ready prompt character is received 
+            from the ELM before returning control.
+            </summary>
+            <param name="message">The message to send to the ELM.  The message terminator
+            character will be appended to this message automatically.</param>
+            <returns>The received message.  If a null value is returned, it means
+            either an error occurred during the send or receive attempt.</returns>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.Connect">
+            <summary>
+            Attempts to open a connection to the ELM chip.
+            </summary>
+            <returns>A value indicating the result of the connection attempt.</returns>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.Disconnect">
+            <summary>
+            Attempts to disconnect from the ELM chip.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.Dispose">
+            <summary>
+            Cleans up all resources used by the driver.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ElmDriver.uart_ErrorReceived(System.Object,System.IO.Ports.SerialErrorReceivedEventArgs)">
+            <summary>
+            Called when a serial communication error occurs.
+            </summary>
+        </member>
+        <member name="E:Elm327.Core.ElmDriver.CanBusError">
+            <summary>
+            Fired when a CAN bus error has occurred.  This probably means an 
+            incorrect CAN protocol was chosen or there is a wiring issue with
+            the ELM327 circuit.
+            </summary>
+        </member>
+        <member name="E:Elm327.Core.ElmDriver.ObdConnectionLost">
+            <summary>
+            Fired when the ELM reports that it is unable to connect to
+            the vehicle via one of the OBD protocols.  Note that although the event 
+            is named <see cref="E:Elm327.Core.ElmDriver.ObdConnectionLost"/>, it could also mean that there 
+            was never an available connection to start with.  If this event is fired, 
+            you should probably attempt to close and reopen the connection to the ELM.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.BatteryVoltage">
+            <summary>
+            Gets the battery voltage reading.  Note that this value is read
+            directly off the supply pin from the OBD port.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.ElmVersionID">
+            <summary>
+            Gets the version identifier for the connected ELM chip.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.ObdMode01">
+            <summary>
+            Contains methods and properties for retrieving generic
+            OBD mode 01 PIDs.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.ObdMode09">
+            <summary>
+            Contains methods and properties for retrieving generic
+            OBD mode 09 PIDs.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.MeasuringUnitType">
+            <summary>
+            Gets or sets the measuring unit.  Setting this property will
+            affect the values of OBD readings returned.  The value is set 
+            to English by default.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ElmDriver.ProtocolType">
+            <summary>
+            Gets or sets the current OBD protocol.  Note that if this value was originally
+            set to <see cref="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Automatic"/>, the value you
+            get when requesting this property should be the actual protocol that
+            is in use.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ElmDriver.Elm327EventHandler">
+            <summary>
+            Basic delegate used for ELM events.  This will probably change.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ElmDriver.ElmConnectionResultType">
+            <summary>
+            Possible results of calling the <see cref="M:Elm327.Core.ElmDriver.Connect"/>()
+            method.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmConnectionResultType.Connected">
+            <summary>
+            A connection was successfully made to the ELM as well
+            as the vehicle's OBD system.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmConnectionResultType.NoConnectionToElm">
+            <summary>
+            A connection couldn't be made to the ELM.  Check the wiring
+            and ensure the COM port is set correctly.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmConnectionResultType.NoConnectionToObd">
+            <summary>
+            Communication was successful with the ELM, but the chip
+            could not establish communication with the vehicle's
+            OBD system.  This is most likely due to incorrect wiring
+            or incorrect OBD protocol specification.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ElmDriver.ElmMeasuringUnitType">
+            <summary>
+            Defines the available units of measure for reporting
+            values.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmMeasuringUnitType.English">
+            <summary>
+            English units.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmMeasuringUnitType.Metric">
+            <summary>
+            Metric units.
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ElmDriver.ElmObdProtocolType">
+            <summary>
+            Represents all OBD protocols supported by the ELM chip.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Automatic">
+            <summary>
+            The ELM chip will automatically determine the best protocol to use.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.SaeJ1850Pwm">
+            <summary>
+            SAE J1850 PWM (41.6 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.SaeJ1850Vpw">
+            <summary>
+            SAE J1850 VPW (10.4 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso9141_2">
+            <summary>
+            ISO 9141-2 (5 baud init, 10.4 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso14230_4_Kwp">
+            <summary>
+            ISO 14230-4 KWP (5 baud init, 10.4 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso14230_4_KwpFastInit">
+            <summary>
+            ISO 14230-4 KWP (fast init, 10.4 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso15765_4_Can11BitFast">
+            <summary>
+            ISO 15765-4 CAN (11 bit ID, 500 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso15765_4_Can29BitFast">
+            <summary>
+            ISO 15765-4 CAN (29 bit ID, 500 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso15765_4_Can11Bit">
+            <summary>
+            ISO 15765-4 CAN (11 bit ID, 250 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.Iso15765_4_Can29Bit">
+            <summary>
+            ISO 15765-4 CAN (29 bit ID, 250 kbaud).
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ElmDriver.ElmObdProtocolType.SaeJ1939Can">
+            <summary>
+            SAE J1939 CAN (29 bit ID, 250 kbaud).
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ObdModes.ObdGenericMode01">
+            <summary>
+            Contains methods and properties for retrieving generic
+            OBD mode 01 PIDs.
+            </summary>
+        </member>
+        <member name="M:Elm327.Core.ObdModes.ObdGenericMode01.#ctor(Elm327.Core.ElmDriver)">
+            <summary>
+            Creates an instance of <see cref="T:Elm327.Core.ObdModes.ObdGenericMode01"/>.
+            </summary>
+            <param name="elm">A reference to the ELM327 driver.</param>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.VehicleSpeedInKilometersPerHour">
+            <summary>
+            Gets the current speed of the vehicle in km/h.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.AmbientAirTemperature">
+            <summary>
+            Gets the ambient air temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.EngineCoolantTemperature">
+            <summary>
+            Gets the current engine coolant temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.EngineRpm">
+            <summary>
+            Gets the current engine RPM.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.EstimatedDistancePerGallon">
+            <summary>
+            Gets the estimated distance per gallon (either miles per gallon
+            or kilometers per gallon, depending on the current unit selection).
+            Note that the vehicle must be equipped with a mass air flow sensor 
+            in order for this value to be reported accurately. 
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.FuelLevel">
+            <summary>
+            Gets the current fuel level as a percentage value between 0
+            and 100.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.FuelType">
+            <summary>
+            Gets the fuel type for the vehicle.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.IntakeAirTemperature">
+            <summary>
+            Gets the intake air temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.MassAirFlowRate">
+            <summary>
+            Gets the current MAF rate in grams/sec.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.RunTimeSinceEngineStart">
+            <summary>
+            Gets amount of time, in seconds, that the engine has been
+            running since cranked.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.ThrottlePosition">
+            <summary>
+            Gets the throttle position as a percentage value between 0
+            and 100.
+            </summary>
+        </member>
+        <member name="P:Elm327.Core.ObdModes.ObdGenericMode01.VehicleSpeed">
+            <summary>
+            Gets the current speed of the vehicle (either in mph or km/h,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="T:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType">
+            <summary>
+            Possible fuel types.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Unknown">
+            <summary>
+            Unknown fuel type
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Gasoline">
+            <summary>
+            Gasoline
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Methanol">
+            <summary>
+            Methanol
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Ethanol">
+            <summary>
+            Ethanol
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Diesel">
+            <summary>
+            Diesel
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.LPG">
+            <summary>
+            Liquefied Petroleum Gas (Propane)
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.CNG">
+            <summary>
+            Compressed Natural Gas
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Propane">
+            <summary>
+            Propane
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.Electric">
+            <summary>
+            Electric Powered
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningGasoline">
+            <summary>
+            Bi-fuel engine currently running on Gasoline.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningMethanol">
+            <summary>
+             Bi-fuel engine currently running on Methanol.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningEthanol">
+            <summary>
+             Bi-fuel engine currently running on Ethanol.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningLPG">
+            <summary>
+             Bi-fuel engine currently running on Liquid Petroleum Gas.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningCNG">
+            <summary>
+             Bi-fuel engine currently running on Compressed Natural Gas.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningProp">
+            <summary>
+             Bi-fuel engine currently running on Propane.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelRunningElectricity">
+            <summary>
+             Bi-fuel engine currently running on Electric power.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.BifuelMixedGasElectric">
+            <summary>
+             Bi-fuel engine currently running on a mixture of Gas and Electric power.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridGasoline">
+            <summary>
+            Hybrid Gasoline.
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridEthanol">
+            <summary>
+            Hybrid Ethanol
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridDiesel">
+            <summary>
+            Hybrid Diesel
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridElectric">
+            <summary>
+            Hybrid Electric
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridMixedFuel">
+            <summary>
+            Hybrid Mixed Fuel
+            </summary>
+        </member>
+        <member name="F:Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType.HybridRegenerative">
+            <summary>
+            HybridRegenerative
+            </summary>
+        </member>
+    </members>
+</doc>

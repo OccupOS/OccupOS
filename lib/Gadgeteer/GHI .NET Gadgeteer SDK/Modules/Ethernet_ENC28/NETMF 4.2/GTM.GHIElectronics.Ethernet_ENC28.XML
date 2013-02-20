@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Ethernet_ENC28</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Ethernet_ENC28">
+            <summary>
+            An Ethernet_ENC28 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Ethernet_ENC28.Interface">
+            <summary>
+            The class that will be used to interface with the ethernet module. This member will handle everything from initialization to joining networks.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Ethernet_ENC28.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+    </members>
+</doc>

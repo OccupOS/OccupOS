@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.MaxO</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MaxO">
+             <summary>
+             A module that uses shift registers to give the user 32 outputs, for Microsoft .NET Gadgeteer.
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.MaxO"/> object to write to a few of the 32 available outputs.
+             At the end of the example, each alternating pin will be high, with the others low.
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         // The reason value 0xAA is used is because it is 1010 1010 in binary, which we will see in a moment on the module.
+                         // Using this value will alternate the pins high and low.
+                         byte[] arr = new byte[] { 0xAA, 0xAA, 0xAA, 0xAA };
+            
+                         // Next, we will write the data to the module.
+                         maxO.WriteArray(arr);
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.GetArraySize">
+            <summary>
+            Returns the size of the array to be filled out.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.Clear">
+            <summary>
+            Clears all registers.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.WriteArray(System.Byte[])">
+            <summary>
+            Writes the full array of data to the registers.
+            </summary>
+            <param name="arr"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.WritePin(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Writes only to the specified pin or the specified board.
+            </summary>
+            <param name="_board">The number of the board to write to.</param>
+            <param name="_pin">The number of the pin to write.</param>
+            <param name="_value">The value to write to the pin.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.Read">
+            <summary>
+            Returns the data that is currently in the registers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.EnableOutputs">
+            <summary>
+            Enables output to the pins.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.DisableOutputs">
+            <summary>
+            Disables the output to the pins.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.MaxO.NumBoards">
+            <summary>
+            The number of this type of module attached together
+            </summary>
+        </member>
+    </members>
+</doc>

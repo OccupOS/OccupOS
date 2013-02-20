@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Bluetooth</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth">
+            <summary>
+            A Bluetooth module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.serialPort">
+            <summary>
+            Direct access to Serial Port.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.#ctor(System.Int32,System.Int64)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+            <param name="baud">The baud rate to communicate with the module with.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Reset">
+            <summary>
+            Hard Reset Bluetooth module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.runReaderThread">
+            <summary>
+            Thread that continuously reads incoming messages from the module,
+            parses them and triggers the corresponding events.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.OnBluetoothStateChanged(Gadgeteer.Modules.GHIElectronics.Bluetooth,Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothStateChanged"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>  
+            <param name="btState">Current state of the Bluetooth module</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.OnDataReceived(Gadgeteer.Modules.GHIElectronics.Bluetooth,System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.DataReceived"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>  
+            <param name="data">Data string received by the Bluetooth module</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.OnPinRequested(Gadgeteer.Modules.GHIElectronics.Bluetooth)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.PinRequested"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>  
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.OnDeviceInquired(Gadgeteer.Modules.GHIElectronics.Bluetooth,System.String,System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.PinRequested"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>  
+            <param name="macAddress">MAC Address of the inquired device</param>
+            <param name="name">Name of the inquired device</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.SetDeviceName(System.String)">
+            <summary>
+            Sets the device name as seen by other devices
+            </summary>
+            <param name="name">Name of the device</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.SetDeviceBaud(System.Int64)">
+            <summary>
+            Switch the device to the directed speed
+            </summary>
+            <param baud="number">Name of the device</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.SetPinCode(System.String)">
+            <summary>
+            Sets the PIN code for the Bluetooth module
+            </summary>
+            <param name="pinCode"></param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Bluetooth.IsConnected">
+            <summary>
+            Gets a value that indicates whether the bluetooth connection is connected.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothStateChanged">
+            <summary>
+            Event raised when the bluetooth module changes its state.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.DataReceived">
+            <summary>
+            Event raised when the bluetooth module changes its state.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.PinRequested">
+            <summary>
+            Event raised when the bluetooth module changes its state.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.DeviceInquired">
+            <summary>
+            Event raised when the bluetooth module changes its state.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Bluetooth.ClientMode">
+            <summary>
+            Sets Bluetooth module to work in Client mode.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Bluetooth.HostMode">
+            <summary>
+            Sets Bluetooth module to work in Host mode.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState">
+            <summary>
+            Possible states of the Bluetooth module
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Initializing">
+            <summary>
+            Module is initializing
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Ready">
+            <summary>
+            Module is ready
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Inquiring">
+            <summary>
+            Module is in pairing mode
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Connecting">
+            <summary>
+            Module is making a connection attempt
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Connected">
+            <summary>
+            Module is connected
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Disconnected">
+            <summary>
+            Module is diconnected
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothStateChangedHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothStateChanged"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>
+            <param name="btState">Current state of the Bluetooth module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.DataReceivedHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.DataReceived"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>
+            <param name="data">Data received from the Bluetooth module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.PinRequestedHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.PinRequested"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.DeviceInquiredHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.DeviceInquired"/> event.
+            </summary>
+            <param name="sender">The object that raised the event.</param>
+            <param name="macAddress">MAC Address of the inquired device</param>
+            <param name="name">Name of the inquired device</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client">
+            <summary>
+            Client functionality for the Bluetooth module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client.EnterPairingMode">
+            <summary>
+            Enters pairing mode
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client.InputPinCode(System.String)">
+            <summary>
+            Inputs pin code
+            </summary>
+            <param name="pinCode">Module's pin code. Default: 0000</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client.Disconnect">
+            <summary>
+            Closes current connection. Doesn't work yet.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client.Send(System.String)">
+            <summary>
+            Sends data through the connection.
+            </summary>
+            <param name="message">String containing the data to be sent</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Client.SendLine(System.String)">
+            <summary>
+            Sends data through the connection.
+            </summary>
+            <param name="message">String containing the data to be sent</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.Host">
+            <summary>
+            Implements the host functionality for the Bluetooth module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Host.InquireDevice">
+            <summary>
+            Starts inquiring for devices
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Host.Connect(System.String)">
+            <summary>
+            Makes a connection with a device using its MAC address.
+            </summary>
+            <param name="macAddress">MAC address of the device</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Host.InputPinCode(System.String)">
+            <summary>
+            Inputs the PIN code.
+            </summary>
+            <param name="pinCode">PIN code. Default 0000</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Host.Disconnect">
+            <summary>
+            Closes the current connection. Doesn't work yet.
+            </summary>
+        </member>
+    </members>
+</doc>

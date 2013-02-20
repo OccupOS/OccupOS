@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.RFID</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RFID">
+            <summary>
+            A RFID module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RFID.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RFID.OnIDReadyEvent(Gadgeteer.Modules.GHIElectronics.RFID,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="ID"></param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="ID"></param>
+        </member>
+    </members>
+</doc>

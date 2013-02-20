@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHIElectronics.Gadgeteer.FEZHydra</name>
+    </assembly>
+    <members>
+        <member name="T:GHIElectronics.Gadgeteer.FEZHydra">
+            <summary>
+            Support class for GHI Electronics FEZHydra for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZHydra.#ctor">
+            <summary>
+            Instantiates a new FEZHydra mainboard
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZHydra.SetProgrammingMode(Gadgeteer.Mainboard.ProgrammingInterface)">
+            <summary>
+            Changes the programming interafce to the one specified
+            </summary>
+            <param name="programmingInterface">The programming interface to use</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZHydra.SetLCD(Gadgeteer.Mainboard.LCDConfiguration)">
+            <summary>
+            This sets the LCD configuration.  If the value GT.Mainboard.LCDConfiguration.HeadlessConfig (=null) is specified, no display support should be active.
+            If a non-null value is specified but the property LCDControllerEnabled is false, the LCD controller should be disabled if present,
+            though the Bitmap width/height for WPF should be modified to the Width and Height parameters.
+            </summary>
+            <param name="lcdConfig">The LCD Configuration</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZHydra.SetDebugLED(System.Boolean)">
+            <summary>
+            Turns the debug LED on or off
+            </summary>
+            <param name="on">True if the debug LED should be on</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZHydra.PostInit">
+            <summary>
+            This performs post-initialization tasks for the mainboard.  It is called by Gadgeteer.Program.Run and does not need to be called manually.
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZHydra.MainboardName">
+            <summary>
+            The mainboard name, which is printed at startup in the debug window
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZHydra.MainboardVersion">
+            <summary>
+            The mainboard version, which is printed at startup in the debug window
+            </summary>
+        </member>
+    </members>
+</doc>

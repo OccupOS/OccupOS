@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Extender</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Extender">
+            <summary>
+            Represents an cable extender module which can also be used as a breakout module to interface with custom electronics, or a snooping module to monitor signals on individual pins.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupDigitalInput(Gadgeteer.Socket.Pin,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode)">
+            <summary>
+            Returns a digital input interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Microsoft.Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this interface.
+            </param>
+            <param name="resistorMode">The resistor mode for the interface port.</param>
+            <returns>The interface.</returns>
+            <exception cref="T:System.Exception">
+             The specified pin has already been reserved on this module.
+            </exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupDigitalOutput(Gadgeteer.Socket.Pin,System.Boolean)">
+            <summary>
+            Returns a digital output interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <param name="initialState">The initial state to place on the interface output port.</param>
+            <returns>The interface.</returns>
+            <exception cref="T:System.Exception">
+             The specified pin has already been reserved on this module.
+            </exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupDigitalIO(Gadgeteer.Socket.Pin,System.Boolean,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode)">
+            <summary>
+            Returns a digital input/output interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <param name="initialState">
+             The initial state to place on the interface port; 
+             this value becomes effective as soon as the port is enabled as an output port.
+            </param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Microsoft.Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this interface.
+            </param>
+            <param name="resistorMode">The resistor mode for the interface port.</param>
+            <returns>The interface.</returns>
+            <exception cref="T:System.Exception">
+             The specified pin has already been reserved on this module.
+            </exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupInterruptInput(Gadgeteer.Socket.Pin,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode,Gadgeteer.Interfaces.InterruptMode)">
+            <summary>
+            Returns an interrupt input interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Microsoft.Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this interface.
+            </param>
+            <param name="resistorMode">The resistor mode for the interface port.</param>
+            <param name="interruptMode">The interrupt mode for the interface port.</param>
+            <returns>The interface</returns>
+            <exception cref="T:System.Exception">
+             The specified pin has already been reserved on this module.
+            </exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupAnalogInput(Gadgeteer.Socket.Pin)">
+            <summary>
+            Returns an analog input interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <returns>The interface.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupAnalogOutput(Gadgeteer.Socket.Pin)">
+            <summary>
+            Returns an analog output interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to assign to the interface.</param>
+            <returns>The interface.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Extender.SetupPWMOutput(Gadgeteer.Socket.Pin)">
+            <summary>
+             Returns an pulse width modulation (PWM) output interface associated with the specified pin on this module.
+            </summary>
+            <param name="pin">The pin to use for the PWM interface.</param>
+            <returns>The PWM interface.</returns>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Extender.ExtenderSocketNumber">
+            <summary>
+            The mainboard socket number which this Extender module is plugged into.
+            </summary>
+        </member>
+    </members>
+</doc>

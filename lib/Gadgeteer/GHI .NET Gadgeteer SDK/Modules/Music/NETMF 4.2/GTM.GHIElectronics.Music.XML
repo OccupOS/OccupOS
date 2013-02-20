@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Music</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Music">
+             <summary>
+             A music module with recording and playback functionality for Microsoft .NET Gadgeteer.
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.Music"/> object to play a song. 
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         music.Play(Resources.GetBytes(Resources.BinaryResources.HeyListen);
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_MODE">
+            <summary>
+            Mode control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_STATUS">
+            <summary>
+            Status of VS1053b
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_BASS">
+            <summary>
+            Built-in bass/treble control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_CLOCKF">
+            <summary>
+            Clock freq + multiplier
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_WRAM">
+            <summary>
+            Volume control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_WRAMADDR">
+            <summary>
+            Volume control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_HDAT0">
+            <summary>
+            Stream header data 0
+            R
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_HDAT1">
+            <summary>
+            Stream header data 1
+            R
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_AIADDR">
+            <summary>
+            Volume control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_VOL">
+            <summary>
+            Volume control
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_AICTRL0">
+            <summary>
+            Application control register 0
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_AICTRL1">
+            <summary>
+            Application control register 1
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_AICTRL2">
+            <summary>
+            Application control register 2
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.SCI_AICTRL3">
+            <summary>
+            Application control register 3
+            R/W
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.m_playBackData">
+            <summary>
+            Playback buffer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Music.m_cmdBuffer">
+            <summary>
+            Command buffer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.CommandRead(System.Byte)">
+            <summary>
+            Reads 16bit value from a register
+            </summary>
+            <param name="register">Source register</param>
+            <returns>16bit value from the source register</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.CommandWrite(System.Byte,System.UInt16)">
+            <summary>
+            Writes 16bit value to a register
+            </summary>
+            <param name="register">target register</param>
+            <param name="data">data to write</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.SineTest">
+            <summary>
+            Run sine test
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.Reset">
+            <summary>
+            Performs soft reset
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.SetVolume(System.Byte,System.Byte)">
+            <summary>
+            Set volume for both channels. Valid values 0-255
+            </summary>
+            <param name="leftChannelVolume">0 - silence, 255 - loudest</param>
+            <param name="rightChannelVolume">0 - silence, 255 - loudest</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.SetVolume(System.Byte)">
+            <summary>
+            Set volume for both channels. Valid values 0-255
+            </summary>
+            <param name="_dualChannelVolume">0 - silence, 255 - loudest</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.Play(System.Byte[])">
+            <summary>
+            Play samples from byte array async
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.PlayBackThreadFunction">
+            <summary>
+            Playback thread function
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.OnMusicFinished(Gadgeteer.Modules.GHIElectronics.Music)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Music.musicFinished"/> event.
+            </summary>
+            <param name="sender">The sending module.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.StopPlaying">
+            <summary>
+            Stops playback.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.ReadData(System.Int32)">
+            <summary>
+            Optimized CommandRead for SCI_HDAT0
+            </summary>
+            <param name="nSamples"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Music.StopRecording">
+            <summary>
+            Request recording to stop
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Music.LeftChannelVolume">
+            <summary>
+            Accessor/Mutator for the left channel volume.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Music.RightChannelVolume">
+            <summary>
+            Accessor/Mutator for the right channel volume.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Music.IsBusy">
+            <summary>
+            Returns true if module is playing or recording audio
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Music.musicFinished">
+            <summary>
+            Raised when a sound file has finished playing.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Music.MusicFinishedPlayingEventHandler">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.Music.musicFinished"/> event.
+            </summary>
+            <param name="sender">The sending module.</param>
+        </member>
+    </members>
+</doc>

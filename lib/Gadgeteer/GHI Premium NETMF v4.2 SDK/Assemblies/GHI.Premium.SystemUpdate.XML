@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.SystemUpdate</name>
+    </assembly>
+    <members>
+        <member name="T:GHI.Premium.System.SystemUpdate">
+             <summary>
+             Provides in-field update functionality.
+             </summary>
+             <remarks>
+             This functionality allows devices that are deployed in field to update their software automatically without external help. This is very useful in remote and end users' applications.<br/>
+             The class offers several methods of updating. You can update the managed application only or the entire device (including GHI firmware files).<br/>
+             <br/>
+             <strong style="color:blue">Platform Support</strong><br/>
+             EMX and G120 supports all system update features.<br/>
+             This feature currently does not support changing TinyBooter.
+             <br/>
+             <code>
+             <![CDATA[
+             // The following example is using EMX
+            public class Program
+            {
+                public static void Main()
+                {
+                    while (button.Read())
+                    {
+                        BlinkLed();
+                    }
+            
+                    MoundSDCard();           
+                    try
+                    {                          
+                        _led.Write(false);
+                        SystemUpdate.Initialize( SystemUpdate.SystemUpdateType.Config | SystemUpdate.SystemUpdateType.Deployment | SystemUpdate.SystemUpdateType.Firmware );
+                        LoadDataFromSD(@"SD\ER_DAT", SystemUpdate.SystemUpdateType.Firmware);
+                        LoadDataFromSD(@"SD\ER_CONFIG", SystemUpdate.SystemUpdateType.Config);
+                        LoadDataFromSD(@"SD\ER_FLASH", SystemUpdate.SystemUpdateType.Firmware);
+                        LoadDataFromSD(@"SD\ManagedApp.hex", SystemUpdate.SystemUpdateType.Deployment);               
+                        _led.Write(true);
+                        if (SystemUpdate.CanUpdate) SystemUpdate.FlashAndReset();
+                    }
+                    catch (Exception e)
+                    {
+                        while (true)
+                        {
+                            throw new Exception("Fail when updating data " + e.ToString());
+                        }
+                    }            
+                    Thread.Sleep(Timeout.Infinite);
+                }
+            
+                const int BLOCK_SIZE = 10 * 1024;
+            
+                private static PersistentStorage _pse;
+                private static FileStream _fs;
+               
+                private static InputPort button = new InputPort((Cpu.Pin)30, false, Port.ResistorMode.PullUp);
+                private static OutputPort _led = new OutputPort((Cpu.Pin)47, true);
+              
+                static void LoadDataFromSD(string filename, SystemUpdate.SystemUpdateType ifutype)
+                {
+                    int rest;
+                    byte[] hex;
+                    long len;
+                    int blocknum;
+            
+                    _fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+                    len = _fs.Length;
+                 
+                    blocknum = (int)len / BLOCK_SIZE;
+                    rest = (int)len % BLOCK_SIZE;
+                    hex = new byte[BLOCK_SIZE];
+            
+                    for (int i = 0; i < blocknum; i++)
+                    {
+                        _fs.Read(hex, 0, BLOCK_SIZE);
+                       
+                        SystemUpdate.Load(ifutype, hex, BLOCK_SIZE);
+                      
+                        Debug.Print("Loading file " + filename + ", block " + i + "/" + blocknum);
+            
+                    }
+                   
+                    _fs.Read(hex, 0, rest);
+                    SystemUpdate.Load(ifutype, hex, rest);
+                  
+                    _fs.Close();
+                    _fs.Dispose();
+                    _fs = null;
+                    hex = null;
+                  
+                    Debug.GC(true);
+                }
+            
+                static void MoundSDCard()
+                {
+                    if (PersistentStorage.DetectSDCard())
+                    {
+                        try
+                        {
+                            _pse = new PersistentStorage("SD");
+                            _pse.MountFileSystem();
+                        }
+                        catch
+                        {
+                            Debug.Print("Can't create PersistentStorage");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Print("No SD Card");
+                    }
+            
+                }
+            
+                static void BlinkLed()
+                {
+                    Thread.Sleep(25);
+                    _led.Write(true);
+                    Thread.Sleep(25);
+                    _led.Write(false);
+                }
+            }
+            ]]>
+            </code>
+             </remarks>
+        </member>
+        <member name="M:GHI.Premium.System.SystemUpdate.Initialize(GHI.Premium.System.SystemUpdate.SystemUpdateType)">
+            <summary>
+            Initializes System Update
+            </summary>
+            <param name="ifutype">The type of update to be performed</param>
+        </member>
+        <member name="M:GHI.Premium.System.SystemUpdate.Load(GHI.Premium.System.SystemUpdate.SystemUpdateType,System.Byte[],System.Int32)">
+            <summary>
+            Loads the files to be updated
+            </summary>
+            <param name="ifutype">Type of update to be performed</param>
+            <param name="data">Data used for the update</param>
+            <param name="size">Size of the passed in data</param>
+        </member>
+        <member name="M:GHI.Premium.System.SystemUpdate.FlashAndReset">
+            <summary>
+            Flashes the newly loaded files and resets the board
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.System.SystemUpdate.Abort">
+            <summary>
+            Aborts the update process
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.System.SystemUpdate.CanUpdate">
+            <summary>
+            Returns true if the user can update
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.System.SystemUpdate.CurrentSystemUpdateStatus">
+            <summary>
+            Returns the current update status
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.System.SystemUpdate.CurrentSystemUpdateType">
+            <summary>
+            Returns the type of update being performed
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.System.SystemUpdate.SystemUpdateType">
+            <summary>
+            Current system mode.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.SystemUpdate.SystemUpdateType.Firmware">
+            <summary>
+            Firmware
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.SystemUpdate.SystemUpdateType.Deployment">
+            <summary>
+            Deployment Region
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.SystemUpdate.SystemUpdateType.Config">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.System.SystemUpdate.SystemUpdateStatus">
+            <summary>
+            Status of the update procedure.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.SystemUpdate.SystemUpdateStatus.Inactive">
+            <summary>
+            Update is inactive
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.SystemUpdate.SystemUpdateStatus.Active">
+            <summary>
+            Update is active
+            </summary>
+        </member>
+    </members>
+</doc>

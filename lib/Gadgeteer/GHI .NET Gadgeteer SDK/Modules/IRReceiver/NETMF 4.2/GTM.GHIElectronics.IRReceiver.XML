@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.IRReceiver</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver">
+             <summary>
+             An IR Receiver module for Microsoft .NET Gadgeteer
+             </summary>
+             /// <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver"/> object to read which button was pressed on a remote. 
+             First, we set up our event to notify us when a button has been pressed.
+             Then, when a button has been pressed, we use the event to determine which button was pressed.
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         irreceiver.IREvent += new IR_Receiver.IREventDelegate(irreceiver_IREvent);
+                     }
+            
+                     void irreceiver_IREvent(object sender, IR_Receiver.IREventArgs e)
+                     {
+                         uint buttonPressed = e.Button;
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IR_Receiver.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREvent">
+            <summary>
+            Raised when the module detects an IR signal.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.ReceiverType">
+            <summary>
+            The protocol used for communication.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.IR_Receiver.ReceiverType.RC5">
+            <summary>
+            RC-5 protocol.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventDelegate">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREvent"/>
+            event.        
+            </summary>
+            <param name="sender">The module that sends the event.</param>
+            <param name="e">Event information, including the button that was pressed and the time it was pressed.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs">
+            <summary>
+            Class that holds information about when a button press was detexted.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs.Button">
+            <summary>
+            The button what was pressed.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs.ReadTime">
+            <summary>
+            The time that the button was read.
+            </summary>
+        </member>
+    </members>
+</doc>

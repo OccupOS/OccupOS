@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.IO60P16</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16">
+            <summary>
+            A IO60P16 module for Microsoft .NET Gadgeteer
+            </summary>
+            <example>
+            <para>Since this module has complex features and usage, please see the online documentation and tutorials for this module found on the manufacturer's website.</para>
+            </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.Reset">
+            <summary>
+            Resets the module.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.PWMPin">
+            <summary>
+            Enumeration designating the available PWM pins.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.IOPin">
+            <summary>
+            Enumeration designating the available IO pins.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.ResistorMode">
+            <summary>
+            Enumeration designating the available resistor modes for the IO pins.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.InputPort">
+            <summary>
+            Class that represents a digital input on the module.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.InputPort.#ctor(Gadgeteer.Modules.GHIElectronics.IO60P16,Gadgeteer.Modules.GHIElectronics.IO60P16.IOPin,Gadgeteer.Modules.GHIElectronics.IO60P16.ResistorMode)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pin">Pin to be created</param>
+            <param name="resisterMode">Desired resistor mode for the pin to be constructed</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.InputPort.Read">
+            <summary>
+            Reads the state of a pin
+            </summary>
+            <returns>Returns the state of the pin</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.InputPort.Dispose">
+            <summary>
+            Disposes of the current object
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.OutputPort">
+            <summary>
+            Class that represents a digital output object on the module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.OutputPort.#ctor(Gadgeteer.Modules.GHIElectronics.IO60P16,Gadgeteer.Modules.GHIElectronics.IO60P16.IOPin,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pin">Pin to be created</param>
+            <param name="initialState">If the pin should be created and set high (true) or low (false)</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.OutputPort.Write(System.Boolean)">
+            <summary>
+            Writes the state of the pin
+            </summary>
+            <param name="state">The state to set the pin to. High (true) or low (false)</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.OutputPort.Dispose">
+            <summary>
+            Disposes of the current object
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM">
+            <summary>
+            Class the represents a PWM pin on the module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.#ctor(Gadgeteer.Modules.GHIElectronics.IO60P16,Gadgeteer.Modules.GHIElectronics.IO60P16.PWMPin,Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.TickWidth)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pin">The pin to be constructed</param>
+            <param name="tickWidth">The desired width between ticks</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.SetPWM">
+            <summary>
+            Sets the PWM frequency
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.Set(System.Double)">
+            <summary>
+            Sets the PWM duty cycle
+            </summary>
+            <param name="dutyCycle"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.SetPulse(System.Byte)">
+            <summary>
+            Sets the PWM pulse width
+            </summary>
+            <param name="highPulseWidthTicks">Number of ticks for the PWM to be high</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.SetPulse(System.Byte,System.Byte)">
+            <summary>
+            Sets the PWM Pulse width and period
+            </summary>
+            <param name="highPulseWidthTicks">Number of ticks for the PWM to be high</param>
+            <param name="periodTicks">Number of ticks for the period</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.Dispose">
+            <summary>
+            Disposed of the current object
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.tickWidth">
+            <summary>
+            Accessor for the pin's tick width
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.periodTicks">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.highPulseWidthTicks">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IO60P16.PWM.TickWidth">
+            <summary>
+            Enumeration designating the available tick widths for controlling servos 
+            </summary>
+        </member>
+    </members>
+</doc>

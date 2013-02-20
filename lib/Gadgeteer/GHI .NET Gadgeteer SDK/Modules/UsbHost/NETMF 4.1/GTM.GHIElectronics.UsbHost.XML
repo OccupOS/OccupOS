@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.UsbHost</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost">
+            <summary>
+            Represents a USB port that you can plug a USB storage device into.
+            </summary>
+            <remarks>
+            This module enables you to use a USB Drive as a storage device, or to use a USB mouse as a pointing device. 
+            Although you can plug other types of USB devices into the USB host module, the Microsoft .NET Gadgeteer software 
+            only responds to these two device types. Other types of USB devices will not raise the events associated with this module.
+            </remarks>
+            <seealso cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveConnected"/>
+            <seealso cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveDisconnected"/>
+            <seealso cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseConnected"/>
+            <seealso cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseDisconnected"/>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.Insert(System.Object,Microsoft.SPOT.IO.MediaEventArgs)">
+            <summary>
+            Called when a device is inserted.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.Eject(System.Object,Microsoft.SPOT.IO.MediaEventArgs)">
+            <summary>
+            Called when a device is ejected.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnUSBDriveConnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost,Gadgeteer.StorageDevice)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="storageDevice">The <see cref="T:Microsoft.Gadgeteer.StorageDevice"/> object associated with the connected USB drive.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnUSBDriveDisconnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnMouseConnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost,GHIElectronics.NETMF.USBHost.USBH_Mouse)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="mouse">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Mouse"/> object associated with the event.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnMouseDisconnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost,GHIElectronics.NETMF.USBHost.USBH_Mouse)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="mouse">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Mouse"/> object associated with the event.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnKeyboardConnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost,GHIElectronics.NETMF.USBHost.USBH_Keyboard)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="keyboard">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Keyboard"/> object associated with the event.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.UsbHost.OnKeyboardDisconnectedEvent(Gadgeteer.Modules.GHIElectronics.UsbHost,GHIElectronics.NETMF.USBHost.USBH_Keyboard)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="Keyboard">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Keyboard"/> object associated with the event.</param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveConnected">
+            <summary>
+            Raised when a USB drive is connected to the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the inserted device is a USB drive.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveDisconnected">
+            <summary>
+            Raised when a USB drive is disconnected from the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the device that is being removed is a USB drive.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseConnected">
+            <summary>
+            Raised when a USB mouse device is connected to the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the device that is being connected is a USB mouse.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseDisconnected">
+            <summary>
+            Raised when a USB mouse device is disconnected to the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the device that is being removed is a USB mouse.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardConnected">
+            <summary>
+            Raised when a USB Keyboard device is connected to the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the device that is being connected is a USB Keyboard.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardDisconnected">
+            <summary>
+            Raised when a USB Keyboard device is disconnected to the host.
+            </summary>
+            <remarks>
+            Although you can plug various types of USB devices into the USB host module, this event is only raised
+            when the device that is being removed is a USB Keyboard.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveConnectedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="storageDevice">The <see cref="T:Microsoft.Gadgeteer.StorageDevice"/> object associated with the connected USB drive.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveDisconnectedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.USBDriveDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseConnectedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="mouse">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Mouse"/> object associated with the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseDisconnectedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.MouseDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="mouse">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Mouse"/> object associated with the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardConnectedEventHandler">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardConnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="Keyboard">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Keyboard"/> object associated with the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardDisconnectedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.UsbHost.KeyboardDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.UsbHost"/> object that raised the event.</param>
+            <param name="Keyboard">The <see cref="T:GHIElectronics.NETMF.USBHost.USBH_Keyboard"/> object associated with the event.</param>
+        </member>
+    </members>
+</doc>
