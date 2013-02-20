@@ -1,7 +1,7 @@
 using Microsoft.SPOT.Hardware;
 using IndianaJones.NETMF.Json;
 using OccupOS.CommonLibrary.Sensors;
-using SecretLabs.NETMF.Hardware.Netduino;
+using SecretLabs.NETMF.Hardware.NetduinoPlus;
 using System;
 using System.Collections;
 

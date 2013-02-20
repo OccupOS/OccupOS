@@ -1,7 +1,7 @@
 ﻿using Microsoft.SPOT.Hardware;
 using Microsoft.SPOT.Net;
 using SecretLabs.NETMF.Hardware;
-using SecretLabs.NETMF.Hardware.Netduino;
+using SecretLabs.NETMF.Hardware.NetduinoPlus;
 using System.Threading;
 
 namespace OccupOSNode.Micro {
