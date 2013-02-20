@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.SerCam</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SerCam">
+            <summary>
+            A SerCam module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.TakePicture">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.SetImageSize(Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution)">
+            <summary>
+            
+            </summary>
+            <param name="resolution"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.OnPictureCapturedEvent(Gadgeteer.Modules.GHIElectronics.SerCam,Microsoft.SPOT.Bitmap)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.SerCam.PictureCaptured"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SerCam"/> that raised the event.</param>
+            <param name="picture">A <see cref="T:Gadgeteer.Picture"/> containing the captured image.</param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.SerCam.PictureCaptured">
+            <summary>
+            Event raised when the <see cref="T:Gadgeteer.Modules.GHIElectronics.SerCam"/> has completed an image capture.
+            </summary>
+            <remarks>
+            Handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.SerCam.PictureCaptured"/> event to process image data
+            after you call the <see cref="M:Gadgeteer.Modules.GHIElectronics.SerCam.TakePicture"/> method. These methods 
+            process the image data from the camera asynchronously, 
+            and raise this event when the processing is complete.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_VGA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_QVGA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_QQVGA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SerCam.PictureCapturedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.SerCam.PictureCaptured"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SerCam"/> object that raised the event.</param>
+            <param name="picture">A <see cref="T:Gadgeteer.Picture"/> containing the captured image.</param>
+        </member>
+    </members>
+</doc>

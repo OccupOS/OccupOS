@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.MotorControllerL298</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298">
+             <summary>
+             A motor controller module capable of controlling two motors for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example shows the use of the motor controller</para>
+             <code>
+            using System;
+            using Microsoft.SPOT;
+            using Microsoft.SPOT.Presentation;
+            using Microsoft.SPOT.Presentation.Controls;
+            using Microsoft.SPOT.Presentation.Media;
+            
+            using Microsoft.SPOT.Hardware;
+            using System.Threading;
+            
+            using GT = Gadgeteer;
+            using GTM = Gadgeteer.Modules;
+            using GTI = Gadgeteer.Interfaces;
+            using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     // This template uses the FEZ Spider mainboard from GHI Electronics
+            
+                     // Define and initialize GTM.Modules here, specifying their socket numbers.        
+                     MotorControllerL298 motorController = new MotorControllerL298(11);
+            
+                     void ProgramStarted()
+                     {
+                         // Set the motor speeds to 0
+                         motorController.MoveMotor(MotorControllerL298.Motor.Motor1, 0);
+                         motorController.MoveMotor(MotorControllerL298.Motor.Motor2, 0);
+            
+                         // Switch this to test the threaded movement
+                         // true = threaded
+                         bool bThreaded = false;
+                         
+                         if(bThreaded)
+                         {
+                             // Start one motor on its own thread
+                             motorController.MoveMotorRampNB(MotorControllerL298.Motor.Motor1, 100, 5000);
+            
+                             // Wait so we can see the other start
+                             Thread.Sleep(500);
+            
+                             // Start the other motor on its own thread
+                             motorController.MoveMotorRampNB(MotorControllerL298.Motor.Motor2, -100, 5000);
+                         }
+                         else
+                         {
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor1, 100, 5000);
+                             Debug.Print("going down");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor1, 0, 5000);
+                             Debug.Print("going more down");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor1, -100, 5000);
+                             Debug.Print("going up");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor1, 0, 5000);
+                             Debug.Print("more up");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor1, 100, 5000);
+                             
+                             Debug.Print("OTHER SIDE");
+                             
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor2, 100, 5000);
+                             Debug.Print("going down");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor2, 0, 5000);
+                             Debug.Print("going more down");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor2, -100, 5000);
+                             Debug.Print("going up");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor2, 0, 5000);
+                             Debug.Print("more up");
+                             motorController.MoveMotorRamp(MotorControllerL298.Motor.Motor2, 100, 5000);
+                         }
+                         
+                         Debug.Print("Program Started");
+                     }
+                 }
+             }
+             
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotor(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32)">
+            <summary>
+            Used to set a motor's speed.
+            <param name="_motorSide">The motor <see cref="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor"/> you are setting the speed for.</param>
+            <param name="_newSpeed"> The new speed that you want to set the current motor to.</param>
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotorRamp(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32,System.Int32)">
+            <summary>
+            Used to set a motor's speed with a ramping acceleration. <see cref="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotor(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32)"/>
+            <param name="_motorSide">The motor <see cref="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor"/> you are setting the speed for.</param>
+            <param name="_newSpeed"> The new speed that you want to set the current motor to.</param>
+            <param name="_rampingDelayMilli"> The time in which you want the motor to reach the new speed (in milliseconds).</param>
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotorRampNonBlocking(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32,System.Int32)">
+            <summary>
+            Used to set a motor's speed with a ramping acceleration asynchronously. <see cref="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotor(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32)"/>
+            <param name="_motorSide">The motor <see cref="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor"/> you are setting the speed for.</param>
+            <param name="_newSpeed"> The new speed that you want to set the current motor to.</param>
+            <param name="_rampingDelayMilli"> The time in which you want the motor to reach the new speed (in milliseconds).</param>
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotorRampThreadStart">
+            <summary>
+            Represents the function that is used to start a thread to asynchronously move a motor.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MotorControllerL298State">
+            <summary>
+            Represents the state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298"/> object.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MotorControllerL298State.Low">
+            <summary>
+            The state of MotorControllerL298 is low.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MotorControllerL298State.High">
+            <summary>
+            The state of MotorControllerL298 is high.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor">
+            <summary>
+            Represents the desired motor to use.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor.Motor1">
+            <summary>
+            The left motor, marked M1, is the one in use.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor.Motor2">
+            <summary>
+            The right motor, marked M2, is the one in use.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.tMovement">
+            <summary>
+            Used to set a the values for a motor's movement to be used by <see cref="M:Gadgeteer.Modules.GHIElectronics.MotorControllerL298.MoveMotorRampNonBlocking(Gadgeteer.Modules.GHIElectronics.MotorControllerL298.Motor,System.Int32,System.Int32)"/> 
+            to give a motor ramping acceleration asynchronously.
+            </summary>
+        </member>
+    </members>
+</doc>

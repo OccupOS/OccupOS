@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Display_N18</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_N18">
+            <summary>
+            A Display N18 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.#ctor(System.Int32)">
+            <summary>Constructor</summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.Initialize(System.UInt32)">
+            <summary>
+            Initializes the module to use the passed in SPI clock rate in KHz.
+            </summary>
+            <param name="spiClockRateKHz">SPI clock rate in KHz.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.Reset">
+            <summary>
+            Resets the module.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.SetClippingArea(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Sets the clipping area that will be rendered to.
+            </summary>
+            <param name="x">X coordinate for the start location.</param>
+            <param name="y">Y coordinate for the start location.</param>
+            <param name="w">Width of the area to draw to.</param>
+            <param name="h">Height of the area to draw to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.DrawBitmap(Microsoft.SPOT.Bitmap)">
+            <summary>
+            Draws an image to the screen.
+            </summary>
+            <param name="data">Image data to be drawn to the screen</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.DrawBitmapRawData(System.Byte[],System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Draws an image to the specified position on the screen.
+            </summary>
+            <param name="bitmapData">Raw Bitmap data to be drawn to the screen.</param>
+            <param name="x">Starting X position of the image.</param>
+            <param name="y">Starting T position of the image.</param>
+            <param name="width">Width of the image.</param>
+            <param name="height">Height of the image.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.EnableBacklight(System.Boolean)">
+            <summary>
+            Enables or disables the display backlight.
+            </summary>
+            <param name="bOn">The state to set the backlight to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_N18.Paint(Microsoft.SPOT.Bitmap)">
+            <summary>
+            Renders Bitmap data on the display device. 
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to render on the display.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_N18.Width">
+            <summary>
+            Gets the width of the display.
+            </summary>
+            <remarks>
+            This property always returns 128.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_N18.Height">
+            <summary>
+            Gets the height of the display.
+            </summary>
+            <remarks>
+            This property always returns 160.
+            </remarks>
+        </member>
+    </members>
+</doc>

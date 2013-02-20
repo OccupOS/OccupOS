@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Display_CP7</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7">
+             <summary>
+             A 7 inch capacitive touch display module for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.Display_CP7"/> object to display the picture taken by a camera module. 
+             First the code initializes a camera object and the button pressed event delegate in which the camera takes a picture.
+             Then, another delegate is initialized to handle the asynchronous PictureCaptured event.  In this method the display module uses 
+             the SimpleGraphics class to display the picture captured by the camera.
+             </para>
+             <code>
+             using System;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+            
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+            
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     // This template uses the FEZ Spider mainboard from GHI Electronics
+            
+                     // Define and initialize GTM.Modules here, specifying their socket numbers.        
+                     GTM.GHIElectronics.UsbClientDP usbClient = new UsbClientDP(1);
+                     GTM.GHIElectronics.Button button = new Button(4);
+                     GTM.GHIElectronics.Camera camera = new Camera(3);
+                     GTM.GHIElectronics.Display_T35 display = new Display_T35(12, 13, 14);
+            
+                     void ProgramStarted()
+                     {
+                         // Initialize event handlers here.
+                         button.ButtonPressed += new Button.ButtonEventHandler(button_ButtonPressed);
+                         camera.PictureCaptured += new Camera.PictureCapturedEventHandler(camera_PictureCaptured);
+            
+                         // Do one-time tasks here
+                         Debug.Print("Program Started");
+                     }
+            
+                     void camera_PictureCaptured(Camera sender, GT.Picture picture)
+                     {
+                         Debug.Print("Picture Captured event.");
+                         display.SimpleGraphics.DisplayImage(picture, 5, 5);
+                     }
+            
+                     void button_ButtonPressed(Button sender, Button.ButtonState state)
+                     {
+                         camera.TakePicture();
+                     }
+                 }
+             }
+             
+             </code>
+             </example>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.i2cBus">
+            <summary>
+            The I2C bus that the module will use
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="rgbSocketNumber1">The first R,G,B socket</param>
+            <param name="rgbSocketNumber2">The second R,G,B socket</param>
+            <param name="rgbSocketNumber3">The third R,G,B socket</param>
+            <param name="i2cSocketNumber">The I2C socket</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.SetBacklight(System.Boolean)">
+            <summary>
+            Sets the backlight to the passed in value.
+            </summary>
+            <param name="bOn">Backlight state.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.Paint(Microsoft.SPOT.Bitmap)">
+            <summary>
+            Renders display data on the display device. 
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to render on the display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.OnTouchEvent(Gadgeteer.Modules.GHIElectronics.Display_CP7,Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchStatus)">
+            <summary>
+            Raises events for both the touch positions and touch gestures
+            </summary>
+            <param name="sender">The module that is sending the event</param>
+            <param name="touchStatus">A class that contains all information about the screen</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_CP7.BBackLightOn">
+            <summary>
+            Accessor for the state of the backlight
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_CP7.Width">
+            <summary>
+            Gets the width of the display.
+            </summary>
+            <remarks>
+            This property always returns 800.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_CP7.Height">
+            <summary>
+            Gets the height of the display.
+            </summary>
+            <remarks>
+            This property always returns 480.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.ScreenPressed">
+            <summary>
+            Raised when the screen detects a touch
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.homePressed">
+            <summary>
+            Raised when the screen detects a touch on the home button
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.menuPressed">
+            <summary>
+            Raised when the screen detects a touch on the menu button
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.backPressed">
+            <summary>
+            Raised when the screen detects a touch on the back button
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.screenReleased">
+            <summary>
+            Raised when the screen detects all touches released
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Display_CP7.gestureDetected">
+            <summary>
+            Raised when the screen detects a touch gesture
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID">
+            <summary>
+            An enum to describe the possible gestures
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Move_Up">
+            <summary>
+            A move up gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Move_Left">
+            <summary>
+            A move left gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Move_Down">
+            <summary>
+            A move down gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Move_Right">
+            <summary>
+            A move right gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Zoom_In">
+            <summary>
+            A zoom in gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.Zoom_Out">
+            <summary>
+            A zoom out gesture
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Gesture_ID.No_Gesture">
+            <summary>
+            No gesture detected
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchEventHandler">
+            <summary>
+            Represents the delegate for when the screen is touched
+            </summary>
+            <param name="sender">The sending module</param>
+            <param name="touchStatus">The class that holds all of the information about interaction with the screen</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchEventHandlerHomeButton">
+            <summary>
+            Represents the delegate for when the screen's home button has been pushed
+            </summary>
+            <param name="sender">The sending module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchEventHandlerMenuButton">
+            <summary>
+            Represents the delegate for when the screen's menu button has been pressed
+            </summary>
+            <param name="sender">The sending module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchEventHandlerBackButton">
+            <summary>
+            Represents the delegate for when the screen's back button has been pressed
+            </summary>
+            <param name="sender">The sending module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchEventHandlerTouchReleased">
+            <summary>
+            Represents the delegate for when the screen has been released
+            </summary>
+            <param name="sender">The sending module</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchGestureDetected">
+            <summary>
+            Represents the delegate for when a touch gestur was detected
+            </summary>
+            <param name="sender">The sending module</param>
+            <param name="id">The ID of the detected gesture</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchStatus">
+            <summary>
+            A class that is responisble for holding information of the current touches on the screen
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchStatus.touchPos">
+            <summary>
+            An array of positions, one for each detected touch point
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchStatus.numTouches">
+            <summary>
+            Number of current touches
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.TouchStatus.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_CP7.Finger">
+            <summary>
+            Structure that represents a single position
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Finger.xPos">
+            <summary>
+            X coordinate of the touch position
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Finger.yPos">
+            <summary>
+            Y coordinate of the touch position
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Display_CP7.Finger.bActive">
+            <summary>
+            Determines if this touch is currently in use.
+            True: this touch is currently registered with the screen
+            False: this touch is not currently registered with the screen
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_CP7.Finger.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+            <param name="active">If the position is active</param>
+        </member>
+    </members>
+</doc>

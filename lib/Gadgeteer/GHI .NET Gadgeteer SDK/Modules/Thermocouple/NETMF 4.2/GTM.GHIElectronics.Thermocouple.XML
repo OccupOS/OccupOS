@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Thermocouple</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Thermocouple">
+             <summary>
+             A Thermocouple module for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following code example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.Thermocouple"/> object to read the temperature of an attached thermocouple 
+             and the module chip's temperature, printing those vaules to the output window.</para>
+             <code>
+            using Microsoft.SPOT;
+            
+            using GTM = Gadgeteer.Modules;
+            
+            namespace TestApp
+            {
+                public partial class Program
+                {
+                    void ProgramStarted()
+                    {
+                        short c;
+                        short f;
+                        byte i;
+            
+                        c = therm.GetExternalTemp_Celsius();
+                        f = therm.GetExternalTemp_Fahrenheit();
+                        i = therm.GetInternalTemp_Celsius();
+            
+                        Debug.Print("C: " + c);
+                        Debug.Print("F: " + f);
+                        Debug.Print("I: " + i);
+                    }
+                }
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Thermocouple.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Thermocouple.GetExternalTemp_Celsius">
+            <summary>
+            Gets the external temperature using the attached thermocouple.
+            </summary>
+            <returns>Returns the external temperature, in Celsius.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Thermocouple.GetExternalTemp_Fahrenheit">
+            <summary>
+            Gets the external temperature using the attached thermocouple.
+            </summary>
+            <returns>Returns the external temperature, in Fahrenheit.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Thermocouple.GetInternalTemp_Celsius">
+            <summary>
+            Gets the internal temperature of the chip.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

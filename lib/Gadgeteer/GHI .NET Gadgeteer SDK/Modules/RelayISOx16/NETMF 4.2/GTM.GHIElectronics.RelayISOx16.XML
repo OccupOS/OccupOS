@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.RelayISOx16</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RelayISOx16">
+             <summary>
+             A module that provides access to 16 optically-isolated relays for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.RelayISOx16"/> object to write to a few of the available 16 relays.</para>
+             <code>
+             using Microsoft.SPOT;
+            
+             using GTM = Gadgeteer.Modules;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         // Multiple relays can be enabled at once
+                         relay.EnableRelay(GTM.GHIElectronics.RelayISOx16.Relay.Relay_14 + GTM.GHIElectronics.RelayISOx16.Relay.Relay_4);
+            
+                         // Enabling another relay will not affect previously altered relays
+                         relay.EnableRelay(GTM.GHIElectronics.RelayISOx16.Relay.Relay_7);
+            
+                         // Multiple relays can be disabled at once
+                         relay.DisableRelay(GTM.GHIElectronics.RelayISOx16.Relay.Relay_12 + GTM.GHIElectronics.RelayISOx16.Relay.Relay_2);
+            
+                         // Disabling another relay will not affect previously altered relays
+                         relay.DisableRelay(GTM.GHIElectronics.RelayISOx16.Relay.Relay_6);
+            
+                         // Use this to turn off all relays
+                         relay.DisableAllRelays();
+                         
+                         Debug.Print("Program Started");
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.#ctor(System.Int32)">
+            <summary>Constructor</summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.DisableAllRelays">
+            <summary>
+            Clears all relays.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.EnableOutputs">
+            <summary>
+            Enables the outputs to the relays.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.DisableOutputs">
+            <summary>
+            Disables the outputs to the relays.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.EnableRelay(System.UInt16)">
+            <summary>
+            Enables the relay that is passed in. Multiple relays can be enabled simultaneously.
+            </summary>
+            <param name="relay">The relay to turn on.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RelayISOx16.DisableRelay(System.UInt16)">
+            <summary>
+            Disables the relay that is passed in. Multiple relays can be disabled simultaneously.
+            </summary>
+            <param name="relay">The relay to turn off.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay">
+            <summary>
+            Mask used to toggle relays.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_1">
+            <summary>
+            Mask for relay #1
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_2">
+            <summary>
+            Mask for relay #2
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_3">
+            <summary>
+            Mask for relay #3
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_4">
+            <summary>
+            Mask for relay #4
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_5">
+            <summary>
+            Mask for relay #5
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_6">
+            <summary>
+            Mask for relay #6
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_7">
+            <summary>
+            Mask for relay #7
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_8">
+            <summary>
+            Mask for relay #8
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_9">
+            <summary>
+            Mask for relay #9
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_10">
+            <summary>
+            Mask for relay #10
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_11">
+            <summary>
+            Mask for relay #11
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_12">
+            <summary>
+            Mask for relay #12
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_13">
+            <summary>
+            Mask for relay #13
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_14">
+            <summary>
+            Mask for relay #14
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_15">
+            <summary>
+            Mask for relay #15
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RelayISOx16.Relay.Relay_16">
+            <summary>
+            Mask for relay #16
+            </summary>
+        </member>
+    </members>
+</doc>

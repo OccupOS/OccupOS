@@ -1,0 +1,56 @@
+; Installation inf for GHI boot loader CDC Interface
+;
+; (c) Copyright 2010 GHI Electronics, LLC. All rights reserved.
+;
+
+
+[Version] 
+Signature="$Windows NT$" 
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318} 
+Provider=%GHI%
+CatalogFile=GHI_Bootloader_Interface.cat
+DriverVer=01/13/2010,1.0.0.0
+
+
+[Manufacturer] 
+%GHI%=GHI,NTamd64
+
+[DestinationDirs] 
+DefaultDestDir=12 
+
+
+[GHI] 
+%CDC%=DDInstall, USB\Vid_1B9F&Pid_0104
+
+[GHI.NTamd64]
+%CDC%=DDInstall, USB\Vid_1B9F&Pid_0104
+
+
+[DDInstall]
+include=mdmcpq.inf 
+CopyFiles=FakeModemCopyFileSection
+AddReg=DDInstall.AddReg 
+
+[DDinstall.AddReg] 
+HKR,,DevLoader,,*ntkern 
+HKR,,NTMPDriver,,usbser.sys 
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider" 
+
+
+[DDInstall.Services] 
+AddService=usbser, 0x00000002, CDC_DriverService
+
+
+[CDC_DriverService] 
+DisplayName=%GHI_SERVICE% 
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys 
+
+
+[Strings] 
+GHI="GHI Electronics, LLC"
+CDC = "GHI Boot Loader Interface"
+GHI_SERVICE="CDC Interface Service (virual COM Port)"

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Video_Out</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Video_Out">
+             <summary>
+             A Video_Out module for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+              <para>The following example shows how to set the display configuration and render to the screen.</para>
+              <code>
+             using System;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         video_Out.SetDisplayConfiguration(Video_Out.Video_Out_InputResolution.Output_800x600_VGA);
+            
+                         video_Out.SimpleGraphics.AutoRedraw = true;
+            
+                         video_Out.SimpleGraphics.DisplayText("Test Text", Resources.GetFont(Resources.FontResources.NinaB), GT.Color.Red, 10, 10);
+                     }
+                 }
+             }
+              </code>
+             </example>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.softwareI2C">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Video_Out.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary></summary>
+            <remarks>The ordering of the RGB socket numbers does not matter (socket numbers are autodetected)</remarks> 
+            <param name="rgbSocketNumber1">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+            <param name="rgbSocketNumber2">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+            <param name="rgbSocketNumber3">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+            <param name="i2cSocketNumber">The mainboard socket that has the display's X socket connected to it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Video_Out.SetDisplayConfiguration(Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution)">
+            <summary>
+            Selects a resolution based on the passed in value, and sets the mainboard's display configuration and the proper registers
+            for the module to match the mainboard's display configuration.
+            </summary>
+            <remarks>NOTE: Any time the mainboard display configuration is changed, the board will have to reset to apply the changes. 
+            If the same resolution is selected (320x240 RCA to 320x240 VGA) the board will not need to reset.</remarks>
+            <param name="res">The desired output type and resolution.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Video_Out.Paint(Microsoft.SPOT.Bitmap)">
+            <summary>
+            Renders display data on the display device. 
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to render on the display.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Video_Out.Width">
+            <summary>
+            Gets the width of the display.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Video_Out.Height">
+            <summary>
+            Gets the height of the display.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution">
+            <summary>
+            Represents the input resolution of the <see cref="T:Gadgeteer.Modules.GHIElectronics.Video_Out"/> object.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_320x240_RCA">
+            <summary>
+            Represents the values for an RCA display in the NTSC standard with a resolution of 320x240.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_640x480_RCA">
+            <summary>
+            Represents the values for an RCA display in the NTSC standard with a resolution of 640x480.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_800x600_RCA">
+            <summary>
+            Represents the values for an RCA display in the NTSC standard with a resolution of 800x600.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_320x240_VGA">
+            <summary>
+            Represents the values for an VGA display with a resolution of 320x240.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_640x480_VGA">
+            <summary>
+            Represents the values for an VGA display with a resolution of 640x480.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_800x600_VGA">
+            <summary>
+            Represents the values for an VGA display with a resolution of 800x600.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Video_Out.Video_Out_InputResolution.Output_320x240_RCA_PAL">
+            <summary>
+            Represents the values for an RCA display in the PAL standard with a resolution of 320x240.
+            </summary>
+        </member>
+    </members>
+</doc>

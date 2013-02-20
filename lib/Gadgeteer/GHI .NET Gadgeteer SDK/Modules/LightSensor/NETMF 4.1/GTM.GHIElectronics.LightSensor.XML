@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.LightSensor</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.LightSensor">
+            <summary>
+            A LightSensor module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.ReadLightSensorVoltage">
+            <summary>
+            Returns the current voltage reading of the light sensor
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.ReadLightSensorPercentage">
+            <summary>
+             Returns the current strength of the light relative to its maximum: range 0.0 to 100.0
+            </summary>
+        </member>
+    </members>
+</doc>

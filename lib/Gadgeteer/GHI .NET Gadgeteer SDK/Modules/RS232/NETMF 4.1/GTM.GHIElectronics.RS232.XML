@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.RS232</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RS232">
+            <summary>
+            A RS232 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.RS232.serialPort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RS232.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RS232.Initialize(System.Int32,Gadgeteer.Interfaces.Serial.SerialParity,Gadgeteer.Interfaces.Serial.SerialStopBits,System.Int32,Gadgeteer.Interfaces.Serial.HardwareFlowControl)">
+            <summary>
+            Initializes the serial port to the passed in parameters. If no parameters are passed, the defaults are used.
+            </summary>
+            <param name="baudRate">The baud rate for the serail port. Defaulted to 38400.</param>
+            <param name="parity">Specifies the parity bit for the serial port. Defaulted to none.</param>
+            <param name="stopBits">Specifies the number of stop bits used on the serial port. Defaulted to one.</param>
+            <param name="dataBits">The number of data bits. Defaulted to 8.</param>
+            <param name="flowControl">Specifies if the serial port should use flow control. Defaulted to not use.</param>
+        </member>
+    </members>
+</doc>

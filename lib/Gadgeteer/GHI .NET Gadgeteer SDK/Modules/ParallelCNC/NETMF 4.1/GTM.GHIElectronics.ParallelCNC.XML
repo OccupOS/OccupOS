@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.ParallelCNC</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.ParallelCNC">
+            <summary>
+            A ParallelCNC module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.ConfigurePins(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Enumerates the pins on the parallel port to their function.
+            </summary>
+            <param name="xEnable">The pin on the parallel port that handles this function.</param>
+            <param name="xDir">The pin on the parallel port that handles this function.</param>
+            <param name="xStep">The pin on the parallel port that handles this function.</param>
+            <param name="yEnable">The pin on the parallel port that handles this function.</param>
+            <param name="yDir">The pin on the parallel port that handles this function.</param>
+            <param name="yStep">The pin on the parallel port that handles this function.</param>
+            <param name="zEnable">The pin on the parallel port that handles this function.</param>
+            <param name="zDir">The pin on the parallel port that handles this function.</param>
+            <param name="zStep">The pin on the parallel port that handles this function.</param>
+            <param name="aEnable">The pin on the parallel port that handles this function.</param>
+            <param name="aDir">The pin on the parallel port that handles this function.</param>
+            <param name="aStep">The pin on the parallel port that handles this function.</param>
+            <param name="bEnable">The pin on the parallel port that handles this function.</param>
+            <param name="bDir">The pin on the parallel port that handles this function.</param>
+            <param name="bStep">The pin on the parallel port that handles this function.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes to the daisylink register specified by the address. Does not allow writing to the reserved registers.
+            </summary>
+            <param name="address">Address of the register.</param>
+            <param name="writebuffer">Byte to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.ReadRegister(System.Byte)">
+            <summary>
+            Reads a byte from the specified register. Allows reading of reserved registers.
+            </summary>
+            <param name="memoryaddress">Address of the register.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.MoveMotor(Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis,System.Int32,System.Boolean)">
+            <summary>
+            Moves the motor associated with the specified axis.
+            </summary>
+            <remarks>Calling this function on a motor that is already moving will cancel its current movement and set a new target position.</remarks>
+            <param name="axis">The axis to move.</param>
+            <param name="steps">The number of steps to move.</param>
+            <param name="positiveDirection">Determines the direction of the motor.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.SetAllMotors(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="xSteps"></param>
+            <param name="ySteps"></param>
+            <param name="zSteps"></param>
+            <param name="aSteps"></param>
+            <param name="bSteps"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.EnableMotor(Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask)">
+            <summary>
+            Enable the motor associated with the specified axis.
+            </summary>
+            <param name="axis">The axis to enable.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.DisableMotor(Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask)">
+            <summary>
+            Disable the motor associated with the specified axis.
+            </summary>
+            <param name="axis">The axis to diable.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.TerminateMovements">
+            <summary>
+            Stops all motors and clears all step counters.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.ParallelCNC.EmergencyStop(System.Boolean)">
+            <summary>
+            Immediately stops all motors.
+            </summary>
+            <param name="lockMotorsInPlace">If true, on stop the motors will lock into place.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis.X">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis.Y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis.Z">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis.A">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.Axis.B">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask.X">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask.Y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask.Z">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask.A">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.ParallelCNC.axisMask.B">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

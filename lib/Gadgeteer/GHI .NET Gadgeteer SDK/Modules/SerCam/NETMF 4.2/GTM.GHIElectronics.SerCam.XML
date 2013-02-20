@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.SerCam</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SerCam">
+             <summary>
+             A High resolution color camera module with serial interface for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.SerCam"/> object to capture a picture when a button is pressed and display it on a display.</para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         sercam.SetImageSize(SerCam.Camera_Resolution.SIZE_QVGA);
+                         sercam.PictureCaptured += new SerCam.PictureCapturedEventHandler(sercam_PictureCaptured);
+            
+                         button.ButtonPressed += new Button.ButtonEventHandler(button_ButtonPressed);
+            
+                         Debug.Print("Program Started");
+                     }
+            
+                     void button_ButtonPressed(Button sender, Button.ButtonState state)
+                     {
+                         sercam.TakePicture();
+                     }
+            
+                     void sercam_PictureCaptured(GTM.GHIElectronics.SerCam sender, Bitmap picture)
+                     {
+                         Debug.GC(true);
+                         display_T35.SimpleGraphics.DisplayImage(picture, 0, 0);
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.TakePicture">
+            <summary>
+            Captures a picture
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SerCam.SetImageSize(Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution)">
+            <summary>
+            Sets the image size
+            </summary>
+            <param name="resolution">The resolution to set the image size to</param>
+            <returns>If setting the parameter was successful</returns>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution">
+            <summary>
+            List of the possible resolutions
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_VGA">
+            <summary>
+            640x480
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_QVGA">
+            <summary>
+            320x240
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.SerCam.Camera_Resolution.SIZE_QQVGA">
+            <summary>
+            160x120
+            </summary>
+        </member>
+    </members>
+</doc>

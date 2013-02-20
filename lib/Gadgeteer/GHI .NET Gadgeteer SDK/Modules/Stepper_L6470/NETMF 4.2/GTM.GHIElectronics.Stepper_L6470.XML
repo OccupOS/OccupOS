@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Stepper_L6470</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470">
+            <summary>
+            A Stepper_L6470 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Reset">
+            <summary>
+            Resets the module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.NOP">
+            <summary>
+            Send NOP operation code to the module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.SetParam(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Registers,System.UInt32)">
+            <summary>
+            Sets a parameter to the passed in value
+            </summary>
+            <param name="param">Parameter to set</param>
+            <param name="value">Value to set</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GetParam(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Registers)">
+            <summary>
+            Get a value for a given parameter
+            </summary>
+            <param name="param">Parameter to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Run(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction,System.UInt32)">
+            <summary>
+            Runs the motor
+            </summary>
+            <param name="direction">Direction of the motor</param>
+            <param name="speed">Speed of the motor</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.StepClock(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction)">
+            <summary>
+            Steps the motor while the stepClock pin is high
+            </summary>
+            <param name="direction">Direction of the motor</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Move(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction,System.UInt32)">
+            <summary>
+            Moves the motor in the passed in direction for the passed in steps
+            </summary>
+            <param name="direction">Direction to move the motor</param>
+            <param name="n_step">Number of steps to move</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GoToPosition(System.UInt32)">
+            <summary>
+            Sets the motor to a specific position
+            </summary>
+            <param name="abs_pos">Absolute position to move to</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GoToDirection(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction,System.UInt32)">
+            <summary>
+            Moves to a specific position, going in the passed in direction
+            </summary>
+            <param name="direction">Direction to move</param>
+            <param name="abs_pos">Absolute position to move to</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GoUntil(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Action,Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction,System.UInt32)">
+            <summary>
+            Moves the motor until a specific action happens
+            </summary>
+            <param name="action">Action to stop on</param>
+            <param name="direction">Direction to move</param>
+            <param name="speed">Speed to move in</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.ReleaseSW(Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Action,Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction)">
+            <summary>
+            TODO
+            </summary>
+            <param name="action"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GoHome">
+            <summary>
+            Moves the motor to the home position
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GoMark">
+            <summary>
+            Goes the motor to the mark position
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.ResetPos">
+            <summary>
+            Resets the motor to the position
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.ResetDevice">
+            <summary>
+            Resets the device
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.SoftStop">
+            <summary>
+            Soft stop operation
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.HardStop">
+            <summary>
+            Hard stop operation
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.SoftHiZ">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.HardHiZ">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.GetStatus">
+            <summary>
+            Gets the status
+            </summary>
+            <returns>Status</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.BusyHW">
+            <summary>
+            Returns if the hardware is busy
+            </summary>
+            <returns>If the hardware is busy</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.BusySW">
+            <summary>
+            Returns if the software is busy
+            </summary>
+            <returns>If the hardware is busy</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.SetRegisters(Gadgeteer.Modules.GHIElectronics.RegsStruct)">
+            <summary>
+            Sets the registers to the passed in register values
+            </summary>
+            <param name="RegsStruct">Register values to set the values to</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Action">
+            <summary>
+            Action Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Direction">
+            <summary>
+            Direction Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Status_Masks">
+            <summary>
+            Status Masks
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Registers">
+            <summary>
+            Registers
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Commands">
+            <summary>
+            Commands
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Overcurrent_Detection_Threshold">
+            <summary>
+            Overcurrent Detection Threshold Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Step_Select">
+            <summary>
+            Step Select Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.Alarm_Enable">
+            <summary>
+            Alarm Enable Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_OSC_MGMT">
+            <summary>
+            Configuration Register Options
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_SW_MODE_TypeDef">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_F_PWM_DEC">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_F_PWM_INT">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_POW_SR">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_EN_VSCOMP">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Stepper_L6470.CONFIG_OC_SD">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RegsStruct">
+            <summary>
+            Avalilable Registers
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RegsStruct.#ctor">
+            <summary>
+            Empty Constructor
+            </summary>
+        </member>
+    </members>
+</doc>

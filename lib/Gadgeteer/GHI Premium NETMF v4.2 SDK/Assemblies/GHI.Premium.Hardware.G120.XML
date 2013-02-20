@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.Hardware.G120</name>
+    </assembly>
+    <members>
+        <member name="T:GHI.Premium.Hardware.G120">
+            <summary>
+            Exposes G120 specific functionality.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.G120.Pin">
+            <summary>
+            Provides Pin definitions for EMX.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.GPIO_NONE">
+            <summary>A value indicating that no GPIO pin is specified.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_0">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_1">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_2">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_3">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_4">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_5">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_6">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_10">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_11">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_12">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_13">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_15">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_16">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_17">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_18">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_22">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_23">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_24">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_25">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_26">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_27">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P0_28">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_0">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_1">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_2">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_3">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_4">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_5">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_6">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_7">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_8">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_9">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_10">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_11">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_12">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_14">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_15">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_16">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_17">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_19">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_20">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_21">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_22">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_23">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_24">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_25">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_26">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_27">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_28">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_29">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_30">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P1_31">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_0">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_1">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_2">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_3">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_4">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_5">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_6">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_7">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_8">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_9">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_10">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_11">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_12">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_13">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_14">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P2_21">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P3_24">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P3_25">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P3_26">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P4_28">
+            <summary>GPIO pin.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.G120.Pin.P4_29">
+            <summary>GPIO pin.</summary>
+        </member>
+    </members>
+</doc>

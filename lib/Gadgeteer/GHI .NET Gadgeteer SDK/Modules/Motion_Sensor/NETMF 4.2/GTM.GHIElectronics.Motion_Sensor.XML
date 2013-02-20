@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Motion_Sensor</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor">
+             <summary>
+             A passive infrared module that is used to detect motion in the module's field of view for Microsoft .NET Gadgeteer.
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor"/> object to detect motion and raise an event. 
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         motion_Sensor.Motion_Sensed += new Motion_Sensor.Motion_SensorEventHandler(motion_Sensor_Motion_Sensed);
+                     }
+            
+                     void motion_Sensor_Motion_Sensed(Motion_Sensor sender, Motion_Sensor.Motion_SensorState state)
+                     {
+                         Debug.Print("Motion Detected!");
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.OnMotion_SensorEvent(Gadgeteer.Modules.GHIElectronics.Motion_Sensor,Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorState)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_Sensed"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor"/> that raised the event.</param>
+            <param name="Motion_SensorState">The state of the Motion_Sensor.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.SensorStillActive">
+            <summary>
+            Gets a value that indicates whether the sensor is still high after detecthing motion.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_Sensed">
+            <summary>
+            Raised when the state of <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor"/> is high.
+            </summary>
+            <remarks>
+            Implement this event handler when you want to provide an action associated with Motion_Sensor activity.
+            The state of the Motion_Sensor is passed to the <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorEventHandler"/> delegate,
+            so you can use the same event handler for both Motion_Sensor states.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorState">
+            <summary>
+            Represents the state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor"/> object.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorState.Ready">
+            <summary>
+            The state of the sensor is low, which means it is now ready to begin detecting motion again.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorState.Busy">
+            <summary>
+            The state of the sensor is high, which means it is not ready to begin detecting motion again.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_SensorEventHandler">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.Motion_Sensor.Motion_Sensed"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.Motion_Sensor"/> object that raised the event.</param>
+            <param name="state">The state of the Motion_Sensor</param>
+        </member>
+    </members>
+</doc>

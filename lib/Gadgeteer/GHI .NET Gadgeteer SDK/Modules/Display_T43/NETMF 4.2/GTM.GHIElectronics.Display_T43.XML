@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Display_T43</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_T43">
+            <summary>
+            A 4.3 inch TFT display module with resistive touch for Microsoft .NET Gadgeteer.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_T43.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor for the module if touch is not connected.
+            </summary>
+            <remarks>
+            The ordering of the RGB socket numbers does not matter (socket numbers are autodetected).
+            </remarks>
+            <param name="rgbSocketNumber1">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+            <param name="rgbSocketNumber2">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+            <param name="rgbSocketNumber3">The mainboard socket that has the display's R, G, or B socket connected to it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_T43.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor used if touch is connected.
+            </summary>
+            <remarks>
+            The ordering of the RGB socket numbers does not matter (socket numbers are autodetected).
+            </remarks>
+            <param name="rgbSocketNumber1">The mainboard socket that has the display's R socket connected to it.</param>
+            <param name="rgbSocketNumber2">The mainboard socket that has the display's G socket connected to it.</param>
+            <param name="rgbSocketNumber3">The mainboard socket that has the display's B socket connected to it.</param>
+            <param name="touchSocketNumber">Optional: the mainboard socket that has the display's T socket connected to it. This enables the touch panel capabilities.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_T43.Paint(Microsoft.SPOT.Bitmap)">
+            <summary>
+            Renders display data on the display device. 
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to render on the display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_T43.SetBacklight(System.Boolean)">
+            <summary>
+            Sets the backlight to the passed in value.
+            </summary>
+            <param name="bOn">Backlight state.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_T43.Width">
+            <summary>
+            Gets the width of the display.
+            </summary>
+            <remarks>
+            This property always returns 480.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_T43.Height">
+            <summary>
+            Gets the height of the display.
+            </summary>
+            <remarks>
+            This property always returns 272.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Display_T43.BBackLightOn">
+            <summary>
+            Accessor for the state of the backlight
+            </summary>
+        </member>
+    </members>
+</doc>

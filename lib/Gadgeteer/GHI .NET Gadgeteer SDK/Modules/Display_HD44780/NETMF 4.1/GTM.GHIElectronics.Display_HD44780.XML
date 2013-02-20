@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Display_HD44780</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Display_HD44780">
+            <summary>
+            A Display_HD44780 module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.Initialize">
+            <summary>
+            This function will enable the display, clean it, and enter 4-bit mode.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.SendCmd(System.Byte)">
+            <summary>
+             Sends an LCD command.
+             </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.PrintString(System.String)">
+            <summary>
+            Prints the passed in string to the screen at the current cursor position. Note: This function will move the cursor position after.
+            </summary>
+            <param name="str">The string to print.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.Putc(System.Byte)">
+            <summary>
+            Sends an ASCII character to the LCD at the current cursor position. Note: This function will move the cursor position after.
+            </summary>
+            <param name="c">The character to display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.Clear">
+            <summary>
+            Clears the screen.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.CursorHome">
+            <summary>
+            Places the cursor at the top left of the screen.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.SetCursor(System.Byte,System.Byte)">
+            <summary>
+            Set the cursor to the passed in position.
+            </summary>
+            <param name="row">Row of the desired cursor position.</param>
+            <param name="col">Column of the desired cursor position.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.TurnBacklightOn">
+            <summary>
+            Turns the backlight on.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Display_HD44780.ShutBacklightOff">
+            <summary>
+            Turns the backlight off.
+            </summary>
+        </member>
+    </members>
+</doc>

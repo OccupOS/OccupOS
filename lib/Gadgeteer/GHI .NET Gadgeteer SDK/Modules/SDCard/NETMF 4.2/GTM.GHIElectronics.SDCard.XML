@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.SDCard</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SDCard">
+            <summary>
+            Represents a slot for Secure Digital (SD) non-volatile memory card.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.GetStorageDevice">
+            <summary>
+            Gets the StorageDevice instance for the currently mounted SD Card
+            </summary>
+            <returns>If an SD cards is mounted, returns the StorageDevice instance for the card.  Returns null otherwise.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.MountSDCard">
+            <summary>
+            Attempts to mount the file system of a non-volatile memory card
+            and create a <see cref="T:Microsoft.Gadgeteer.StorageDevice"/> object
+            associated with the card.
+            </summary>
+            <remarks>
+            <para>
+             Use <see cref="M:Gadgeteer.Modules.GHIElectronics.SDCard.MountSDCard"/> and <see cref="M:Gadgeteer.Modules.GHIElectronics.SDCard.UnmountSDCard"/>
+             to manually mount and dismount the file system on the non-volatile memory card.
+            </para>
+            <para>
+             If you call this method when there is no memory card inserted into the 
+             slot, or the card is already mounted, this method has no effect.
+            </para>
+            <para>
+             For more information on when you need to use this method, see <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.UnmountSDCard">
+            <summary>
+            Attempts to dismount the file system associated with a non-volatile memory card.
+            </summary>
+            <remarks>
+            <para>
+             Use <see cref="M:Gadgeteer.Modules.GHIElectronics.SDCard.MountSDCard"/> and <see cref="M:Gadgeteer.Modules.GHIElectronics.SDCard.UnmountSDCard"/>
+             to manually mount and dismount the file system on the non-volatile memory card.
+            </para>
+            <para>
+             If you call this method when there is no memory card inserted into the 
+             slot, or the card is already dismounted, this method has no effect.
+            </para>
+            <para>
+             For more information on when you need to use this method, see <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.OnSDCardMountedEvent(Gadgeteer.Modules.GHIElectronics.SDCard,Gadgeteer.StorageDevice)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMounted"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> object that raised the event.</param>
+            <param name="SDCard">A storage device that can be used to access the SD non-volatile memory card.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.SDCard.OnSDCardUnmountedEvent(Gadgeteer.Modules.GHIElectronics.SDCard)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardUnmounted"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> object that raised the event.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.SDCard.IsCardMounted">
+            <summary>
+            Gets a value that indicates whether a memory card is
+            inserted into the <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/>, and the file system
+            associated with the memory card is mounted.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.SDCard.IsCardInserted">
+            <summary>
+            True if an SD card is inserted
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMounted">
+            <summary>
+            Raised when the file system of an SD non-volatile memory card is mounted.
+            </summary>
+            <remarks>
+            <para>
+             Handle this event to obtain a reference to a 
+             <see cref="T:Microsoft.Gadgeteer.StorageDevice"/> object that can be used 
+             to access the file system associated with an SD non-volatile memory card.
+            </para>
+            <note>
+             This event is not necessarily raised automatically. See <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> for more information.
+            </note>
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardUnmounted">
+            <summary>
+            Raised when the file system of an SD non-volatile memory card is dismounted.
+            </summary>
+            <remarks>
+            <para>
+             Handle this event to inform your application that the 
+             <see cref="T:Microsoft.Gadgeteer.StorageDevice"/> object
+             that you obtained via the <see cref="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMounted"/> event is no longer valid.
+            </para>
+            <note>
+             This event is not necessarily raised automatically. See <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> for more information.
+            </note>
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMountedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMounted"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> object that raised the event.</param>
+            <param name="SDCard">A storage device that can be used to access the SD non-volatile memory card.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardUnmountedEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.SDCard.SDCardMounted"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.SDCard"/> object that raised the event.</param>
+        </member>
+    </members>
+</doc>

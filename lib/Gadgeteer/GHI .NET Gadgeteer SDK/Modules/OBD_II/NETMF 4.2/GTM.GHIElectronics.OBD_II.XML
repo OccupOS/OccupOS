@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.OBD_II</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.OBD_II">
+             <summary>
+             A OBD_II module for Microsoft .NET Gadgeteer.
+             </summary>
+             <example>
+             <para>
+             This driver currently only supports simple statistics, suce as RPM and vehicle speed.
+             You are more than welcome to contribute and add more OBD-PIDs, found here: http://en.wikipedia.org/wiki/OBD-II_PIDs
+             Important PIDs: any other performance statistic (oil temps, torque, horsepower, turbo stats etc) and fuel statistics (fuel pressure, injector timing, fuel flow rate etc)
+             Also, support for reading/clearing MIL (check engine light) is needed.
+             
+             The following example code demonstrates how to read the vehicle's fuel level and VIN.
+             First, we connect the OBDII module using the Connect() function. The function takes two arguments for specific connection variables, but they are defaulted to automatically 
+             connect, making it easier to use. Now, all we have to do is ask the module driver for the vehicle's information.
+             If statistics other than what are provided are desired, these can be obtained using the elm class.
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         obd_II.Connect();
+            
+                         double fuelLevel = obd_II.GetFuelLevel();
+            
+                         string VIN = obd_II.GetVIN();
+                     }
+                 }
+             }
+            </code>
+             </example>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.OBD_II.elm">
+            <summary>
+            The underlying class that handles all of the communication with the ELM327 chip.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.#ctor(System.Int32)">
+            <summary>Constructor for this module. Initializes the ELM327 Core driver.</summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.Connect(Elm327.Core.ElmDriver.ElmObdProtocolType,Elm327.Core.ElmDriver.ElmMeasuringUnitType)">
+            <summary>
+            Attempts to connect to the ECU. If successful, will retrieve one time information from the ECU.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetVehicleSpeed">
+            <summary>
+            Gets the current speed of the vehicle (either in mph or km/h,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetRPM">
+            <summary>
+            Returns the Revolutions Per Minute of the vehicle's engine.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetThrottlePosition">
+            <summary>
+            Gets the throttle position as a percent (0-100).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetEngineCoolantTemp">
+            <summary>
+            Gets the current engine coolant temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetIntakeAirTemp">
+            <summary>
+            Gets the intake air temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetAmbientAirTemp">
+            <summary>
+            Gets the ambient air temperature (in celsius or farenheit,
+            depending on the current unit selection).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetBatteryVoltage">
+            <summary>
+            Gets the battery voltage reading.  Note that this value is read
+            directly off the supply pin from the OBD port.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetFuelLevel">
+            <summary>
+            Gets the current fuel level as a percentage value between 0
+            and 100.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetOBDProtocolType">
+            <summary>
+            Gets the current OBD protocol.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetVehicleFuelType">
+            <summary>
+            Gets the fuel type for this vehicle.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetVIN">
+            <summary>
+            Gets the Vehicle Identification Number.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetFriendlyFuelTypeName(Elm327.Core.ObdModes.ObdGenericMode01.VehicleFuelType)">
+            <summary>
+            Utility method to return a human-readable fuel type name.
+            </summary>
+            <param name="fuelType">The enumerated fuel type.</param>
+            <returns>The friendly English name for the type.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetFriendlyObdProtocolModeTypeName(Elm327.Core.ElmDriver.ElmObdProtocolType)">
+            <summary>
+            Utility method to return a human-readable OBD protocol type name.
+            </summary>
+            <param name="protocolType">The enumerated OBD protocol type.</param>
+            <returns>The friendly English name for the type.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.OBD_II.GetFriendlyElmConnectionResultTypeName(Elm327.Core.ElmDriver.ElmConnectionResultType)">
+            <summary>
+            Utility method to return a human-readable connection type name.
+            </summary>
+            <param name="resultType">The enumerated ELM327 connection type.</param>
+            <returns>The friendly English connection state.</returns>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.OBD_II.Connected">
+            <summary>
+            Returns if the module has successfully connected to both the ELM327 and to the vehicle's ECU. 
+            If a connection is successful, communication with the ECU is possible.
+            </summary>
+        </member>
+    </members>
+</doc>

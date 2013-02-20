@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.IRReceiver</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver">
+            <summary>
+            A IR_Receiver module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.IR_Receiver.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.ReceiverType">
+            <summary>
+            The protocol used for communication.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.IR_Receiver.ReceiverType.RC5">
+            <summary>
+            RC-5 protocol. Only one implemented.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.IR_Receiver.ReceiverType.RC6">
+            <summary>
+            RC-6 protocol. Not yet implemented.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventDelegate">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs.Button">
+            <summary>
+            The button what was pressed.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.IR_Receiver.IREventArgs.ReadTime">
+            <summary>
+            The time that the button was read.
+            </summary>
+        </member>
+    </members>
+</doc>

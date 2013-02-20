@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Ethernet_J11D</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D">
+            <summary>
+            An Ethernet J11D Gadgeteer module.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.IsNetworkConnected">
+            <summary>
+            Gets a value that indicates whether this ethernet module is physically connected to a network device.
+            </summary>
+            <remarks>
+            <para>
+             This property enables you to determine if the <see cref="T:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D"/> module is
+             physically connected to a network device, such as a router. 
+             When this property is <b>true</b>, it does not necessarily mean that the network connection is usable. 
+             You must also check the <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> property. 
+             <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> returns <b>true</b> 
+             if the network connection is both connected and configured for Internet Proctocol (IP) communication tasks. 
+            </para>
+            <note>
+             When <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> is <b>true</b>, it does not necessarily mean 
+             that the network connection is functional. The IP configuration
+             for the network connection may be invalid for the network that it is connected to.
+            </note>
+            </remarks>
+        </member>
+    </members>
+</doc>

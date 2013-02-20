@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.WiFi_RS21</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.WiFi_RS21">
+            <summary>
+            A WiFi RS21 Gadgeteer module
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.WiFi_RS21.Interface">
+            <summary>
+            The class that will be used to interface with the wifi module. This member will handle everything from initialization to joining networks.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.WiFi_RS21.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+    </members>
+</doc>
