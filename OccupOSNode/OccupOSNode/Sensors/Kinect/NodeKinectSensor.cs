@@ -28,7 +28,6 @@ namespace OccupOSNode.Sensors.Kinect {
                 connected = FindKinectSensor();
                 if (connected) break;
             }
-
         }
 
         public override string GetDataAsJSON() {
