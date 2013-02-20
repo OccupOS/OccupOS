@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace OccupOSNode
-{
-    class SQLServerHelper
-    {
+namespace OccupOSNode {
+    class SQLServerHelper {
         private SqlDataReader queryResult;
         private string userName = "";
         private string password = "";
@@ -17,8 +15,7 @@ namespace OccupOSNode
         private string databaseName = "";
         private SqlConnectionStringBuilder connectionString;
 
-        public SQLServerHelper(String dataSource, string userName, string password, string databaseName)
-        {
+        public SQLServerHelper(String dataSource, string userName, string password, string databaseName) {
             connectionString = new SqlConnectionStringBuilder();
             connectionString.DataSource = dataSource;
             connectionString.Encrypt = true;
@@ -28,34 +25,29 @@ namespace OccupOSNode
             connectionString.TrustServerCertificate = false;
         }
 
-        public void getData(string command)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
-            {
+        public void getData(string command) {
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString)) {
                 SqlCommand sqlCommand = new SqlCommand(command);
                 sqlCommand.Connection = connection;
                 connection.Open();
                 queryResult = sqlCommand.ExecuteReader();
-                while (queryResult.Read())
-                {
+                while (queryResult.Read()) {
 
                 }
             }
         }
 
-        public void sendData(ArrayList data)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
-            {
+        public void sendData(ArrayList data) {
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString)) {
 
                 SqlCommandBuilder sqlCommand = new SqlCommandBuilder();
                 sqlCommand.
                 sqlCommand.Connection = connection;
                 connection.Open();
                 queryResult = sqlCommand.ExecuteReader();
-           
+
             }
         }
-        
+
     }
 }
