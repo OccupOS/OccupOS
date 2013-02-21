@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Globalization;
-using System.Text;
+
 using IndianaJones.NETMF.String;
 using IndianaJones.NETMF.Integer;
 
