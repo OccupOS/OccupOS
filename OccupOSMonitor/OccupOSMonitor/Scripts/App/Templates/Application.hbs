@@ -1,0 +1,16 @@
+﻿<section>
+    {{view OccupOS.NavbarView}}
+
+    <div role="main" class="container">
+        {{outlet}}
+    </div>
+
+    <!-- maybe can move the classes navbar and navbar-fixed bottom into footer tag to get rid of one div-->
+    <footer> 
+        <div class="navbar navbar-fixed-bottom">
+            <div class="container">
+                &copy;2013 {{unbound OccupOS.author}}
+            </div>
+        </div>
+    </footer>
+</section>
