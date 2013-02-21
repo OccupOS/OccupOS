@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../vendor/ember.js" />
 /// <reference path="../App.js" />
 
-OccupOS.HomeView = Ember.View.extend({
-    templateName: 'index'
+OccupOS.IndexView = Ember.View.extend({
+    templateName: 'Index'
 })

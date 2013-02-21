@@ -2,5 +2,5 @@
 /// <reference path="../App.js" />
 
 OccupOS.ContactView = Ember.View.extend({
-    templateName: 'contact'
+    templateName: 'Contact'
 })

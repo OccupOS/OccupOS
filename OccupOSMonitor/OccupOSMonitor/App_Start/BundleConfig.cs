@@ -34,6 +34,7 @@ namespace OccupOSMonitor.App_Start {
             // possibly have to include store.js before the models (not sure, just as a future hint)
             bundles.Add(new Bundle("~/bundles/app", new JsMinify()).Include(
                 "~/Scripts/App/App.js",
+                "~/Scripts/App/Helpers/*.js",
                 "~/Scripts/App/Models/*.js",
                 "~/Scripts/App/Views/*.js",
                 "~/Scripts/App/Controllers/*.js",
