@@ -48,11 +48,11 @@ namespace OccupOSNode
             using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
             {
 
-                SqlCommandBuilder sqlCommand = new SqlCommandBuilder();
+                /*SqlCommandBuilder sqlCommand = new SqlCommandBuilder();
                 sqlCommand.
                 sqlCommand.Connection = connection;
                 connection.Open();
-                queryResult = sqlCommand.ExecuteReader();
+                queryResult = sqlCommand.ExecuteReader();*/
            
             }
         }
