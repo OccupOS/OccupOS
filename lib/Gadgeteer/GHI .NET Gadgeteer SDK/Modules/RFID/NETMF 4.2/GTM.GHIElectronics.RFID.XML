@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.RFID</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RFID">
+             <summary>
+             A 125Khz RFID reader module for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.RFID"/> object to display the ID of a swiped RFID card.</para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         rfid.CardIDReceived += new RFID.CardIDReceivedEventHandler(rfid_CardIDReceived);
+                     }
+            
+                     void rfid_CardIDReceived(RFID sender, string ID)
+                     {
+                         Debug.Print(ID);
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RFID.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RFID.OnIDReadyEvent(Gadgeteer.Modules.GHIElectronics.RFID,System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceived"/> event.
+            </summary>
+            <param name="sender">Sending module.</param>
+            <param name="ID">ID that was read.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.RFID.OnIDBadChecksumEvent(Gadgeteer.Modules.GHIElectronics.RFID,System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDBadChecksum"/> event.
+            </summary>
+            <param name="sender">Sending module.</param>
+            <param name="ID">Error text.</param>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceived">
+            <summary>
+            Event raised when the module reads a valid ID.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDBadChecksum">
+            <summary>
+            Event raised when the module reads an invalid or the checksum does not match.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceivedEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDReceived"/> event.
+            </summary>
+            <param name="sender">Senting module.</param>
+            <param name="ID">ID that was read.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.RFID.CardIDBadChecksumEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.RFID.CardIDBadChecksum"/> event.
+            </summary>
+            <param name="sender">Sending module.</param>
+            <param name="ID">Error text.</param>
+        </member>
+    </members>
+</doc>

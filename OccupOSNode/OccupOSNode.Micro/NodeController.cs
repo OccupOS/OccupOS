@@ -35,7 +35,7 @@ namespace OccupOSNode.Micro {
             {
                 if (s is Sensor) 
                 {
-                    sensorReadings.Add(((Sensor)s).GetPacket());
+                    sensorReadings.Add(((Sensor)s).GetDataAsJSON());
                 }
             }
         }

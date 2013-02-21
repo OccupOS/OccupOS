@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Potentiometer</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Potentiometer">
+            <summary>
+            Represents a potentiometer module.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the module plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.ReadPotentiometerVoltage">
+            <summary>
+            Returns the current voltage reading of the potentiometer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Potentiometer.ReadPotentiometerPercentage">
+            <summary>
+             Returns the current position of the potentiometer relative to its maximum: range 0.0 to 1.0
+            </summary>
+        </member>
+    </members>
+</doc>

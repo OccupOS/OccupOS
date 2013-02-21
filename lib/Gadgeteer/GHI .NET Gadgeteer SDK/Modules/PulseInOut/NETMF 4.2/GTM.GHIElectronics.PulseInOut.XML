@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.PulseInOut</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.PulseInOut">
+             <summary>
+             A module used to read and send remote control signals, with 8 PWM in and 8 PWM out for Microsoft .NET Gadgeteer
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.PulseInOut"/> object to write to a few of the 8 available PWM outputs to control servos.</para>
+             <code>
+             <![CDATA[    
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         // Set the frequency to 50Hz, so we have a pulse every 20ms
+                         pulseInOut.SetFrequency(50);
+            
+                         // Make every servo turn from its low limit to its high limit
+                         for (ushort i = 1100; i < 1900; i += 8)
+                         {
+                             pulseInOut.SetPulse(1, i);
+                             pulseInOut.SetPulse(2, i);
+                             pulseInOut.SetPulse(3, i);
+                         }
+            
+                         Debug.Print("Program Started");
+                     }
+                 }
+             }
+             ]]>
+             </code>
+             </example>    
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.#ctor(System.Int32)">
+            <summary>Constructor</summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.ReadChannel(System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Reads the current PWM wave from Inputs 1-8
+            </summary>
+            <param name="input_id">The input to read from. 1-8.</param>
+            <param name="high_time">The amount of time the wave is high in microseconds.</param>
+            <param name="low_time">The amount of time the wave is low in microseconds.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.SetPulse(System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+            Sets a PWM pulse on the passed in pin.
+            </summary>
+            <param name="pwm_id">The pin to set.</param>
+            <param name="period_microsec">Length of the perion in microseconds.</param>
+            <param name="highTime_microse">The length of time for the wave to be high, in microseconds.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.SetPulse(System.Int32,System.UInt16)">
+            <summary>
+            Sets an output pin's PWM 1-8.
+            </summary>
+            <param name="pwm_id">The PWM channel to set. 1-8.</param>
+            <param name="highTime_microse">The ammount of time for the pin to be high, in microseconds.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes to the daisylink register specified by the address. Does not allow writing to the reserved registers.
+            </summary>
+            <param name="address">Address of the register.</param>
+            <param name="writebuffer">Byte to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.PulseInOut.ReadRegister(System.Byte)">
+            <summary>
+            Reads a byte from the specified register. Allows reading of reserved registers.
+            </summary>
+            <param name="memoryaddress">Address of the register.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

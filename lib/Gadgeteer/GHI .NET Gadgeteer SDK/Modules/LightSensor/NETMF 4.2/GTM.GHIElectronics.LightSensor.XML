@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.LightSensor</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.LightSensor">
+             <summary>
+             A light sensor module for Microsoft .NET Gadgeteer.
+             </summary>
+             <example>
+             <para>The following example uses a <see cref="T:Gadgeteer.Modules.GHIElectronics.LightSensor"/> object to read and display the current amount of light to the output window. 
+             </para>
+             <code>
+             using System;
+             using System.Collections;
+             using System.Threading;
+             using Microsoft.SPOT;
+             using Microsoft.SPOT.Presentation;
+             using Microsoft.SPOT.Presentation.Controls;
+             using Microsoft.SPOT.Presentation.Media;
+             using Microsoft.SPOT.Touch;
+            
+             using Gadgeteer.Networking;
+             using GT = Gadgeteer;
+             using GTM = Gadgeteer.Modules;
+             using Gadgeteer.Modules.GHIElectronics;
+            
+             namespace TestApp
+             {
+                 public partial class Program
+                 {
+                     void ProgramStarted()
+                     {
+                         double lightPercent = lightsensor.ReadLightSensorPercentage();
+            
+                         Debug.Print(lightPercent.ToString());
+                     }
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.ReadLightSensorVoltage">
+            <summary>
+            Returns the current voltage reading of the light sensor
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LightSensor.ReadLightSensorPercentage">
+            <summary>
+             Returns the current strength of the light relative to its maximum: range 0.0 to 100.0
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.LEDMatrix</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.LEDMatrix">
+            <summary>
+            A Daisylink LEDMatrix module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LEDMatrix.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LEDMatrix.DrawBitmap(System.Byte[])">
+            <summary>
+            Draws a 8x8 "bitmap" to the screen.
+            </summary>
+            <param name="bitmap">The array of 8 bytes to display on the LED Matrix.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LEDMatrix.WriteRegister(System.Byte,System.Byte)">
+            <summary>
+            Writes to the daisylink register specified by the address. Does not allow writing to the reserved registers.
+            </summary>
+            <param name="address">Address of the register.</param>
+            <param name="writebuffer">Byte to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.LEDMatrix.ReadRegister(System.Byte)">
+            <summary>
+            Reads a byte from the specified register. Allows reading of reserved registers.
+            </summary>
+            <param name="memoryaddress">Address of the register.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

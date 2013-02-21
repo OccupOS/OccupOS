@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer.SPI</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Interfaces.SPI">
+            <summary>
+             Represents a Microwire/Serial Peripheral Interface (SPI) interface to communicate with a Microwire/SPI compatible device. 
+            </summary>
+            <remarks>
+            <para>
+             The Microwire/SPI interface is a synchronous serial communications protocol in which multiple devices 
+             can be connected with one another by means of a single three-wire system. This three-wire system includes 
+             the serial data in the input signal, the serial data out signal, and the serial clock. You must use an additional GPIO 
+             pin as a chip select for each device that will communicate on the Microwire/SPI interface.
+            </para>
+            <para>
+             There are both 8-bit and 16-bit modes of operation using the overloaded read and write methods that have 
+             byte (8-bit) arguments or unsigned short (16-bit) arguments. Note that you can configure both 8-bit 
+             and 16-bit devices and have them share the SPI interface.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.#ctor(Gadgeteer.Socket,Gadgeteer.Interfaces.SPI.Configuration,Gadgeteer.Interfaces.SPI.Sharing,Gadgeteer.Modules.Module)">
+            <summary>
+            </summary>
+            <remarks>This automatically checks that the socket supports Type S, and reserves the pins if necessary.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="socket">The <see cref="T:Gadgeteer.Socket"/> for the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="spiConfiguration">The <see cref="T:Gadgeteer.Interfaces.SPI.Configuration"/> object for the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="sharingMode">The <see cref="T:Gadgeteer.Interfaces.SPI.Sharing"/> of the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="module">The <see cref="T:Gadgeteer.Modules.Module"/> that is connected to the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.#ctor(Gadgeteer.Socket,Gadgeteer.Interfaces.SPI.Configuration,Gadgeteer.Interfaces.SPI.Sharing,Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Modules.Module)">
+            <summary>
+            
+            </summary>
+            <param name="socket">The <see cref="T:Gadgeteer.Socket"/> for the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="spiConfiguration">The <see cref="T:Gadgeteer.Interfaces.SPI.Configuration"/> object for the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="sharingMode">The <see cref="T:Gadgeteer.Interfaces.SPI.Sharing"/> mode of the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="chipSelectSocket">The chip select <see cref="T:Gadgeteer.Socket"/>of the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+            <param name="chipSelectPin">The <see cref="T:Gadgeteer.Socket"/></param>
+            <param name="module">The <see cref="T:Gadgeteer.Modules.Module"/> that is connected to the <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.ChangeSpiConfig(Gadgeteer.Interfaces.SPI.Configuration)">
+            <summary>
+            Changes the configuration of this <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.
+            </summary>
+            <param name="conf">The configuration to change to.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.WriteRead(System.UInt16[],System.UInt16[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the SPI interface, and reads an array of 
+            bytes from the interface into a specified location in the read buffer. 
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">
+             The offset in time, measured in transacted elements from <paramref name="writeBuffer"/>, 
+             to start reading data into <paramref name="readBuffer"/>.
+            </param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.WriteRead(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the SPI interface, and reads an array of bytes from the interface into a 
+            specified location in the read buffer.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">
+             The offset in time, measured in transacted elements from <paramref name="writeBuffer"/>, 
+             to start reading data into.<paramref name="readBuffer"/>.
+            </param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.WriteRead(System.UInt16[],System.UInt16[])">
+            <summary>
+            Writes an array of unsigned values to the SPI interface, and reads an array of unsigned values from the interface.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.WriteRead(System.Byte[],System.Byte[])">
+            <summary>
+             Writes an array of bytes to the interface, and reads an array of bytes from the interface.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.Write(System.Byte[])">
+            <summary>
+            Writes an array of bytes to the SPI interface.  This is a synchronous call; it will not return until the bytes are written out.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.WriteParams(System.Byte[])">
+            <summary>
+            Writes an array of bytes to the SPI interface. This is a synchronous call; it will not return until the bytes are written out.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.Write(System.UInt16[])">
+            <summary>
+             Writes an array of unsigned values to the SPI interface. This is a synchronous call; it will not return until the bytes are written out.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.SPIModule">
+            <summary>
+            Gets the underlying serial peripheral interface (SPI) module associated with this interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.SPI.Configuration">
+            <summary>
+            Represents the configuration for an <see cref="T:Gadgeteer.Interfaces.SPI"/> interface.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SPI.Configuration.#ctor(System.Boolean,System.UInt32,System.UInt32,System.Boolean,System.Boolean,System.UInt32)">
+            <summary></summary>
+            <param name="chipSelectActiveState">
+             The active state for the chip-select port. If <b>true</b>, the chip-select port will be set to high when 
+             accessing the chip; if <b>false</b>, the chip select port will be set to low when accessing the chip.
+            </param>
+            <param name="chipSelectSetupTime">
+             The amount of time (in milliseconds) that will elapse between the time at which the device is selected and the time at which 
+             the clock and the clock data transmission will start.
+            </param>
+            <param name="chipSelectHoldTime">
+             The amount of time (in milliseconds) that the chip select port must remain in the active state before the device is unselected, 
+             or the amount of time (in milliseconds) that the chip select will remain in the active state after the data read/write transaction 
+             has been completed.
+            </param>
+            <param name="clockIdleState">
+             The idle state of the clock. If <b>true</b>, the serial peripheral interface (SPI) clock signal will be set to high while the device is idle; 
+             if <b>false</b>, the SPI clock signal will be set to low while the device is idle. The idle state occurs whenever 
+             the chip is not selected.
+            </param>
+            <param name="clockEdge">
+             The sampling clock edge. If <b>true</b>, data is sampled on the SPI clock rising edge; 
+             if <b>false</b>, the data is sampled on the SPI clock falling edge.
+            </param>
+            <param name="clockRateKHz">The SPI clock rate in kHz.</param>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ChipSelectActiveState">
+            <summary>
+            Gets the chip select active state.
+            </summary>
+            <value>
+             The active state for the chip-select port. If <b>true</b>, the chip-select port will be 
+             set to high when accessing the chip; 
+             if <b>false</b>, the chip-select port will be set to low when accessing the chip.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ChipSelectSetupTime">
+            <summary>
+            Gets the chip-select setup time.
+            </summary>
+            <value>
+             The amount of time (in milliseconds) that will elapse between the time at which the device is selected and the time at which 
+             the clock and the clock data transmission will start.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ChipSelectHoldTime">
+            <summary>
+            Gets the chip-select hold time.
+            </summary>
+            <value>
+             The amount of time (in milliseconds) that the chip-select port must remain in the active state before the device is unselected, 
+             or the amount of time (in milliseconds) that the chip-select will remain in the active state after the data read/write transaction 
+             has been completed.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ClockIdleState">
+            <summary>
+            Gets the clock idle state.
+            </summary>
+            <value>
+             The idle state of the clock. If <b>true</b>, the SPI clock signal will be set to high while the device is idle; 
+             if <b>false</b>, the serial peripheral interface (SPI) clock signal will be set to low while the device is idle. 
+             The idle state occurs whenever the chip is not selected.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ClockEdge">
+            <summary>
+            Gets the sampling clock edge.
+            </summary>
+            <value>
+             The sampling clock edge. If <b>true</b>, data is sampled on the serial peripheral interface (SPI) clock rising edge; 
+             if <b>false</b>, the data is sampled on the SPI clock falling edge.
+            </value>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SPI.Configuration.ClockRateKHz">
+            <summary>
+            Gets the clock rate, in KHz.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.SPI.Sharing">
+            <summary>
+            Provides values to specify the sharing mode for an <see cref="T:Gadgeteer.Interfaces.SPI"/> instance.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.SPI.Sharing.Exclusive">
+            <summary>
+            Exclusive, no sharing allowed.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.SPI.Sharing.Shared">
+            <summary>
+            Sharing is allowed.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.SPI.Sharing.NoMoreAllowed">
+            <summary>
+            No more interfaces may share.
+            </summary>
+        </member>
+    </members>
+</doc>

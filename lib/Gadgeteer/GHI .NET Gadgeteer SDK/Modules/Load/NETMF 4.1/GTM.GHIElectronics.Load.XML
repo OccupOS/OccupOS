@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Load</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Load">
+            <summary>
+            A Load module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P1">
+            <summary>
+            Pin 1 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P2">
+            <summary>
+            Pin 2 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P3">
+            <summary>
+            Pin 3 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P4">
+            <summary>
+            Pin 4 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P5">
+            <summary>
+            Pin 5 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P6">
+            <summary>
+            Pin 6 on the module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Load.P7">
+            <summary>
+            Pin 7 on the module.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Load.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+    </members>
+</doc>

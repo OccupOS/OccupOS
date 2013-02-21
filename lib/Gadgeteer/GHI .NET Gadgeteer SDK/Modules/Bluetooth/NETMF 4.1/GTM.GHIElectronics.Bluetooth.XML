@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Bluetooth</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth">
+            <summary>
+            A Bluetooth module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.serialPort">
+            <summary>
+            Direct access to Serial Port.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.Reset">
+            <summary>
+            Hard Reset Bluetooth module
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Bluetooth.OnBluetoothEvent(Gadgeteer.Modules.GHIElectronics.Bluetooth,Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothConnected"/> or <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothDisconnected"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth"/> that raised the event.</param>
+            <param name="BluetoothState">The state of the Bluetooth.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Bluetooth.IsConnected">
+            <summary>
+            Gets a value that indicates whether the bluetooth connection is connected.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothConnected">
+            <summary>
+            Raised when the state of <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth"/> is connected.
+            </summary>
+            <remarks>
+            Implement this event handler and the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothConnected"/> event handler
+            when you want to provide an action associated with Bluetooth activity.
+            The state of the Bluetooth is passed to the <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothEventHandler"/> delegate,
+            so you can use the same event handler for both Bluetooth states.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothDisconnected">
+            <summary>
+            Raised when the state of <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth"/> is disconnectd.
+            </summary>
+            <remarks>
+            Implement this event handler and the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothDisconnected"/> event handler
+            when you want to provide an action associated with Bluetooth activity.
+            Since the state of the Bluetooth is passed to the <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothEventHandler"/> delegate,
+            you can use the same event handler for both Bluetooth states.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState">
+            <summary>
+            Represents the state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth"/> connection.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Disconnected">
+            <summary>
+            The Bluetooth connection is disconnected.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothState.Connected">
+            <summary>
+            The Bluetooth connection is connected.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothEventHandler">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothConnected"/>
+            and <see cref="E:Gadgeteer.Modules.GHIElectronics.Bluetooth.BluetoothDisconnected"/> events.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.Bluetooth"/> object that raised the event.</param>
+            <param name="state">The state of the Bluetooth</param>
+        </member>
+    </members>
+</doc>

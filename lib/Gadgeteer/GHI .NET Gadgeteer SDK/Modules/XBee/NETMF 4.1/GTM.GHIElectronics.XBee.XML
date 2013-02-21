@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.XBee</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.XBee">
+            <summary>
+            A XBee module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.XBee.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+            <remarks>
+            The function <see cref="M:Gadgeteer.Modules.GHIElectronics.XBee.Configure(System.Int32,Gadgeteer.Interfaces.Serial.SerialParity,Gadgeteer.Interfaces.Serial.SerialStopBits,System.Int32)"/> can be called to configure the <see cref="P:Gadgeteer.Modules.GHIElectronics.XBee.SerialLine"/> before it is used.  
+            If it is not called before first use, then the following defaults will be used and cannot be changed afterwards:
+            <list type="bullet">
+             <item>Baud Rate - 115200</item>
+             <item>Parity - <see cref="T:Microsoft.Gadgeteer.Interfaces.Serial.SerialParity">SerialParity.None</see></item>
+             <item>Stop Bits - <see cref="T:Microsoft.Gadgeteer.Interfaces.Serial.SerialStopBits">SerialStopBits.One</see></item>
+             <item>Data Bits - 8</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.XBee.Configure(System.Int32,Gadgeteer.Interfaces.Serial.SerialParity,Gadgeteer.Interfaces.Serial.SerialStopBits,System.Int32)">
+            <summary>
+            Configures this serial line.  This should be called at most once.
+            </summary>
+            <param name="baudRate">The baud rate.</param>
+            <param name="parity">A value from the <see cref="T:Microsoft.Gadgeteer.Interfaces.Serial.SerialParity"/> enumeration that specifies the parity.</param>
+            <param name="stopBits">A value from the <see cref="T:Microsoft.Gadgeteer.Interfaces.Serial.SerialStopBits"/> enumeration that specifies the number of stop bits.</param>
+            <param name="dataBits">The number of data bits.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.XBee.SerialLine">
+            <summary>
+            Gets the <see cref="T:Microsoft.Gadgeteer.Interfaces.Serial"/> device associated with this instance.
+            </summary>
+        </member>
+    </members>
+</doc>

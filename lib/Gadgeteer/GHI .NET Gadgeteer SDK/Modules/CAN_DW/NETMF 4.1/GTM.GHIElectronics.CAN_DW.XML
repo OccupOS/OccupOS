@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.CAN_DW</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.CAN_DW">
+            <summary>
+            A CAN_DW module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW._ErrorReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.OnErrorReceived(GHIElectronics.NETMF.Hardware.CAN,GHIElectronics.NETMF.Hardware.CANErrorReceivedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW._DataReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.OnDataReceived(GHIElectronics.NETMF.Hardware.CAN,GHIElectronics.NETMF.Hardware.CANDataReceivedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.InitializeCAN(System.UInt32,System.Int32)">
+            <summary>
+            Initializes CAN.
+            </summary>
+            <param name="bitRate">The desired bitrate, if known. Otherwise, use the other overload to calculate a bitrate. See http://wiki.tinyclr.com/index.php?title=CAN for more info.</param>
+            <param name="receiveBufferSize">Specifies the receive buffer size (number of internally buffered CAN messages). Defaulted to 100.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.InitializeCAN(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes CAN.
+            </summary>
+            <param name="T1">See http://wiki.tinyclr.com/index.php?title=CAN for calculation.</param>
+            <param name="T2">See http://wiki.tinyclr.com/index.php?title=CAN for calculation.</param>
+            <param name="BRP">See http://wiki.tinyclr.com/index.php?title=CAN for calculation.</param>
+            <param name="receiveBufferSize">Specifies the receive buffer size (number of internally buffered CAN messages). Defaulted to 100.</param>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW.msgList">
+            <summary>
+            The list of messages to be sent when calling PostMessages.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.PostMessages(System.Int32,System.Int32)">
+            <summary>
+             Posts (queues for writing) CAN messages
+            </summary>
+            <param name="offset">Offset into the buffer to start sending from.</param>
+            <param name="count">Number of messages to write.</param>
+            <returns></returns>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW._PostDone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.OnPostMessagesFinished(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="numPosted"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.GetPostedMessagesSent">
+            <summary>
+            A boolean value denoting if all posted (queued for writing) messages are sent.
+            </summary>
+            <returns>A boolean value denoting if all posted (queued for writing) messages are sent.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.GetReceivedMessagesCount">
+            <summary>
+            The number of messages ready to be read.
+            </summary>
+            <returns>The number of messages ready to be read.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.GetReceiveErrorCount">
+            <summary>
+            CAN receive error count.
+            </summary>
+            <returns>CAN receive error count.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.GetTransmitErrorCount">
+            <summary>
+             CAN transmit error count.
+            </summary>
+            <returns> CAN transmit error count.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.Reset">
+            <summary>
+            Resets the CAN controller
+            </summary>
+            <remarks>
+            This methods resets the CAN controller. This is needed in the Bus Off condition
+                because the controller get disabled automatically.  Note that a reset causes
+                the hardware buffered messages to be lost (On EMX and USBizi, this is 2 for
+                receive and 3 for transmit). The software receive buffer is not affected.
+                The software filters are not affected either.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.SetExplicitFilters(System.UInt32[])">
+            <summary>
+            Sets explicit filters.
+            </summary>
+            <param name="filters">Messages' IDs to filter.</param>
+            <remarks>
+            This filters exact matches for message identifiers (standard or extended).
+                The provided filters will be copied internally and searched using an optimized
+                software search.  For example, to only receive messages with these IDs (0x1234,
+                0x5789, 0x12345678), do the following: uint[] explicitIDs = new uint[] {0x1234,
+                0x5789, 0x12345678}; can.SetExplicitFilters(explicitIDs);
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.SetGroupFilters(System.UInt32[],System.UInt32[])">
+            <summary>
+            Sets group (range) filters.
+            </summary>
+            <param name="lowerBounds">Group lower bounds for messages' IDs to filter. Each lower bound corresponds to an upper bound.</param>
+            <param name="upperBounds">Group upper bounds for messages' IDs to filter. Each upper bound corresponds to a lower bound.</param>
+            <remarks>
+            This filters a group (range) of message identifiers (standard or extended).
+                The provided filters will be copied internally and searched using an optimized
+                software search.  Every pair of a lower bound at index i and an upper bound
+                at the same index defines a valid group. The provided groups MUST not overlap.
+                Otherwise, the method will throw an argument exception.  For example, to
+                only receive messages with these two groups of IDs [0x1200 to 0x1248] and
+                [0x500 to 0x1000], do the following: uint[] lowerBounds = new uint[] { 0x1200,
+                0x500 }; uint[] upperBounds = new uint[] { 0x1248, 0x1000 }; can.SetGroupFilters(lowerBounds,
+                upperBounds); Note that the bounds' limits are considered valid. In the above
+                example, 0x1200, 0x1248, 0x500 and 0x1000 are valid IDs and will pass through
+                to the receive buffer.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.DisableExplicitFilters">
+            <summary>
+            Disables the explicit filters.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.CAN_DW.DisableGroupFilters">
+            <summary>
+            Disables the group filters.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.CAN_DW.ErrorReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.CAN_DW.DataReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.CAN_DW.NumMessagesSent">
+            <summary>
+            The number of messages sent during the last PostMessages call.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.CAN_DW.PostDone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.CAN_DW.ErrorReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.CAN_DW.DataReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.CAN_DW.PostMessagesDoneEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="numPosted"></param>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.CAN_DW.CAN_PostState">
+            <summary>
+            Represents the state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.CAN_DW"/> while attempting to post messages.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW.CAN_PostState.Fail">
+            <summary>
+            Failed to write messages, as it is still busy writing.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.CAN_DW.CAN_PostState.Success">
+            <summary>
+            Successfully began writing messages.
+            </summary>
+        </member>
+    </members>
+</doc>

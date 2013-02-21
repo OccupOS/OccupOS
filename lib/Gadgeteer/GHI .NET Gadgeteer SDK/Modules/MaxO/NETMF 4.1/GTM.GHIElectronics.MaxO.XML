@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.MaxO</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MaxO">
+            <summary>
+            A MaxO module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.GetArraySize">
+            <summary>
+            Returns the size of the array to be filled out.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.Clear">
+            <summary>
+            Clears all registers.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.WriteArray(System.Byte[])">
+            <summary>
+            Writes the full array of data to the registers.
+            </summary>
+            <param name="arr"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.WritePin(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Writes only to the specified pin or the specified board.
+            </summary>
+            <param name="_board">The number of the board to write to.</param>
+            <param name="_pin">The number of the pin to write.</param>
+            <param name="_value">The value to write to the pin.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.Read">
+            <summary>
+            Returns the data that is currently in the registers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.EnableOutputs">
+            <summary>
+            Enables output to the pins.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MaxO.DisableOutputs">
+            <summary>
+            Disables the output to the pins.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.MaxO.NumBoards">
+            <summary>
+            The number of this type of module attached together
+            </summary>
+        </member>
+    </members>
+</doc>

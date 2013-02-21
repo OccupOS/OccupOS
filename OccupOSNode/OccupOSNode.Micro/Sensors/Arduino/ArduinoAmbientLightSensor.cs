@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ArduinoAmbientLightSensor.cs" company="UCL">
 //   
@@ -6,6 +7,14 @@
 //   Defines the LightSensor type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+=======
+using Microsoft.SPOT.Hardware;
+using IndianaJones.NETMF.Json;
+using OccupOS.CommonLibrary.Sensors;
+using SecretLabs.NETMF.Hardware.NetduinoPlus;
+using System;
+using System.Collections;
+>>>>>>> 10a7ddd3b11942d16d26ea6e8d3207df11ed6fc6
 
 namespace OccupOSNode.Micro.Sensors.Arduino {
     using System;
@@ -34,7 +43,7 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             }
         }
 
-        public override string GetPacket() {
+        public override string GetDataAsJSON() {
             var sensorData = new SensorData {
                 AnalogLight = GetAnalogLightValue()
             };

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHIElectronics.Gadgeteer.FEZSpider</name>
+    </assembly>
+    <members>
+        <member name="T:GHIElectronics.Gadgeteer.FEZSpider">
+            <summary>
+            Support class for GHI Electronics FEZSpider Mainboard for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetProgrammingMode(Gadgeteer.Mainboard.ProgrammingInterface)">
+            <summary>
+            Changes the programming interafces to the one specified
+            </summary>
+            <param name="programmingInterface">The programming interface to use</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetLCD(Gadgeteer.Mainboard.LCDConfiguration)">
+            <summary>
+            This sets the LCD configuration.  If the value GT.Mainboard.LCDConfiguration.HeadlessConfig (=null) is specified, no display support should be active.
+            If a non-null value is specified but the property LCDControllerEnabled is false, the LCD controller should be disabled if present,
+            though the Bitmap width/height for WPF should be modified to the Width and Height parameters.
+            </summary>
+            <param name="lcdConfig">The LCD Configuration</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetDebugLED(System.Boolean)">
+            <summary>
+            Turns the debug LED on or off
+            </summary>
+            <param name="on">True if the debug LED should be on</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.PostInit">
+            <summary>
+            This performs post-initialization tasks for the mainboard.  It is called by Gadgeteer.Program.Run and does not need to be called manually.
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZSpider.MainboardName">
+            <summary>
+            The mainboard name, which is printed at startup in the debug window
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZSpider.MainboardVersion">
+            <summary>
+            The mainboard version, which is printed at startup in the debug window
+            </summary>
+        </member>
+    </members>
+</doc>
