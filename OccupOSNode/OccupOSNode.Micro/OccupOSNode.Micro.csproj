@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <AssemblyName>OccupOSNode.Micro</AssemblyName>
@@ -64,8 +64,12 @@
     <Reference Include="OccupOS.CommonLibrary">
       <HintPath>..\OccupOS.Common\bin\Debug\OccupOS.CommonLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="SecretLabs.NETMF.Hardware, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="SecretLabs.NETMF.Hardware.NetduinoPlus, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SecretLabs.NETMF.Hardware">
+      <HintPath>..\..\lib\Netduino SDK\Assemblies\v4.3\SecretLabs.NETMF.Hardware.dll</HintPath>
+    </Reference>
+    <Reference Include="SecretLabs.NETMF.Hardware.NetduinoPlus">
+      <HintPath>..\..\lib\Netduino SDK\Assemblies\v4.3\SecretLabs.NETMF.Hardware.NetduinoPlus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO" />
   </ItemGroup>
