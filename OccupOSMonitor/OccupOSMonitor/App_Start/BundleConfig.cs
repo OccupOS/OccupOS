@@ -24,6 +24,7 @@ namespace OccupOSMonitor.App_Start {
             bundles.Add(new Bundle("~/bundles/base", new JsMinify()).Include(
                         "~/Scripts/Vendor/JQuery/jquery-{version}.js",
                         "~/Scripts/Vendor/Twitter/Dev-3.0/bootstrap.js",
+                //"~/Scripts/Vendor/D3/d3.v3.js",
                         "~/Scripts/Vendor/Ember/handlebars.runtime.js",
                         "~/Scripts/Vendor/Ember/ember.js",
                         "~/Scripts/Vendor/Ember/ember-data.js"));

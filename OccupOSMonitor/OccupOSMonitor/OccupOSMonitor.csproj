@@ -181,6 +181,7 @@
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap-responsive.min.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.css" />
     <Content Include="Content\Vendor\Twitter\Plugins\jasny-bootstrap.min.css" />
+    <Content Include="D3 LICENSE.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphiconshalflings-regular.svg" />
     <Content Include="fonts\iconic_fill.svg" />
@@ -287,6 +288,8 @@
     <Content Include="Scripts\App\Views\IndexView.js" />
     <Content Include="Scripts\App\Views\MonitorView.js" />
     <Content Include="Scripts\App\Views\NavbarView.js" />
+    <Content Include="Scripts\Vendor\D3\d3.v3.js" />
+    <Content Include="Scripts\Vendor\D3\d3.v3.min.js" />
     <Content Include="Scripts\Vendor\Ember\ember-data.js" />
     <Content Include="Scripts\Vendor\Ember\ember.js" />
     <Content Include="Content\Vendor\Twitter\fonts\glyphiconshalflings-regular.eot" />

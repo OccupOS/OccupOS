@@ -63,3 +63,13 @@ h6 {
 .login {
     margin-top: 20px;
 }
+
+/*
+ Demo Code!
+*/
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
