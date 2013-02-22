@@ -1,39 +1,18 @@
-<<<<<<< HEAD
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ArduinoAmbientLightSensor.cs" company="UCL">
-//   
-// </copyright>
-// <summary>
-//   Defines the LightSensor type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-=======
 using Microsoft.SPOT.Hardware;
 using IndianaJones.NETMF.Json;
 using OccupOS.CommonLibrary.Sensors;
 using SecretLabs.NETMF.Hardware.NetduinoPlus;
 using System;
 using System.Collections;
->>>>>>> 10a7ddd3b11942d16d26ea6e8d3207df11ed6fc6
 
 namespace OccupOSNode.Micro.Sensors.Arduino {
-    using System;
-    using System.Collections;
-
-    using IndianaJones.NETMF.Json;
-
-    using Microsoft.SPOT.Hardware;
-
-    using OccupOS.CommonLibrary.Sensors;
-
-    using SecretLabs.NETMF.Hardware.Netduino;
-
     class LightSensor : Sensor, ILightSensor {
         private AnalogInput input;
         private Hashtable ports = new Hashtable();
         private float analogValue, digitalValue;
 
-        public LightSensor(String id, int portNumber) : base(id) {
+        public LightSensor(String id, int portNumber)
+            : base(id) {
             Setup();
 
             if (portNumber > 0 && portNumber < 6) {
