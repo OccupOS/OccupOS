@@ -1,0 +1,1 @@
+﻿OccupOS.MonitorController = Ember.Controller.extend();

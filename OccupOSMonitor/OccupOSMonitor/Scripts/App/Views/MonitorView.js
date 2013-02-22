@@ -1,0 +1,1 @@
+﻿OccupOS.MonitorView = Ember.View.extend();

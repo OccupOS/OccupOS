@@ -1,7 +1,63 @@
-﻿/* Account for fixed navbar */
+﻿/*
+    Check out http://www.fontsquirrel.com/fonts/list/style/Sans%20Serif for different fonts
+    Ass bold!
+ */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('Fonts/OpenSans/OpenSans-Regular-webfont.eot');
+    src: local('Open Sans'), local('OpenSans'),
+         url('Fonts/OpenSans/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/OpenSans/OpenSans-Regular-webfont.woff') format('woff'),
+         url('Fonts/OpenSans/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('Fonts/OpenSans/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/*Note for things like changing things like navbar color, fonts, font colors etc. customize Bootstrap
+     at build to save valuable bytes!! */
+
+/* Account for fixed navbar */
 body {
     padding-top: 60px;
+    font-family: 'Open Sans', Helvetica, Arial Sans-Serif;
+    color: #222222;
     background: url("../Images/paper_fibers.png") repeat scroll 0% 0% transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', Helvetica, Arial, Sans-Serif;
+  font-weight: 300;
+}
+
+.navbar {
+    background-color: #EEEEEE;
+}
+
+.navbar-brand {
+    font-family: 'Open Sans', Helvetica, Arial, Sans-Serif;
+    color: #555;
+    font-size: 18px;
+}
+
+.navbar-brand:hover {
+    color: #333;
+}
+
+.table th {
+    text-transform: uppercase;
+}
+
+.accent-color, header h1, header h2, table th {
+    /*color: #24A0DA;*/
+    color: #2493da;
 }
 
 .login {

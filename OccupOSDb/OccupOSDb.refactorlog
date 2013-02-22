@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="560a0843-613e-42fb-a7e0-50b9fdcbdd50" ChangeDateTime="02/21/2013 17:57:31">
+    <Property Name="ElementName" Value="[dbo].[SensorMetadata].[IntermediateHwMedadataId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SensorMetadata]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ControllerMedadataId" />
+  </Operation>
+</Operations>
