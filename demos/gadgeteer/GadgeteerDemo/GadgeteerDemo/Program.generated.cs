@@ -16,8 +16,8 @@ namespace GadgeteerDemo
     public partial class Program : Gadgeteer.Program
     {
         // GTM.Module definitions
-        Gadgeteer.Modules.GHIElectronics.Display_T35 display_T35;
-        Gadgeteer.Modules.GHIElectronics.Camera camera;
+        Gadgeteer.Modules.GHIElectronics.LightSensor lightSensor;
+        Gadgeteer.Modules.GHIElectronics.WiFi_RS21 wifi_RS21;
 
         public static void Main()
         {
@@ -33,9 +33,9 @@ namespace GadgeteerDemo
         private void InitializeModules()
         {   
             // Initialize GTM.Modules and event handlers here.		
-            camera = new GTM.GHIElectronics.Camera(3);
+            wifi_RS21 = new GTM.GHIElectronics.WiFi_RS21(9);
 		
-            display_T35 = new GTM.GHIElectronics.Display_T35(14, 13, 12, 10);
+            lightSensor = new GTM.GHIElectronics.LightSensor(10);
 
         }
     }
