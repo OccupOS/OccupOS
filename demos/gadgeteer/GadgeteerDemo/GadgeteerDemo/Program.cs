@@ -17,6 +17,7 @@ namespace GadgeteerDemo
 
             wifi_RS21.Interface.NetworkInterface.EnableDhcp();
             wifi_RS21.Interface.NetworkInterface.EnableDynamicDns();
+            wifi_RS21.Interface.NetworkInterface.EnableStaticIP("192.168.1.117", "255.255.255.0", "192.168.1.254");
 
             Debug.Print("Scanning for WiFi networks");
             GHI.Premium.Net.WiFiNetworkInfo[] wiFiNetworkInfo = wifi_RS21.Interface.Scan();
@@ -26,14 +27,12 @@ namespace GadgeteerDemo
                 Debug.Print("0: " + wiFiNetworkInfo[0].SSID);
                 Debug.Print("Joining " + wiFiNetworkInfo[0].SSID);
                 wifi_RS21.Interface.Join(wiFiNetworkInfo[0], "69B3625573");
-                Debug.Print("IP: " + wifi_RS21.Interface.NetworkInterface.IPAddress);
+                Debug.Print("Connected?: " + wifi_RS21.Interface.IsLinkConnected.ToString());
             }
             else
             {
                 Debug.Print("Didn't find any WiFi networks");
             }
-
-            wifi_RS21.Interface.Close();
 
             timer.Tick += new GT.Timer.TickEventHandler(timer_Tick);
             timer.Start();
@@ -45,6 +44,7 @@ namespace GadgeteerDemo
         {
             int lightSensorPercentage = (int) lightSensor.ReadLightSensorPercentage();
             Debug.Print("Current (rounded) light sensor percentage: " + lightSensorPercentage.ToString());
+            Debug.Print("IP: " + wifi_RS21.Interface.NetworkInterface.IPAddress);
         }
     }
 }
