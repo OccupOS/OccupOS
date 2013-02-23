@@ -3,12 +3,14 @@
     [SensorMetadataId]         INT            NOT NULL,
     [IntermediateHwMedadataId] INT            NOT NULL,
     [MeasuredData]             NVARCHAR (MAX) NOT NULL,
-    [MeasuredAt]               DATETIME2       NOT NULL,
-    [UpdatedAt]                DATETIME2       DEFAULT (getdate()) NOT NULL,
-    [CreatedAt]                DATETIME2       DEFAULT (getdate()) NOT NULL,
+    [MeasuredAt]               DATETIME2      NOT NULL,
+    [SendAt]                   DATETIME2      NULL,
+    [PolledAt]                 DATETIME2      NULL,
+    [UpdatedAt]                DATETIME2      DEFAULT (getdate()) NOT NULL,
+    [CreatedAt]                DATETIME2      DEFAULT (getdate()) NOT NULL,
     CONSTRAINT [PK_SensorDatas] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_SensorDataIntermediateHwMedadata] FOREIGN KEY ([IntermediateHwMedadataId]) REFERENCES [dbo].[IntermediateHwMedadatas] ([Id]),
-    CONSTRAINT [FK_SensorDataSensorMetadata] FOREIGN KEY ([SensorMetadataId]) REFERENCES [dbo].[SensorMetadatas1] ([Id])
+    CONSTRAINT [FK_SensorDataHwControllerMedadata] FOREIGN KEY ([IntermediateHwMedadataId]) REFERENCES [dbo].[HwControllerMetadata] ([Id]),
+    CONSTRAINT [FK_SensorDataSensorMetadata] FOREIGN KEY ([SensorMetadataId]) REFERENCES [dbo].[SensorMetadata] ([Id])
 );
 
 

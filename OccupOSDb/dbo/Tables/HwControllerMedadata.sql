@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ControllerMetadata] (
+﻿CREATE TABLE [dbo].[HwControllerMetadata] (
     [Id]             INT            IDENTITY (1, 1) NOT NULL,
     [ExternalId]     NVARCHAR (450) NOT NULL,
     [DepartmentName] NVARCHAR (50)  NULL,
@@ -9,7 +9,7 @@
     [CreatorId]      INT            NULL,
     [FloorNr]        INT            NULL,
     [RoomId]         NVARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_IntermediateHwMedadatas] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [PK_HwControllerMedadata] PRIMARY KEY CLUSTERED ([Id] ASC),
     UNIQUE NONCLUSTERED ([ExternalId] ASC)
 );
 

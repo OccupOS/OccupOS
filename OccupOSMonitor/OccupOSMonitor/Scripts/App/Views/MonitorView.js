@@ -9,7 +9,7 @@
 
         var margin = { top: 40, right: 10, bottom: 20, left: 10 },
             width = 450 - margin.left - margin.right,
-            height = 300 - margin.top - margin.bottom;
+            height = 350 - margin.top - margin.bottom;
 
         var x = d3.scale.ordinal()
             .domain(d3.range(m))
@@ -30,9 +30,13 @@
             .orient("bottom");
 
         var svg = d3.select("#viz").append("svg")
+            .attr('class', 'graph')
+            .attr('height', height + margin.top + margin.bottom)
+          .append("svg")
             //.attr("width", width + margin.left + margin.right)
             //.attr("height", height + margin.top + margin.bottom)
             .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+            //.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
             .attr("preserveAspectRatio", "none")
           .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");

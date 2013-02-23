@@ -359,11 +359,8 @@
     <Content Include="Scripts\Vendor\Twitter\bootstrap.min.js" />
     <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.js" />
     <Content Include="Scripts\Vendor\Twitter\Dev-3.0\bootstrap.min.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-fileupload.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-inputmask.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\bootstrap-rowlink.js" />
     <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.js" />
-    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.min.js" />
+    <Content Include="Scripts\Vendor\Twitter\Plugins\jasny-bootstrap.min.tmp.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
