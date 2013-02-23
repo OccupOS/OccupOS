@@ -97,7 +97,7 @@ namespace Microsoft.WindowsAzure.MobileServices
             }
             
             // Make sure the instance doesn't have its ID set for an insertion
-            if (instance.Id > 0)
+            if (instance.ID > 0)
             {
                 throw new ArgumentException(                   
                     //TODO:NH use regex to implement format as an extension method on string
