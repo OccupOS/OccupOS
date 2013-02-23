@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OccupOSNode.Micro")]
-[assembly: AssemblyDescription("The software for the OccupOS micro nodes")]
+[assembly: AssemblyTitle("Microsoft.Azure.Zumo.MicroFramework")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OccupOS")]
+[assembly: AssemblyProduct("Microsoft.Azure.Zumo.MicroFramework")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

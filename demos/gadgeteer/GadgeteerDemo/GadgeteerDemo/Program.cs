@@ -1,6 +1,7 @@
 using Microsoft.SPOT;
 using GT = Gadgeteer;
 using Gadgeteer.Modules.GHIElectronics;
+using System.Net.Sockets;
 
 namespace GadgeteerDemo
 {
