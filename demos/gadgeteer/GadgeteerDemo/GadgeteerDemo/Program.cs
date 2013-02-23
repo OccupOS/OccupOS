@@ -11,7 +11,12 @@ namespace GadgeteerDemo
         // This method is run when the mainboard is powered up or reset.   
         void ProgramStarted()
         {
+            wifi_RS21.DebugPrintEnabled = true;
+
             wifi_RS21.Interface.Open();
+
+            wifi_RS21.Interface.NetworkInterface.EnableDhcp();
+            wifi_RS21.Interface.NetworkInterface.EnableDynamicDns();
 
             Debug.Print("Scanning for WiFi networks");
             GHI.Premium.Net.WiFiNetworkInfo[] wiFiNetworkInfo = wifi_RS21.Interface.Scan();
@@ -19,6 +24,9 @@ namespace GadgeteerDemo
             {
                 Debug.Print("Found WiFi network");
                 Debug.Print("0: " + wiFiNetworkInfo[0].SSID);
+                Debug.Print("Joining " + wiFiNetworkInfo[0].SSID);
+                wifi_RS21.Interface.Join(wiFiNetworkInfo[0], "69B3625573");
+                Debug.Print("IP: " + wifi_RS21.Interface.NetworkInterface.IPAddress);
             }
             else
             {
