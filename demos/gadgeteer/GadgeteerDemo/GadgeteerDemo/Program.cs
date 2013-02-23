@@ -11,6 +11,8 @@ namespace GadgeteerDemo
         // This method is run when the mainboard is powered up or reset.   
         void ProgramStarted()
         {
+            wifi_RS21.Interface.Open();
+
             Debug.Print("Scanning for WiFi networks");
             GHI.Premium.Net.WiFiNetworkInfo[] wiFiNetworkInfo = wifi_RS21.Interface.Scan();
             if (wiFiNetworkInfo != null)
@@ -22,6 +24,8 @@ namespace GadgeteerDemo
             {
                 Debug.Print("Didn't find any WiFi networks");
             }
+
+            wifi_RS21.Interface.Close();
 
             timer.Tick += new GT.Timer.TickEventHandler(timer_Tick);
             timer.Start();
