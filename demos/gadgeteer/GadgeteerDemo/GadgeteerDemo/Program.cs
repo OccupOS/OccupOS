@@ -12,7 +12,6 @@ namespace GadgeteerDemo
         void ProgramStarted()
         {
             timer.Tick += new GT.Timer.TickEventHandler(timer_Tick);
-
             timer.Start();
 
             Debug.Print("Finished setup");
@@ -20,8 +19,8 @@ namespace GadgeteerDemo
 
         void timer_Tick(GT.Timer timer)
         {
-            Debug.Print("Taking picture...");
-            camera.TakePicture();
+            int lightSensorPercentage = (int) lightSensor.ReadLightSensorPercentage();
+            Debug.Print("Current (rounded) light sensor percentage: " + lightSensorPercentage.ToString());
         }
     }
 }
