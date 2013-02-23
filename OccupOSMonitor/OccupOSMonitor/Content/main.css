@@ -88,7 +88,7 @@ h6 {
     width: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
     /* Force table to not be like tables anymore */
     table.table-responsive,
     .table-responsive thead,
@@ -125,13 +125,8 @@ h6 {
             white-space: nowrap;
             text-align: left;
             font-weight: bold;
-        }
-
-        /*
-Label the data
-*/
-        .table-responsive td:before {
             content: attr(data-title);
+            color: #90b633;
         }
 }
 /* @media (max-width: 767px) {

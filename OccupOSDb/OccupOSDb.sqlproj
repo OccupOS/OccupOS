@@ -65,7 +65,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\SensorData.sql" />
     <Build Include="dbo\Tables\SensorMetadata.sql" />
-    <Build Include="dbo\Tables\ControllerMedadata.sql" />
+    <Build Include="dbo\Tables\HwControllerMedadata.sql" />
     <Build Include="dbo\Tables\AppUser.sql" />
   </ItemGroup>
   <ItemGroup>

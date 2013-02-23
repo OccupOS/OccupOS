@@ -1,5 +1,6 @@
 ﻿OccupOS.MonitorView = Ember.View.extend({
-    didInsertElement: function() {
+    didInsertElement: function () {
+        //Check out: http://bl.ocks.org/biovisualize/1209499
         var n = 3, // number of layers
     m = 24, // number of samples per layer
     stack = d3.layout.stack(),
@@ -7,9 +8,9 @@
     yGroupMax = d3.max(layers, function (layer) { return d3.max(layer, function (d) { return d.y; }); }),
     yStackMax = d3.max(layers, function (layer) { return d3.max(layer, function (d) { return d.y0 + d.y; }); });
 
-        var margin = { top: 40, right: 10, bottom: 20, left: 10 },
+        var margin = { top: 0, right: 10, bottom: 20, left: 10 },
             width = 450 - margin.left - margin.right,
-            height = 350 - margin.top - margin.bottom;
+            height = 255 - margin.top - margin.bottom;
 
         var x = d3.scale.ordinal()
             .domain(d3.range(m))
