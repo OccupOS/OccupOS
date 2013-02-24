@@ -6,6 +6,6 @@ namespace Microsoft.Azure.Zumo.MicroFramework.Core
 {
     public interface IMobileServiceEntity
     {
-        int Id { get; set; }
+        int ID { get; set; }
     }
 }
