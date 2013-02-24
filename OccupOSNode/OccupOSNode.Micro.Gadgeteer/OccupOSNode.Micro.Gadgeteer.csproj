@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SensorReading.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Gadgeteer">
@@ -81,9 +82,6 @@
     <Reference Include="GTM.GHIElectronics.WiFi_RS21, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="IndianaJones.NETMF.Json">
-      <HintPath>..\..\IndianaJones.NETMF.Json\bin\Debug\IndianaJones.NETMF.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
@@ -94,9 +92,6 @@
     <Reference Include="Microsoft.SPOT.TinyCore" />
     <Reference Include="Microsoft.SPOT.Touch" />
     <Reference Include="mscorlib" />
-    <Reference Include="OccupOS.CommonLibrary">
-      <HintPath>..\OccupOS.Common\bin\Debug\OccupOS.CommonLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Http" />
     <Reference Include="System.IO" />
