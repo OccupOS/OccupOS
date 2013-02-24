@@ -19,5 +19,5 @@
 
 GO
 CREATE NONCLUSTERED INDEX [IX_FK_IntermediateHwMedadataSensorMetadata]
-    ON [dbo].[SensorMetadatas1]([IntermediateHwMedadataId] ASC);
+    ON [dbo].[SensorMetadata]([HwControllerMetadataId] ASC);
 

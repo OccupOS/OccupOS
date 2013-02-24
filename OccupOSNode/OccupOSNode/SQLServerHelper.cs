@@ -8,13 +8,13 @@ using System.Collections;
 
 namespace OccupOSNode
 {
-    class SQLServerHelper
+   public class SQLServerHelper
     {
         private SqlDataReader queryResult;
-        private string userName = "";
+      /*  private string userName = "";
         private string password = "";
         private string dataSource = "";
-        private string databaseName = "";
+        private string databaseName = "";*/
         private SqlConnectionStringBuilder connectionString;
 
         public SQLServerHelper(String dataSource, string userName, string password, string databaseName)
@@ -43,11 +43,16 @@ namespace OccupOSNode
             }
         }
 
-        public void sendData(ArrayList data)
+        public int sendSensorData(int Id,int SensorMetadataId,int IntermediateHwMetadataId,string MeasuredData,DateTime MeasuredAt,DateTime SendAt,DateTime PolledAt,DateTime UpdatedAt,DateTime CreatedAt)
         {
             using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
             {
-
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = string.Format("INSERT INTO SensorData (Id, SensorMetadataId, IntermediateHwMetadataId, MeasuredData, MeasuredAt, SendAt, PolledAt, UpdatedAt, CreatedAt) VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8}", Id, SensorMetadataId, IntermediateHwMetadataId, MeasuredData, MeasuredAt, SendAt, PolledAt, UpdatedAt, CreatedAt);
+                connection.Open();
+                command.ExecuteNonQuery();
+                return 1;
                 /*SqlCommandBuilder sqlCommand = new SqlCommandBuilder();
                 sqlCommand.
                 sqlCommand.Connection = connection;

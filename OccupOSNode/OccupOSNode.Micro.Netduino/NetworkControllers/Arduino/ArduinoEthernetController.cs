@@ -4,28 +4,39 @@ using System.Text;
 
 namespace OccupOSNode.Micro.NetworkControllers.Arduino
 {
-    class ArduinoEthernetController
+   public class ArduinoEthernetController
     {
         
         private Socket socket;
+        IPHostEntry hostEntry; 
+        IPAddress hostAddress;
+        IPEndPoint remoteEndPoint;
+        string address;
         public ArduinoEthernetController(string hostName, int port)
         {
-            IPHostEntry hostEntry = Dns.GetHostEntry(hostName);
-            IPAddress hostAddress = hostEntry.AddressList[0];
-            IPEndPoint remoteEndPoint = new IPEndPoint(hostAddress, port);
-            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect(remoteEndPoint);
-            socket.SetSocketOption(SocketOptionLevel.Tcp,
-            SocketOptionName.NoDelay, true);
-            socket.SendTimeout = 5000;
+            address = hostName;
+           //hostEntry = Dns.GetHostEntry(hostName);
+           //hostAddress = hostEntry.AddressList[0];
+            hostAddress = IPAddress.Parse(hostName); 
+            remoteEndPoint = new IPEndPoint(hostAddress, port);
+           
             
 
         }
 
-        public void sendData(string data)
+        public Socket connect()
+        {
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+           socket.Connect(remoteEndPoint);
+            socket.SetSocketOption(SocketOptionLevel.Tcp,
+            SocketOptionName.NoDelay, true);
+            socket.SendTimeout = 5000;
+            return socket;
+        }
+        public int sendData(string data)
         {
             byte[] buffer = Encoding.UTF8.GetBytes(data);
-            socket.Send(buffer);
+           return socket.Send(buffer);
         }
 
     }
