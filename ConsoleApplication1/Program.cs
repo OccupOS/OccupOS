@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OccupOSNode;
 using System.Net.Sockets;
 using System.Threading;
+using Microsoft.WindowsAzure.Storage;
 
 namespace OccupOSNode
 {
@@ -15,20 +16,29 @@ namespace OccupOSNode
 
         static void Main(string[] args)
         {
+
+            // This is the server part
           /*  l = new Listener(1333);
             l.SocketAccepted += new Listener.SocketAcceptedHandler(l_SocketAccepted);
             
             l.Start();
             */
-            Console.Read();
+          //  Console.Read();
 
+            //testing the SQLServerHelper
+            SensorDataTest testData = new SensorDataTest(1,1);
+            testData.CreatedAt = DateTime.Now;
+            testData.IntermediateHwMetadataId = 1;
+            testData.MeasuredAt = DateTime.Now;
+            testData.MeasuredData = "testData";
+            testData.PolledAt = DateTime.Now;
+            testData.SendAt = DateTime.Now;
+            testData.UpdatedAt = DateTime.Now;
+            SQLServerHelper helper = new SQLServerHelper("tcp:dndo40zalb.database.windows.net,1433", "comp2014@dndo40zalb", "20041908kjH", "TestSQLDB");
 
+            helper.connect();
+            helper.sendSensorData(1, 1, "test", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
 
-            SQLServerHelper helper = new SQLServerHelper("dndo40zalb.database.windows.net", "comp2014", "20041908kjH", "TestSQLDB");
-          if(helper.sendSensorData(1, 1, 1, "test", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now)>0)
-              Console.WriteLine("Updated successfully");
-          else
-              Console.Write("Error");
         }
         static void l_SocketAccepted(System.Net.Sockets.Socket e)
         {
