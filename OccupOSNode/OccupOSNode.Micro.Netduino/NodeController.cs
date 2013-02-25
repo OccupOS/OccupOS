@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.IO;
 using OccupOS.CommonLibrary.Sensors;
+using OccupOS.CommonLibrary.NodeControllers;
 
 namespace OccupOSNode.Micro {
+
     class StorageDeviceMissingException : Exception {
         public StorageDeviceMissingException(string message)
             : base(message) { }
     }
 
-    class NodeController {
+    class NodeController : NodeController {
         ArrayList sensors;
         ArrayList sensorReadings;
 

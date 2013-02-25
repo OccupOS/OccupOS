@@ -1,10 +1,11 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using OccupOS.CommonLibrary.NetworkControllers;
 
 namespace OccupOSNode.Micro.NetworkControllers.Arduino
 {
-   public class ArduinoEthernetController
+   public class ArduinoEthernetController : NetworkController
     {
         
         private Socket socket;
