@@ -55,9 +55,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SensorDataTest.cs" />
     <Compile Include="Sensors\Kinect\NodeKinectSensor.cs" />
-    <Compile Include="SQLServerHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

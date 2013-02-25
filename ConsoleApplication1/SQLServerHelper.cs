@@ -62,15 +62,16 @@ namespace OccupOSNode
   //          Console.WriteLine("Entity inserted");
            using (SqlConnection connection = new SqlConnection(connectionStringb.ConnectionString))
             {
-                string queryString = string.Format("INSERT INTO SensorData (SensorMetadataId, IntermediateHwMedadataId, MeasuredData, MeasuredAt, SendAt, PolledAt, UpdatedAt, CreatedAt) VALUES ('{0}','{1}','{2}',CONVERT(datetime,'{3}',102),'{4}','{5}','{6}','{7}');", SensorMetadataId, IntermediateHwMetadataId, MeasuredData, DateTime.Now.ToLongDateString(), SendAt.ToLongDateString(), PolledAt.ToLongDateString(), UpdatedAt.ToLongDateString(), CreatedAt.ToLongDateString()); 
+                string queryString = string.Format("INSERT INTO SensorData (SensorMetadataId, IntermediateHwMedadataId, MeasuredData, MeasuredAt, SendAt, PolledAt, UpdatedAt, CreatedAt) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}');", SensorMetadataId, IntermediateHwMetadataId, MeasuredData,MeasuredAt.ToLongDateString()+" "+MeasuredAt.ToLongTimeString() , SendAt.ToLongDateString()+" "+SendAt.ToLongTimeString(), PolledAt.ToLongDateString()+" "+PolledAt.ToLongTimeString(), UpdatedAt.ToLongDateString()+" "+UpdatedAt.ToLongTimeString(), CreatedAt.ToLongDateString()+" "+CreatedAt.ToLongTimeString()); 
                 SqlCommand command = new SqlCommand(queryString,connection);
                 StringBuilder errorMessages = new StringBuilder();
 
                 try
                 {
-                    Console.WriteLine(DateTime.Now.ToString());
-                    command.Connection.Open();
-                    command.ExecuteNonQuery();
+                    Console.WriteLine(DateTime.Now.ToLongDateString()+" "+DateTime.Now.ToLongTimeString());
+                //    Console.WriteLine();
+                   command.Connection.Open();
+                   command.ExecuteNonQuery();
                    
                     Console.Read();
                 }
@@ -88,12 +89,6 @@ namespace OccupOSNode
                     Console.Read();
                 }
                return 1;
-           /*     SqlCommandBuilder sqlCommand = new SqlCommandBuilder();
-                sqlCommand.
-                sqlCommand.Connection = connection;
-                connection.Open();
-                queryResult = sqlCommand.ExecuteReader();
-           */
             }
         }
         
