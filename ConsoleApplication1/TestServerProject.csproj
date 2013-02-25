@@ -67,6 +67,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SensorDataTest.cs" />
+    <Compile Include="SQLServerHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
