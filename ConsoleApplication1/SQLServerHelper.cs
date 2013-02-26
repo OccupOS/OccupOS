@@ -10,7 +10,7 @@ using Microsoft.WindowsAzure.Storage.Table;
 using System.Configuration;
 
 
-namespace OccupOSNode
+namespace OccupOSCloud
 {
    public class SQLServerHelper
     {
@@ -78,7 +78,7 @@ namespace OccupOSNode
 
                 try
                 {
-                     command.Connection.Open();
+                     command.Connection.Open(); 
                      int res = command.ExecuteNonQuery();
                      return res;
                 }
