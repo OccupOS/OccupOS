@@ -11,11 +11,11 @@ namespace OccupOSNode.Micro {
             : base(message) { }
     }
 
-    class NodeController : NodeController {
+    class ArduinoNodeController : NodeController {
         ArrayList sensors;
         ArrayList sensorReadings;
 
-        public NodeController() {
+        public ArduinoNodeController() {
             var sensors = new ArrayList();
 
             var rootDirectory = new DirectoryInfo(@"\SD\");

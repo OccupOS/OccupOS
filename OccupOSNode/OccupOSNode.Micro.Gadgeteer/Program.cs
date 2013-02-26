@@ -3,8 +3,6 @@ using Microsoft.SPOT;
 using Microsoft.WindowsAzure.MobileServices;
 using OccupOSNode.Micro.Gadgeteer;
 using GT = Gadgeteer;
-using Gadgeteer.Modules.GHIElectronics;
-using System.Net.Sockets;
 
 namespace GadgeteerDemo
 {
@@ -24,7 +22,7 @@ namespace GadgeteerDemo
             wifi_RS21.DebugPrintEnabled = true;
 
             wifi_RS21.Interface.Open();
-
+            
             wifi_RS21.Interface.NetworkInterface.EnableDhcp();
             wifi_RS21.Interface.NetworkInterface.EnableDynamicDns();
             wifi_RS21.Interface.NetworkInterface.EnableStaticIP("192.168.1.117", "255.255.255.0", "192.168.1.254");

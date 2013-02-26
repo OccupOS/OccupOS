@@ -1,6 +1,6 @@
 namespace OccupOSNode.Micro.NetworkControllers
 {
-    class NetworkController
+    public class NetworkController
     {
     }
 }
