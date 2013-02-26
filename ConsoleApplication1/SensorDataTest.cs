@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace OccupOSNode
+namespace OccupOSCloud
 {
    public class SensorDataTest : TableEntity
     {

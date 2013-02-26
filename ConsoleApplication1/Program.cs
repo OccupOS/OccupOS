@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Threading;
 using Microsoft.WindowsAzure.Storage;
 
-namespace OccupOSNode
+namespace OccupOSCloud
 {
     class Program
     {
