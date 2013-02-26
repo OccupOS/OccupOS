@@ -78,12 +78,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OccupOSNode\OccupOSNode\OccupOSNode.csproj">
-      <Project>{a19e0504-2206-4a15-9efd-3ebf590748ed}</Project>
-      <Name>OccupOSNode %28OccupOSNode\Full\OccupOSNode%29</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>

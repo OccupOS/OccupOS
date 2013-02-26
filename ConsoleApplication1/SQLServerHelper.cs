@@ -10,7 +10,7 @@ using Microsoft.WindowsAzure.Storage.Table;
 using System.Configuration;
 
 
-namespace OccupOSNode
+namespace OccupOSCloud
 {
    public class SQLServerHelper
     {
