@@ -14,16 +14,14 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             data = new byte[4];
         }
 
-        public override String GetDataAsJSON() {
+        public override SensorData GetData() {
             var sensorData = new SensorData
                 {
                     Humidity = GetHumidity(),
                     Pressure = GetPressure(),
                     Temperature = GetTemperature()
                 };
-
-            var jsonSerializer = new Serializer();
-            return jsonSerializer.Serialize(sensorData);
+            return sensorData;
         }
 
         public float GetHumidity()

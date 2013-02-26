@@ -25,7 +25,7 @@ namespace OccupOSNode.Micro {
         public void PollSensors()
         {
             for (int k = 0; k < GetSensorCount(); k++) {
-                AddSensorReading(GetSensor(k).GetDataAsJSON);
+                AddSensorReading(GetSensor(k).GetData());
             }
         }
     }
