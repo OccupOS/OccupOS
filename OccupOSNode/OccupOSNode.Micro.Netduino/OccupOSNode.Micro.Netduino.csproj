@@ -42,7 +42,7 @@
     <Compile Include="HardwareControllers\Arduino\ArduinoHardwareController.cs" />
     <Compile Include="NetworkControllers\NetworkController.cs" />
     <Compile Include="HardwareControllers\HardwareController.cs" />
-    <Compile Include="NodeController.cs" />
+    <Compile Include="ArduinoNodeController.cs" />
     <Compile Include="Sensors\Arduino\ArduinoAmbientLightSensor.cs">
       <SubType>Code</SubType>
     </Compile>
