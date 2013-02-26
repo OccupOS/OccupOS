@@ -9,7 +9,7 @@ using OccupOS.CommonLibrary.Sensors;
         {
         }
 
-        public override string GetDataAsJSON() 
+        public override SensorData GetData() 
         {
             throw new NotImplementedException();
         }

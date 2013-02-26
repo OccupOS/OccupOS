@@ -22,13 +22,11 @@ namespace OccupOSNode.Micro.Sensors.Arduino {
             }
         }
 
-        public override string GetDataAsJSON() {
+        public override SensorData GetData() {
             var sensorData = new SensorData {
                 AnalogLight = GetAnalogLightValue()
             };
-
-            var jsonSerializer = new Serializer();
-            return jsonSerializer.Serialize(sensorData);
+            return sensorData;
         }
 
         public float GetAnalogLightValue() {

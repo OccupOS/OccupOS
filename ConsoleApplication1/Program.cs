@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Threading;
 using Microsoft.WindowsAzure.Storage;
 
-namespace OccupOSNode
+namespace OccupOSCloud
 {
     class Program
     {
@@ -56,7 +56,7 @@ namespace OccupOSNode
         static void client_Received(Client sender, byte[] data)
         {
             Console.WriteLine("Message from {0}: {1}",sender.ID, Encoding.Default.GetString(data));
-           // helper.insertSensorData(1, 1, Encoding.Default.GetString(data), DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+            helper.insertSensorData(1, 1, Encoding.Default.GetString(data), DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
         }
     }
 }
