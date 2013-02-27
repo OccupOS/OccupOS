@@ -8,25 +8,22 @@ using System.Net.Sockets;
 using System.Threading;
 using Microsoft.WindowsAzure.Storage;
 
-namespace OccupOSCloud
-{
-    class Program
-    {
+namespace OccupOSCloud {
+    class Program {
         static Listener l;
         static SQLServerHelper helper;
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
 
             // This is the server part
-          // l = new Listener(1333);
-       //     l.SocketAccepted += new Listener.SocketAcceptedHandler(l_SocketAccepted);
-            
-         //   l.Start();
-            
-          //  Console.Read();
+            // l = new Listener(1333);
+            //     l.SocketAccepted += new Listener.SocketAcceptedHandler(l_SocketAccepted);
+
+            //   l.Start();
+
+            //  Console.Read();
 
             //testing the SQLServerHelper
-            SensorDataTest testData = new SensorDataTest(1,1);
+            SensorDataTest testData = new SensorDataTest(1, 1);
             testData.CreatedAt = DateTime.Now;
             testData.IntermediateHwMetadataId = 1;
             testData.MeasuredAt = DateTime.Now;
@@ -41,21 +38,18 @@ namespace OccupOSCloud
             Console.Read();
 
         }
-        static void l_SocketAccepted(System.Net.Sockets.Socket e)
-        {
+        static void l_SocketAccepted(System.Net.Sockets.Socket e) {
             Console.WriteLine("Connection established!");
             Client client = new Client(e);
             client.Received += new Client.ClientReceivedHandler(client_Received);
-            client.Disconnected += new Client.ClientDisconnectedHandler(client_Disconnected);   
+            client.Disconnected += new Client.ClientDisconnectedHandler(client_Disconnected);
         }
 
-        static void client_Disconnected(Client sender)
-        {
+        static void client_Disconnected(Client sender) {
         }
 
-        static void client_Received(Client sender, byte[] data)
-        {
-            Console.WriteLine("Message from {0}: {1}",sender.ID, Encoding.Default.GetString(data));
+        static void client_Received(Client sender, byte[] data) {
+            Console.WriteLine("Message from {0}: {1}", sender.ID, Encoding.Default.GetString(data));
             helper.insertSensorData(1, 1, Encoding.Default.GetString(data), DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
         }
     }

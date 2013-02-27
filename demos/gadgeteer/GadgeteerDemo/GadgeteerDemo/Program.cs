@@ -1,6 +1,7 @@
-﻿using Microsoft.SPOT;
+using Microsoft.SPOT;
 using GT = Gadgeteer;
 using Gadgeteer.Modules.GHIElectronics;
+using System.Net.Sockets;
 
 namespace GadgeteerDemo
 {
@@ -11,10 +12,30 @@ namespace GadgeteerDemo
         // This method is run when the mainboard is powered up or reset.   
         void ProgramStarted()
         {
-            camera.PictureCaptured += new Camera.PictureCapturedEventHandler(camera_PictureCaptured);
+            wifi_RS21.DebugPrintEnabled = true;
+
+            wifi_RS21.Interface.Open();
+
+            wifi_RS21.Interface.NetworkInterface.EnableDhcp();
+            wifi_RS21.Interface.NetworkInterface.EnableDynamicDns();
+            wifi_RS21.Interface.NetworkInterface.EnableStaticIP("192.168.1.117", "255.255.255.0", "192.168.1.254");
+
+            Debug.Print("Scanning for WiFi networks");
+            GHI.Premium.Net.WiFiNetworkInfo[] wiFiNetworkInfo = wifi_RS21.Interface.Scan();
+            if (wiFiNetworkInfo != null)
+            {
+                Debug.Print("Found WiFi network");
+                Debug.Print("0: " + wiFiNetworkInfo[0].SSID);
+                Debug.Print("Joining " + wiFiNetworkInfo[0].SSID);
+                wifi_RS21.Interface.Join(wiFiNetworkInfo[0], "69B3625573");
+                Debug.Print("Connected?: " + wifi_RS21.Interface.IsLinkConnected.ToString());
+            }
+            else
+            {
+                Debug.Print("Didn't find any WiFi networks");
+            }
 
             timer.Tick += new GT.Timer.TickEventHandler(timer_Tick);
-
             timer.Start();
 
             Debug.Print("Finished setup");
@@ -22,16 +43,10 @@ namespace GadgeteerDemo
 
         void timer_Tick(GT.Timer timer)
         {
-            Debug.Print("Taking picture...");
-            camera.TakePicture();
-        }
-
-        void camera_PictureCaptured(Camera sender, GT.Picture picture)
-        {
-            Debug.Print("Drawing picture...");
-            display_T35.SimpleGraphics.Clear();
-            display_T35.SimpleGraphics.DisplayImage(picture.MakeBitmap(), 0, 0);
-            display_T35.SimpleGraphics.Redraw();
+            int lightSensorPercentage = (int) lightSensor.ReadLightSensorPercentage();
+            Debug.Print("Current (rounded) light sensor percentage: " + lightSensorPercentage.ToString());
+            Debug.Print("IP: " + wifi_RS21.Interface.NetworkInterface.IPAddress);
         }
     }
 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
