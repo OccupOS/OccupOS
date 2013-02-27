@@ -78,7 +78,7 @@ namespace OccupOSCloud
 
                 try
                 {
-                     command.Connection.Open();
+                     command.Connection.Open(); 
                      int res = command.ExecuteNonQuery();
                      return res;
                 }
