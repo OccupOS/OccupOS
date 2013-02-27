@@ -1,4 +1,4 @@
-﻿OccupOS.ControllerMedadata = DS.Model.extend({
+﻿OccupOS.HwControllerMedadata = DS.Model.extend({
     externalId:     DS.attr('string'),
     departmentName: DS.attr('string'),
     buildingName:   DS.attr('string'),

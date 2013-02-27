@@ -73,6 +73,11 @@ h6 {
   background-color: #f2dede;
 }
 
+.graph {
+    height: 100%;
+    margin-bottom: 16px;
+    width: 100%;
+}
 
 .axis path,
 .axis line {
@@ -80,14 +85,26 @@ h6 {
   stroke: #000;
   shape-rendering: crispEdges;
 }
-
-
-.graph {
-    height: 100%;
-    margin-bottom: 16px;
-    width: 100%;
+/*graph 2*/
+.x.axis path {
+  display: none;
 }
 
+.area.above {
+  fill: rgb(252,141,89);
+}
+
+.area.below {
+  fill: rgb(145,207,96);
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+/* Change tables for mobile screens, so they show two columns and 'x' rows, the first columns is the header the second is each row times 'x' */
 @media screen and (max-width: 480px) {
     /* Force table to not be like tables anymore */
     table.table-responsive,
@@ -127,6 +144,7 @@ h6 {
             font-weight: bold;
             content: attr(data-title);
             color: #90b633;
+            text-transform: uppercase;
         }
 }
 /* @media (max-width: 767px) {

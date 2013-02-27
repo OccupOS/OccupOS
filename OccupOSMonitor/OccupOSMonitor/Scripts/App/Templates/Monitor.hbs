@@ -15,7 +15,13 @@
             <tbody>
                 <tr>
                     <td data-title="Room ID">#1.05</td>
-                    <td data-title="Light Intensity">0.5</td>
+                    <td data-title="Light Intensity">
+                        <span>
+                            {{#each controller}}
+                            <span>{{measuredData2}}</span>
+                            {{/each}}
+                        </span>
+                    </td>
                     <td data-title="Temp">21°C</td>
                     <td data-title="Air Quality" class="text-error"><strong>Low</strong></td>
                     <td data-title="Wind">None</td>
@@ -67,5 +73,75 @@
     <div class="span5">
         <h2>°C Variances per Hour</h2>
         <div id="viz"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="span7">
+        <h2>Occupancy Monitoring</h2>
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Room ID</th>
+                    <th>Occupied</th>
+                    <th>Lights</th>
+                    <th>Heating</th>
+                    <th>AC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-title="Room ID">#1.05</td>
+                    <td data-title="Occupied">
+                        <span>
+                            {{#each controller}}
+                            <span>{{measuredData}}</span>
+                            {{/each}}
+                        </span>
+                    </td>
+                    <td data-title="Lights">21°C</td>
+                    <td data-title="Heating" class="text-error"><strong>Low</strong></td>
+                    <td data-title="AC">None</td>
+                </tr>
+                <tr>
+                    <td data-title="Room ID">#1.06</td>
+                    <td data-title="Occupied">0.5</td>
+                    <td data-title="Lights">21°C</td>
+                    <td data-title="Air Quality">High</td>
+                    <td data-title="AC">None</td>
+                </tr>
+                <tr>
+                    <td data-title="Room ID">#1.10</td>
+                    <td data-title="Occupied">0.5</td>
+                    <td data-title="Lights">21°C</td>
+                    <td data-title="Air Quality">High</td>
+                    <td data-title="AC">None</td>
+                </tr>
+                <tr>
+                    <td data-title="Room ID">#1.12</td>
+                    <td data-title="Occupied">0.5</td>
+                    <td data-title="Lights" class="text-error">19°C</td>
+                    <td data-title="Air Quality">High</td>
+                    <td data-title="AC" class="text-error">Some</td>
+                </tr>
+                <tr>
+                    <td data-title="Room ID">#1.5</td>
+                    <td data-title="Occupied">0.5</td>
+                    <td data-title="Lights">21°C</td>
+                    <td data-title="Air Quality">High</td>
+                    <td data-title="AC">None</td>
+                </tr>
+                <tr>
+                    <td data-title="Room ID">#1.21</td>
+                    <td data-title="Occupied">0.5</td>
+                    <td data-title="Lights">21°C</td>
+                    <td data-title="Air Quality">High</td>
+                    <td data-title="AC">None</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span5">
+        <h2>Lights on in the Building</h2>
+        <div id="viz2"></div>
     </div>
 </div>
