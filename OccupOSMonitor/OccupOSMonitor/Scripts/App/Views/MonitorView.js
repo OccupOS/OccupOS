@@ -122,7 +122,7 @@
             for (i = 0; i < 5; ++i) bump(a);
             return a.map(function (d, i) { return { x: i, y: Math.max(0, d) }; });
         }
-        
+
         //--------- Graph 2 ----------------------
 
         margin = { top: 20, right: 80, bottom: 30, left: 50 },

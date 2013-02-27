@@ -2,8 +2,5 @@
 /// <reference path="../App.js" />
 
 OccupOS.ApplicationView = Ember.View.extend({
-    templateName: 'application',
-    redirect: function () {
-        this.transitionTo('monitor');
-    }
+    templateName: 'application'
 })
