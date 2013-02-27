@@ -36,7 +36,7 @@ namespace OccupOSCloud
             testData.UpdatedAt = DateTime.Now;
             Console.WriteLine("Listening connections...");
             helper = new SQLServerHelper("tcp:dndo40zalb.database.windows.net,1433", "comp2014@dndo40zalb", "20041908kjH", "TestSQLDB");
-            helper.insertSensorData(1, 1, "test", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+            helper.insertSensorData(1, 1, "{\"0\":5}", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
             Console.WriteLine("Data is send");
             Console.Read();
 
