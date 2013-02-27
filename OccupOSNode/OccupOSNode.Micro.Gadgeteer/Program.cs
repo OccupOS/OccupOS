@@ -1,6 +1,5 @@
 using System;
 using Microsoft.SPOT;
-using Microsoft.WindowsAzure.MobileServices;
 using OccupOSNode.Micro.Gadgeteer;
 using GT = Gadgeteer;
 
@@ -9,12 +8,6 @@ namespace GadgeteerDemo
     public partial class Program
     {
         private readonly GT.Timer timer = new GT.Timer(2000);
-
-        //TODO: add your mobile service URI and app key below from the Windows Azure Portal https://manage.windowsazure.com 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            new Uri("http://occuposcloud.azure-mobile.net/"), 
-            "dtvuHNJYYBSSiIHjsCclvdqYhsakny68"
-        );
 
         // This method is run when the mainboard is powered up or reset.   
         void ProgramStarted()
@@ -51,14 +44,7 @@ namespace GadgeteerDemo
         void timer_Tick(GT.Timer timer)
         {
             var lightPercentage = (int) lightSensor.ReadLightSensorPercentage();
-            //create a new sensor reading and set the values
-            var reading = new SensorReading() {
-                SensorID = "morrison-home",
-                Light = lightPercentage,
-                DateAdded = DateTime.UtcNow
-            };
-
-            var json = MobileService.GetTable("SensorData").Insert(reading);
+            Debug.Print(lightPercentage);
         }
     }
 }
