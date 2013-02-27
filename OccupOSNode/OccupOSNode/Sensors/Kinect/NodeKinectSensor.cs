@@ -30,14 +30,12 @@ namespace OccupOSNode.Sensors.Kinect {
             }
         }
 
-        public override string GetDataAsJSON() {
+        public override SensorData GetData() {
             var sensorData = new SensorData {
                 EntityCount = GetEntityCount(),
                 EntityPositions = GetEntityPositions()
             };
-
-            var jsonSerializer = new Serializer();
-            return jsonSerializer.Serialize(sensorData);
+            return sensorData;
         }
 
         public int GetEntityCount() {

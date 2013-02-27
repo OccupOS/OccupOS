@@ -3,41 +3,36 @@ using System.Net.Sockets;
 using System.Text;
 using OccupOS.CommonLibrary.NetworkControllers;
 
-namespace OccupOSNode.Micro.NetworkControllers.Arduino
-{
-   public class ArduinoEthernetController : NetworkController
-    {
-        
+namespace OccupOSNode.Micro.NetworkControllers.Arduino {
+    public class ArduinoEthernetController : NetworkController {
+
         private Socket socket;
-        IPHostEntry hostEntry; 
+        IPHostEntry hostEntry;
         IPAddress hostAddress;
         IPEndPoint remoteEndPoint;
         string address;
-        public ArduinoEthernetController(string hostName, int port)
-        {
+        public ArduinoEthernetController(string hostName, int port) {
             address = hostName;
-           //hostEntry = Dns.GetHostEntry(hostName);
-           //hostAddress = hostEntry.AddressList[0];
-            hostAddress = IPAddress.Parse(hostName); 
+            //hostEntry = Dns.GetHostEntry(hostName);
+            //hostAddress = hostEntry.AddressList[0];
+            hostAddress = IPAddress.Parse(hostName);
             remoteEndPoint = new IPEndPoint(hostAddress, port);
-           
-            
+
+
 
         }
 
-        public Socket connect()
-        {
+        public Socket connect() {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-           socket.Connect(remoteEndPoint);
+            socket.Connect(remoteEndPoint);
             socket.SetSocketOption(SocketOptionLevel.Tcp,
             SocketOptionName.NoDelay, true);
             socket.SendTimeout = 5000;
             return socket;
         }
-        public int sendData(string data)
-        {
+        public int sendData(string data) {
             byte[] buffer = Encoding.UTF8.GetBytes(data);
-           return socket.Send(buffer);
+            return socket.Send(buffer);
         }
 
     }
