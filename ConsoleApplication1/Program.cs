@@ -18,12 +18,10 @@ namespace OccupOSCloud
         {
 
             // This is the server part
-          // l = new Listener(1333);
-       //     l.SocketAccepted += new Listener.SocketAcceptedHandler(l_SocketAccepted);
+           l = new Listener(1333);
+           l.SocketAccepted += new Listener.SocketAcceptedHandler(l_SocketAccepted);
             
-         //   l.Start();
-            
-          //  Console.Read();
+           l.Start();
 
             //testing the SQLServerHelper
             SensorDataTest testData = new SensorDataTest(1,1);
@@ -36,8 +34,8 @@ namespace OccupOSCloud
             testData.UpdatedAt = DateTime.Now;
             Console.WriteLine("Listening connections...");
             helper = new SQLServerHelper("tcp:dndo40zalb.database.windows.net,1433", "comp2014@dndo40zalb", "20041908kjH", "TestSQLDB");
-            helper.insertSensorData(1, 1, "test", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
-            Console.WriteLine("Data is send");
+        //    helper.insertSensorData(1, 1, "test", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+
             Console.Read();
 
         }
@@ -51,12 +49,15 @@ namespace OccupOSCloud
 
         static void client_Disconnected(Client sender)
         {
+            Console.Write("Device disconnected");
         }
 
         static void client_Received(Client sender, byte[] data)
         {
             Console.WriteLine("Message from {0}: {1}",sender.ID, Encoding.Default.GetString(data));
-            helper.insertSensorData(1, 1, Encoding.Default.GetString(data), DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+            helper.insertSensorData(3, 1, Encoding.Default.GetString(data), DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+            Console.WriteLine("Data is send");
+          //  Console.Read();
         }
     }
 }
