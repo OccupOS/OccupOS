@@ -48,7 +48,7 @@ We recommend the following working environments:
 * *TODO*
 
 Copyright and license
-===========
+-------
 
 OccupOS
 Occupation Operating System that intelligentely uses various (low-powered) sensors to increase energy efficiency, environment-quality and track precise room occupancy in large building in an open, extensible, efficient and social way.
