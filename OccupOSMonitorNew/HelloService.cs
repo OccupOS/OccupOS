@@ -30,7 +30,6 @@ namespace OccupOSMonitorNew
 
     public class SensorDataService : Service
     {
-        List<SensorDataResp> responses =  new List<SensorDataResp>() { new SensorDataResp { Id = 1, IntermediateHwMedadataId = 1, MeasuredAt = DateTime.Now, MeasuredData = "test1", SensorMetadataId = 1 }, new SensorDataResp { Id = 4, IntermediateHwMedadataId = 2, MeasuredAt = DateTime.Now, MeasuredData = "test2", SensorMetadataId = 2 } };
         List<SensorData> resp;
         public object Get(SensorDataReq request)
         {
