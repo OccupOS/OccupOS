@@ -39,8 +39,7 @@
     <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SPOT.Native">
-    </Reference>
+    <Reference Include="Microsoft.SPOT.Native" />
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>
