@@ -37,14 +37,13 @@
     <Compile Include="PropertyTable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SPOT.Native">
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\IndianaJones.NETMF.Primitives\IndianaJones.NETMF.Primitives.csproj">
       <Project>{CF92D467-4FC5-4757-B49E-81F3A8960D1B}</Project>
       <Name>IndianaJones.NETMF.Primitives</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Native" />
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>
