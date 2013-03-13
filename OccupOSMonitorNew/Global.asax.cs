@@ -1,4 +1,5 @@
 ﻿using Funq;
+using ServiceStack.OrmLite;
 using ServiceStack.WebHost.Endpoints;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace OccupOSMonitorNew
 
         public override void Configure(Container container)
         {
+     /*       container.Register<IDbConnectionFactory>(c =>
+                new OrmLiteConnectionFactory(
+    "Data Source=tcp:dndo40zalb.database.windows.net,1433;Initial Catalog=TestSQLDB;User ID=comp2014@dndo40zalb;Password=20041908kjH;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;",  //Connection String
+    SqlServerDialect.Provider));*/
+
             //register any dependencies your services use, e.g:
             //container.Register<ICacheClient>(new MemoryCacheClient());
         }
