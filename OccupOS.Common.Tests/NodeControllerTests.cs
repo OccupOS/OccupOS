@@ -16,7 +16,7 @@
 
     public class TestSensor : Sensor
     {
-        public TestSensor(string id)
+        public TestSensor(int id)
             : base(id)
         {
         }
@@ -34,7 +34,7 @@
         {
             TestNodeController nodeController = new TestNodeController();
 
-            TestSensor sensor = new TestSensor("1");
+            TestSensor sensor = new TestSensor(1);
             nodeController.AddSensor(sensor);
 
             Assert.AreEqual(sensor, nodeController.GetSensor(0));
