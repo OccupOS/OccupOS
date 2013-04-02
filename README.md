@@ -7,15 +7,15 @@ We'll try to update the readme as soon as possible.
 
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
 
-# User Guide
+## User Guide
 
 Will be updated soon.
 
-# Developer Guide
+## Developer Guide
 
 Will be updated soon.
 
-## Setup
+### Setup
 
 **Windows**
 
