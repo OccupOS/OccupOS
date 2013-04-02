@@ -10,13 +10,13 @@ Occupation Operating System helps increase energy efficiency on-site in large or
 
 
 Developer Guide
-===========
+---------------
 
 Setup
------
+=====
 
 1. Dependencies
----------------
+==============
 We recommend the following working environments:
 
 **Windows**
@@ -38,7 +38,7 @@ We recommend the following working environments:
 * *TODO*
 
 Enduser Guide
-===========
+------------
 
 Will be updated soon.
 
