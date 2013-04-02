@@ -1,7 +1,7 @@
-OccupOS
+OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 =======
 
-[![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/)
+
 
 ******Notice: Readme is mostly out of date.********
 Some things have changed are bit and are still in the process of changing so be beware of that. 
