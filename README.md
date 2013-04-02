@@ -1,5 +1,4 @@
-OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
-=======
+# OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
 
 ******Notice: Readme is mostly out of date.********
@@ -8,16 +7,15 @@ We'll try to update the readme as soon as possible.
 
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
 
+# User Guide
 
-Developer Guide
----------------
+Will be updated soon.
 
-Setup
-=====
+# Developer Guide
 
-1. Dependencies
-==============
-We recommend the following working environments:
+Will be updated soon.
+
+## Setup
 
 **Windows**
 
@@ -37,10 +35,6 @@ We recommend the following working environments:
 
 * *TODO*
 
-Enduser Guide
-------------
-
-Will be updated soon.
 
 Copyright and license
 -------
