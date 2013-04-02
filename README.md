@@ -1,5 +1,5 @@
-OccupOS
-=======
+# OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
+
 
 ******Notice: Readme is mostly out of date.********
 Some things have changed are bit and are still in the process of changing so be beware of that. 
@@ -7,27 +7,15 @@ We'll try to update the readme as soon as possible.
 
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
 
-**Folder Structure:**
-demos - for small demos to show to other people, e.g. the Microsoft employees
-dev - is for new tests
-project - where the code, that is being actively developed on, for the whole project lies
-project.test - for unit testing
+## User Guide
 
-Dependencies:
-* TypeScript 0.8.2
-* jQuery 2.0.0
-* Ember 1.0.0pre4
-* jasny-Bootstrap 2.2.2-j4
+Will be updated soon.
 
-Developer Guide
-===========
+## Developer Guide
 
-Setup
------
+Will be updated soon.
 
-1. Dependencies
----------------
-We recommend the following working environments:
+### Setup
 
 **Windows**
 
@@ -46,6 +34,7 @@ We recommend the following working environments:
 **OS X**
 
 * *TODO*
+
 
 Copyright and license
 -------
