@@ -4,3 +4,6 @@
 [submodule "OccupOSCloud"]
 	path = OccupOSCloud
 	url = git@github.com:OccupOS/OccupOSCloud.git
+[submodule "OccupOSMonitor"]
+	path = OccupOSMonitor
+	url = git@github.com:OccupOS/OccupOSMonitor.git
