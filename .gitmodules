@@ -1,9 +1,9 @@
 [submodule "OccupOSNode"]
 	path = OccupOSNode
-	url = git@github.com:OccupOS/OccupOSNode.git
+	url = https://github.com/OccupOS/OccupOSNode.git
 [submodule "OccupOSCloud"]
 	path = OccupOSCloud
-	url = git@github.com:OccupOS/OccupOSCloud.git
+	url = https://github.com/OccupOS/OccupOSCloud.git
 [submodule "OccupOSMonitor"]
 	path = OccupOSMonitor
-	url = git@github.com:OccupOS/OccupOSMonitor.git
+	url = https://github.com/OccupOS/OccupOSMonitor.git
