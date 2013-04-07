@@ -1,0 +1,3 @@
+[submodule "OccupOSNode"]
+	path = OccupOSNode
+	url = git@github.com:OccupOS/OccupOSNode.git
