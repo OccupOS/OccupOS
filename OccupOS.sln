@@ -51,6 +51,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OccupOSNode.Common.Tests", "OccupOSNode\Common\OccupOSNode.Common.Tests\OccupOSNode.Common.Tests.csproj", "{2BC7DAE5-D665-4611-8094-44441E9FC4E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorSimulator", "OccupOSCloud\SensorSimulator\SensorSimulator.csproj", "{26C61471-26FE-49F6-8518-1AA203E491B3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OccupOSAPI.Tests", "OccupOSCloud\OccupOSAPI.Tests\OccupOSAPI.Tests.csproj", "{295C27F2-7435-4E5B-A33E-C5810E20E017}"
 EndProject
 Global
@@ -114,7 +115,6 @@ Global
 		{26C61471-26FE-49F6-8518-1AA203E491B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26C61471-26FE-49F6-8518-1AA203E491B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{295C27F2-7435-4E5B-A33E-C5810E20E017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{295C27F2-7435-4E5B-A33E-C5810E20E017}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295C27F2-7435-4E5B-A33E-C5810E20E017}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{295C27F2-7435-4E5B-A33E-C5810E20E017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
