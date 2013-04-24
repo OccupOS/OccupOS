@@ -1,9 +1,7 @@
 # OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
-
-******Notice: Readme is mostly out of date.********
+### Notice:
 Some things have changed are bit and are still in the process of changing so be beware of that. 
-We'll try to update the readme as soon as possible.
 
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
 
@@ -13,27 +11,33 @@ Will be updated soon.
 
 ## Developer Guide
 
-Will be updated soon.
+The OccupOS.sln in this submodule references projects and files in both the OccupOSCloud and OccupOSNode submodules, you'll need to clone them as well using something like:
+
+    git clone git://github.com/OccupOS/OccupOS.git OccupOS
+    cd OccupOS
+    git submodule init --update
+
+Or for version 1.6.5 of Git and later:
+
+    git clone --recursive git://github.com/OccupOS/OccupOS.git OccupOS
 
 ### Setup
 
+Although you are free to use whatever you like, we suggest that new users use our recommended toolchains until they are familiar with our build and test structure.
+
 **Windows**
 
-1. Microsoft Visual Studio Ultimate 2012 with Microsoft Web Developer Tools.
-2. [ASP.NET and Web Tools 2012.2](http://www.asp.net/vnext).
-
-*For collaborators with access to TFS only (requires Microsoft Visual Studio Professional 2012 or higher):*
-
-3. [Visual Studio 2012 Update 2 CTP 2](http://www.microsoft.com/en-us/download/details.aspx?id=36508).
-4. [Visual Studio Tools for Git](http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
+1. Microsoft Visual Studio 2012 (preferrably Professional / Ultimate edition).
+2. [.NET MF 4.3 (RTM)] (http://netmf.codeplex.com/releases/view/81000).
+3. [.NET Gadgeteer Core 2.42.700](http://gadgeteer.codeplex.com/releases/view/105366).
 
 **Linux**
 
-* *TODO*
+Will be updated soon.
 
 **OS X**
 
-* *TODO*
+Will be updated soon.
 
 
 Copyright and license
