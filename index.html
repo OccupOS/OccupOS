@@ -1,66 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>OccupOS by OccupOS</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <title>OccupOS by OccupOS</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>OccupOS</h1>
-        <p>Scalable, hardware agnostic environmental monitoring.</p>
+    <div id="container">
+      <div class="inner">
 
-        <p class="view"><a href="https://github.com/OccupOS/OccupOS">View the Project on GitHub <small>OccupOS/OccupOS</small></a></p>
+        <header>
+          <h1>OccupOS</h1>
+          <h2>Scalable, hardware agnostic environmental monitoring.</h2>
+        </header>
 
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/OccupOS/OccupOS/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/OccupOS/OccupOS/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/OccupOS/OccupOS" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
 
-        <ul>
-          <li><a href="https://github.com/OccupOS/OccupOS/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/OccupOS/OccupOS/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/OccupOS/OccupOS">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>Welcome to GitHub Pages.</h3>
+        <hr>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <section id="main_content">
+          <p><img src="http://i.imgur.com/o7go5Yj.png" alt="OccupOS Logo"></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h3>What is OccupOS?</h3>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>OccupOS is a complete software solution for environmental monitoring that has been designed from the ground up to be abstracted from the hardware. Whether you already have sensor systems in place, or are exploring the possibilities for adding them, OccupOS can improve your existing options by leaps and bounds. </p>
 
-<h3>Designer Templates</h3>
+<p>The project is still in its early stages of development, but you can grab our code and test it in a real environment already. </p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h3>Flexible</h3>
 
-<h3>Rather Drive Stick?</h3>
+<p>OccupOS is not tied to any particular hardware. If we don't already support a device, you can implement our simple JSON interface and begin sending data from new sensors (we appreciate pull requests for any improvements you might make!).</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h3>Default Hardware Support</h3>
 
-<h3>Authors and Contributors</h3>
+<p>We do support a limited (but expanding) set of hardware by default, namely:</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul>
+<li>Netduino Pro (with Weather Shield and WiFi Shields).</li>
+<li>Gadgeteer Spider Fez (with light sensor module).</li>
+<li>Microsoft Kinect.</li>
+</ul><h3>Authors and Contributors</h3>
+
+<p>OccupOS is maintained by Morrison Cole (<a href="https://github.com/MorrisonCole" class="user-mention">@MorrisonCole</a>), Daniyar Kaliyev (<a href="https://github.com/dkaliyev" class="user-mention">@dkaliyev</a>), Richy Davis (<a href="https://github.com/RichyDavis" class="user-mention">@RichyDavis</a>), Markus Padourek (<a href="https://github.com/Globegitter" class="user-mention">@Globegitter</a>) and Jisang Choi (<a href="https://github.com/7517choi" class="user-mention">@7517choi</a>).</p>
 
 <h3>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/OccupOS">OccupOS</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<p>Either get in touch with the maintainers above through GitHub, submit an <a href="https://github.com/OccupOS/OccupOS/issues">issue</a> or send us an email (<a href="mailto:mail@occupos.org">mail@occupos.org</a>).</p>
+        </section>
+
+        <footer>
+          OccupOS is maintained by <a href="https://github.com/OccupOS">OccupOS</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
   </body>
 </html>
