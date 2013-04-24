@@ -1,4 +1,4 @@
-# OccupOS [![Build Status](http://i.imgur.com/eE2EnvP.png)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
+# OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
 
