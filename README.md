@@ -1,9 +1,8 @@
 # OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
-### Notice:
-Some things have changed are bit and are still in the process of changing so be beware of that. 
-
 Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
+
+Please note: Due to the early stage of the project, things are still in the process of changing. We try to keep this file up-to-date, but it's unfortunately not always possible. If you have any issues setting up OccupOS, you can file an [issue](https://github.com/OccupOS/OccupOS/issues) or get in touch (mail@occupos.org).
 
 ## User Guide
 
