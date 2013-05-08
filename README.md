@@ -1,6 +1,6 @@
 # OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
-Occupation Operating System helps increase energy efficiency on-site in large organisations by reading and interpreting data from various sensors.
+Occupancy OS is a package of extensible, scalable software to be used by large organisations or in large buildings where energy-efficiency wants to be increased or occupancy related data wants to be measured.
 
 **Please note:** *Due to the early stage of the project, things are still in the process of changing. We try to keep this file up-to-date, but it's unfortunately not always possible. If you have any issues setting up OccupOS, you can file an [issue](https://github.com/OccupOS/OccupOS/issues) or get in touch (mail@occupos.org).*
 
@@ -43,7 +43,7 @@ Copyright and license
 -------
 
 OccupOS
-Occupation Operating System that intelligentely uses various (low-powered) sensors to increase energy efficiency, environment-quality and track precise room occupancy in large building in an open, extensible, efficient and social way.
+Occupancy Operating System intelligently uses various (low-powered) sensors to increase energy efficiency, environment quality and track precise occupancy in large buildings in an open, extensible, efficient and social way.
 Copyright (C) 2013 Choi Jisang, Cole Morrison, Davis Richy, Kaliyev Daniyar, Padourek Markus
 
     This program is free software: you can redistribute it and/or modify
