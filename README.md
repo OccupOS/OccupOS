@@ -1,4 +1,4 @@
-# OccupOS [![Build Status](http://occupos.morrisoncole.co.uk/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
+# OccupOS [![Build Status](http://build.occupos.org/app/rest/builds/buildType:bt2/statusIcon)](http://occupos.morrisoncole.co.uk/viewType.html?buildTypeId=bt2&guest=1)
 
 Occupancy OS is a package of extensible, scalable software to be used by large organisations or in large buildings where energy-efficiency wants to be increased or occupancy related data wants to be measured.
 
