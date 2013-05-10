@@ -4,7 +4,7 @@ We welcome third-party patches - they're essential to support the huge number of
 
 ## Prerequisites 
 
-Before you do anything, make sure you have a [GitHub account](https://github.com/signup/free). Depending on your proposed contribution, the submission process varies; please refer to the table below when making your first contribution.
+Before you do anything, make sure you have a [GitHub account](https://github.com/signup/free). Depending on your proposed contribution, the prerequisites vary; please refer to the table below when making your first contribution.
 
 Step | Bug Fixes | Backlog Features | New Features
 --- | --- | --- | ---
@@ -42,4 +42,4 @@ We do not encourage major refactors unless they are focused on performance or re
 
 # Additional Resources
 
-* [A great beginners guide to pull requests with GitHub](http://www.openshift.com/wiki/github-workflow-for-submitting-pull-requests)
+* [Workflow tips for GitHub pull requests](http://www.openshift.com/wiki/github-workflow-for-submitting-pull-requests)
