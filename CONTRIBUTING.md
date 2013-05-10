@@ -4,7 +4,7 @@ We welcome third-party patches - they're essential to support the huge number of
 
 ## Prerequisites 
 
-* Make sure you have a [GitHub account](https://github.com/signup/free)
+Before you do anything, make sure you have a [GitHub account](https://github.com/signup/free). Depending on your proposed contribution, the submission process varies; please refer to the table below when making your first contribution.
 
 Step | Bug Fixes | Backlog Features | New Features
 --- | --- | --- | ---
